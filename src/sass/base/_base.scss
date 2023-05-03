@@ -1,13 +1,18 @@
 body {
-  //Font - Roboto
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  line-height: 1.76;
-  letter-spacing: 0.04em;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+
+  color: var(--main-light-text-color);
+  background-color: var(--main-dark-color);
 }
 
 img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+button {
+  display: inline-block;
+  cursor: pointer;
 }
