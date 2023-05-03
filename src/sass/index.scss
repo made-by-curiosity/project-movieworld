@@ -1,2 +1,7 @@
-@import './common';
+@import './vendors/index';
+@import './base/index';
+@import './layout/index';
+@import './components/index';
+@import './utils/index';
+
 @import './outline';
