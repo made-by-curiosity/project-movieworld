@@ -1,7 +1,74 @@
+<style>
+  .modal {
+    position: relative;
+    background-color: #111111;
+    width: 700px;
+    height: 400px;
+    left: 290px;
+    top: 190px;
+
+    overflow: auto;
+    box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
+    border-radius: 20px;
+  }
+
+  /* .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #ff6b08;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+  } */
+  .close-btn {
+    color: #aaaaaa;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    left: 648px;
+    top: 28px;
+  }
+  .close-btn:hover,
+  .close-btn:focus {
+    color: #111111;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .modal-body {
+    display: flex;
+    flex-direction: row;
+  }
+  .movie-img {
+    position: absolute;
+    width: 363px;
+    height: 318px;
+    left: 337px;
+    top: 77px;
+  }
+  .no-video-msg {
+    position: absolute;
+    height: 100px;
+    width: 321px;
+    left: 50px;
+    top: 150px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.17;
+
+    color: #ffffff;
+  }
+</style>
 <div class="modal">
   <div class="modal-content">
-    <div class="movie-details">
-      <img class="po" src="" alt="" />
+    <button class="close-btn"><i class="fas fa-times"></i></button>
+    <div class="modal-body">
+      <div class="movie-container">
+        <img class="movie-img" src="../IMG_9881 1.png" alt="" />
+      </div>
     </div>
     <div class="video-container">
       <iframe class="video" src="" frameborder="0" allowfullscreen></iframe>
