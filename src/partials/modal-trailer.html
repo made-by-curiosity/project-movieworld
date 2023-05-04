@@ -61,6 +61,10 @@
 
     color: #ffffff;
   }
+  p {
+    margin: 0;
+    padding: 0;
+  }
 </style>
 <div class="modal">
   <div class="modal-content">
@@ -73,7 +77,12 @@
     <div class="video-container">
       <iframe class="video" src="" frameborder="0" allowfullscreen></iframe>
       <div class="no-video-msg">
-        OOPS We are very sorry! But we couldn't find the trailer.
+        <div class="wrapper">
+          <p>OOPS...</p>
+          <p></p>
+          <p>We are very sorry!</p>
+          <p>But we couldn't find the trailer.</p>
+        </div>
       </div>
     </div>
   </div>
