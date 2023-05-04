@@ -1,29 +1,32 @@
 .modal {
+  position: relative;
   background-color: #111111;
   width: 700px;
   height: 400px;
-  left: 0px;
-  top: 0px;
+  left: 290px;
+  top: 190px;
 
   overflow: auto;
   box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
   border-radius: 20px;
 }
 
-.modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
-  border: 1px solid #ff6b08;
-  width: 80%;
-  display: flex;
-  flex-direction: column;
-}
+/* .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #ff6b08;
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+  } */
 .close-btn {
   color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  left: 648px;
+  top: 28px;
 }
 .close-btn:hover,
 .close-btn:focus {
@@ -36,18 +39,18 @@
   flex-direction: row;
 }
 .movie-img {
-  position: relative;
-  width: 296px;
-  height: 260px;
-  padding-top: 124px;
-  padding-right: 10px;
-  padding-bottom: 16px;
-  padding-left: 303px;
+  position: absolute;
+  width: 363px;
+  height: 318px;
+  left: 337px;
+  top: 77px;
 }
 .no-video-msg {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
+  position: absolute;
+  height: 100px;
+  width: 321px;
+  left: 50px;
+  top: 150px;
 
   font-family: 'Roboto';
   font-style: normal;
@@ -56,4 +59,8 @@
   line-height: 1.17;
 
   color: #ffffff;
+}
+p {
+  margin: 0;
+  padding: 0;
 }
