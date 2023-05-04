@@ -1,0 +1,31 @@
+.catalog {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-form__input {
+  max-width: 240px;
+  height: 40px;
+
+  margin-right: 16px;
+  padding: 12px 20px;
+
+  background-color: var(--main-dark-color);
+  color: var(--secondary-dark-text-color);
+
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  outline: none;
+}
+
+.btn-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
