@@ -19,3 +19,30 @@
     display: block;
     margin: 0 auto;    
 }
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    // margin-left: -16px;
+    margin-top: -16px;
+    justify-content: center;
+}
+
+.gallery__item {
+    // flex-basis: calc(100%/3 - 16px);
+    // margin-left: 16px;
+    margin-top: 16px;
+    width: 280px;
+    height: 406px;
+    
+    background-color:yellowgreen;
+
+
+    // @media screen and (min-width: 768px) {
+            
+    //     }
+    
+        // @media screen and (min-width: 1280px) {
+            
+        // }
+}
