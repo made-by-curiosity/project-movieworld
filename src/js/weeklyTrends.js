@@ -1,0 +1,1 @@
+import { getWeeklyTrends } from './fetchmoviedata'
