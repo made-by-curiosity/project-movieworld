@@ -17,6 +17,7 @@ import {
   getMoviesCountries,
 } from './js/fetchmoviedata';
 
+
 // примеры использования функций получения данных
 getDayTrends();
 getWeeklyTrends();
@@ -26,3 +27,5 @@ getFullMovieInfo(758323);
 getMovieTrailer(640146);
 getMoviesGenres();
 getMoviesCountries();
+
+import { Pagination } from './js/pagination';
