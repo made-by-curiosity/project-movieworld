@@ -1,0 +1,30 @@
+body {
+    color: var(--main-dark-color);
+    background-color: var(--main-light-color);
+}
+
+body.dark-theme,
+body.dark-theme a {
+    color: var(--main-light-text-color);
+    background-color: var(--main-dark-color);
+}
+
+// #############################
+
+.header {
+    border: 1px solid red;
+
+    &__container {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+};
+
+.nav-list {
+    display: flex;
+    gap: 10px;
+}
