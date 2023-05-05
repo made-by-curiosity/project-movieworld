@@ -1,0 +1,21 @@
+.my-library{
+    padding: 44px 20px 0px;
+}
+
+.my-library__message{
+    margin-bottom: 20px;
+    
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.4; 
+    text-align: center;    
+    color: var(--main-light-color);
+}
+
+.btn-library{
+    display: block;
+    margin: 0 auto;    
+}
