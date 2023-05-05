@@ -75,12 +75,18 @@
 
 .movie-gallery__image {
   @media screen and (min-width: 768px) {
+    width: 224px;
     height: 325px;
   }
 
   @media screen and (min-width: 1280px) {
+    width: 395px;
     height: 574px;
   }
+}
+
+.movie-gallery__wrap {
+  width: 100%;
 }
 
 .movie-gallery__thumb {
@@ -88,7 +94,7 @@
   justify-content: space-between;
   align-items: flex-end;
 
-  width: 280px;
+  width: 100%;
   position: absolute;
   left: 0;
   bottom: 0;
