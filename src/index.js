@@ -1,3 +1,5 @@
+import './js/catalog.js';
+
 import {
   getSavedInfo,
   getCurrentTheme,
