@@ -12,15 +12,6 @@
     border-radius: 20px;
   }
 
-  /* .modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #ff6b08;
-    width: 75%;
-    display: flex;
-    flex-direction: column;
-  } */
   .close-btn {
     color: #aaaaaa;
     position: absolute;
@@ -67,19 +58,21 @@
   }
 </style>
 <div class="trailer-modal">
+  <button class="show-trailer-btn" data-movie-id="QWdljFroAz8">
+    Show trailer
+  </button>
   <div class="modal-content">
     <button class="close-btn"><i class="fas fa-times"></i></button>
     <div class="modal-body">
       <div class="movie-container">
-        <img class="movie-img" src="../IMG_9881 1.png" alt="" />
+        <img class="movie-img" src="./IMG_9881 1.png" alt="" />
       </div>
     </div>
     <div class="video-container">
-      <iframe class="trailer" src="" frameborder="0" allowfullscreen></iframe>
+      <iframe class="trailer" frameborder="0" allowfullscreen></iframe>
       <div class="no-video-msg">
         <div class="wrapper">
           <p>OOPS...</p>
-          <p></p>
           <p>We are very sorry!</p>
           <p>But we couldn't find the trailer.</p>
         </div>
