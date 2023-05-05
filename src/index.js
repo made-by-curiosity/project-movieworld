@@ -27,5 +27,3 @@ getFullMovieInfo(758323);
 getMovieTrailer(640146);
 getMoviesGenres();
 getMoviesCountries();
-
-import { Pagination } from './js/pagination';
