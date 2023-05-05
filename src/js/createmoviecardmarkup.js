@@ -1,8 +1,7 @@
-const movieGalleryEl = document.querySelector('.movie-gallery__list');
 import { checkAverange } from './checkrateaverage';
 
-export const createMovieCardMarkup = function MovieCardMarkup(movies) {
-  const movieCardMarkUp = movies
+export function createMovieCardMarkup(movies) {
+  return movies
     .map(movie => {
       const IMAGE_URL = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
       const year = movie.release_date.slice(0, 4);
@@ -29,6 +28,4 @@ export const createMovieCardMarkup = function MovieCardMarkup(movies) {
         </li>`;
     })
     .join('');
-
-  movieGalleryEl.insertAdjacentHTML('beforeend', movieCardMarkUp);
-};
+}

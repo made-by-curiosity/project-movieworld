@@ -16,8 +16,13 @@ async function onSearchMovies(evt) {
 
   try {
     const videos = await getSearchMovies(query);
-    createMovieCardMarkup(videos.results);
+    renderMovies(videos.results);
   } catch (error) {
     console.log(error.message);
   }
+}
+
+function renderMovies(movies) {
+  const markup = createMovieCardMarkup(movies);
+  refs.movieGalleryEl.insertAdjacentHTML('beforeend', markup);
 }
