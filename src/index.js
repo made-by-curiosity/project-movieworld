@@ -1,3 +1,4 @@
+import { refs } from './js/refs';
 import './js/catalog.js';
 
 import {

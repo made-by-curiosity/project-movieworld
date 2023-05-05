@@ -1,13 +1,18 @@
 import { getSearchMovies } from './fetchmoviedata';
 import { createMovieCardMarkup } from './createmoviecardmarkup';
+import { refs } from './refs';
 
-const formSearchEl = document.querySelector('.search-form');
+if (document.location.pathname !== '/page-catalog') {
+  return;
+}
 
-formSearchEl.addEventListener('submit', onSearchMovies);
+refs.formSearchEl.addEventListener('submit', onSearchMovies);
 
 async function onSearchMovies(evt) {
   evt.preventDefault();
   const query = evt.target.elements.searchQuery.value.trim();
+
+  refs.galleryEl.innerHTML = '';
 
   try {
     const videos = await getSearchMovies(query);
