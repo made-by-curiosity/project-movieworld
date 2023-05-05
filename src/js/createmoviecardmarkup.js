@@ -9,11 +9,13 @@ export const createMovieCardMarkup = function MovieCardMarkup(movies) {
 
       return `
         <li class="movie-gallery__item">
-            <a href="#" class="movie-gallery__link" data-id='${movie.id}'>
-                <img src="${IMAGE_URL}" alt="${
+            <div class="movie-gallery__wrap">
+                <a href="#" class="movie-gallery__link" data-id='${movie.id}'>
+                    <img src="${IMAGE_URL}" alt="${
         movie.original_title
-      }" width="360" />
-            </a>
+      }" class="movie-gallery__image"/>
+                </a>
+            </div>
             <div class="movie-gallery__thumb">
                 <div class="movie-gallery__info">
                 <p class="movie-gallery__name">${movie.original_title}</p>
