@@ -12,7 +12,7 @@ export const createMovieCardMarkup = function MovieCardMarkup(movies) {
             <a href="#" class="movie-gallery__link" data-id='${movie.id}'>
                 <img src="${IMAGE_URL}" alt="${
         movie.original_title
-      }" width="360" />
+      }" class="movie-gallery__image"/>
             </a>
             <div class="movie-gallery__thumb">
                 <div class="movie-gallery__info">
