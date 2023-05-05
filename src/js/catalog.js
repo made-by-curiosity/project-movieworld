@@ -2,7 +2,7 @@ import { getSearchMovies } from './fetchmoviedata';
 import { createMovieCardMarkup } from './createmoviecardmarkup';
 import { refs } from './refs';
 
-if (document.location.pathname !== '/page-catalog') {
+if (!document.location.pathname.includes('/page-catalog')) {
   return;
 }
 
