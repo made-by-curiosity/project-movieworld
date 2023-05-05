@@ -1,7 +1,12 @@
-const buttonTogle = document.querySelector('.theme-switcher__button');
-console.log(buttonTogle);
+const buttonToggle = document.querySelector('.theme-switcher__button');
+console.log(buttonToggle);
 
-buttonTogle.addEventListener('click', () => {
+buttonToggle.addEventListener('click', toggleTheme);
 
-    document.body.classList.toggle("light-theme");
-});
+function toggleTheme() {
+  const elementsToChange = document.querySelectorAll('.js-theme');
+
+  elementsToChange.forEach(element => {
+    element.classList.toggle('light-theme');
+  });
+}

@@ -1,29 +1,24 @@
 body {
   font-family: 'Roboto', sans-serif;
   font-size: 14px;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 
   color: var(--main-light-text-color);
   background-color: var(--main-dark-color);
-};
-a {
-  color: aliceblue;
 }
-body.light-theme, body.light-theme a {
+
+body.light-theme,
+body.light-theme a {
   color: var(--secondary-light-text-color);
   background-color: var(--main-light-color);
-    
-};
+}
 
 img {
   max-width: 100%;
   height: auto;
   display: block;
-};
+}
 
 button {
   display: inline-block;
   cursor: pointer;
-};
+}
