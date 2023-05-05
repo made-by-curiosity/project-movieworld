@@ -11,7 +11,6 @@ async function onSearchMovies(evt) {
 
   try {
     const videos = await getSearchMovies(query);
-    console.log(videos.results);
     createMovieCardMarkup(videos.results);
   } catch (error) {
     console.log(error.message);
