@@ -2,6 +2,10 @@
     padding-top: 40px;
     padding-bottom: 28px;
     height: 380px;
+    background-image: linear-gradient(87.8deg, #0E0E0E 15.61%, rgba(14, 14, 14, 0) 60.39%),
+        url('../images/hero-mobile-1.jpg');
+        background-repeat: no-repeat;
+    background-size: cover;
 
     &__title {
         margin-bottom: 8px;
@@ -18,10 +22,5 @@
         max-width: 165px;
         line-height: 1.14;
         align-items: center;
-    }
-
-    &__btn {
-        font-size: 12px;
-        line-height: 1.16;
     }
 }
