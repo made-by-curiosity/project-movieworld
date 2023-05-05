@@ -10,16 +10,21 @@
 </header>
  -->
 <header class="header">
-  <div class="header__container">
-    <a href="./index.html"
-      ><img src="./images/header/logo.png" alt="logo" />cinemania</a
-    >
+  <section class="header__container">
     <nav class="header__navigation">
+      <a class="logo" href="./index.html">
+        <img class="logo__image" src="./images/header/logo.png" alt="logo" />
+        <span class="logo__text">Cinemania</span>
+      </a>
+
       <ul class="nav-list">
-        <li class="nav-item"><a href="#">home</a></li>
-        <li class="nav-item"><a href="#">catalog</a></li>
-        <li class="nav-item"><a href="#">my library</a></li>
+        <li class="nav-list__item"><a href="#">home</a></li>
+        <li class="nav-list__item"><a href="#">catalog</a></li>
+        <li class="nav-list__item"><a href="#">my library</a></li>
       </ul>
+      <button class="navModal-button" type="button" aria-controls="mobile-menu">
+        menu
+      </button>
     </nav>
     <!-- ####################################################### -->
     <div class="theme-switcher">
@@ -30,14 +35,14 @@
         id="switchCheckDefault"
       />
       <label class="theme-switcher__button" for="switchCheckDefault">
-        <svg class="theme-switcher__button__icon moon" width="13" height="13">
+        <svg class="theme-switcher__button__icon moon">
           <use xlink:href="./images/header/symbol-defs.svg#icon-moon"></use>
         </svg>
-        <svg class="theme-switcher__button__icon sun" width="13" height="13">
+        <svg class="theme-switcher__button__icon sun">
           <use xlink:href="./images/header/symbol-defs.svg#icon-sun"></use>
         </svg>
       </label>
     </div>
     <!-- ####################################################### -->
-  </div>
+  </section>
 </header>

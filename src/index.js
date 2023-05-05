@@ -16,13 +16,13 @@ import {
   getMoviesGenres,
   getMoviesCountries,
 } from './js/fetchmoviedata';
-
+import './js/header';
 // примеры использования функций получения данных
-getDayTrends();
-getWeeklyTrends();
-getTodayMovies();
-getSearchMovies('Titanic');
-getFullMovieInfo(758323);
-getMovieTrailer(640146);
-getMoviesGenres();
-getMoviesCountries();
+// getDayTrends();
+// getWeeklyTrends();
+// getTodayMovies();
+// getSearchMovies('Titanic');
+// getFullMovieInfo(758323);
+// getMovieTrailer(640146);
+// getMoviesGenres();
+// getMoviesCountries();
