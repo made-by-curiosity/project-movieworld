@@ -1,23 +1,53 @@
 .trailer-modal {
   position: relative;
   background-color: #111111;
-  width: 700px;
-  height: 400px;
   left: 290px;
   top: 190px;
 
   overflow: auto;
   box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
   border-radius: 20px;
+
+  @media screen and (min-width: 480px) {
+    width: 280px;
+    height: 289px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 609px;
+    height: 400px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    width: 700px;
+    height: 400px;
+  }
 }
 
 .close-btn {
   color: #aaaaaa;
   position: absolute;
-  width: 24px;
-  height: 24px;
-  left: 648px;
-  top: 28px;
+
+  @media screen and (min-width: 480px) {
+    top: 20px;
+    left: 244px;
+    width: 16px;
+    height: 16px;
+  }
+
+  @media screen and (min-width: 768px) {
+    top: 24px;
+    left: 561px;
+    width: 24px;
+    height: 24px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    top: 28px;
+    left: 648px;
+    width: 24px;
+    height: 24px;
+  }
 }
 .close-btn:hover,
 .close-btn:focus {
@@ -25,23 +55,36 @@
   text-decoration: none;
   cursor: pointer;
 }
-.modal-body {
-  display: flex;
-  flex-direction: row;
-}
+// .modal-body {
+//   display: flex;
+//   flex-direction: row;
+// }
 .movie-img {
   position: absolute;
-  width: 363px;
-  height: 318px;
-  left: 337px;
-  top: 77px;
+
+  @media screen and (min-width: 480px) {
+    top: 128px;
+    left: 61px;
+    width: 159px;
+    height: 153px;
+  }
+
+  @media screen and (min-width: 768px) {
+    top: -2981px;
+    left: -11873px;
+    width: 296px;
+    height: 260px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    top: 77px;
+    left: 337px;
+    width: 363px;
+    height: 318px;
+  }
 }
 .no-video-msg {
   position: absolute;
-  height: 100px;
-  width: 321px;
-  left: 50px;
-  top: 150px;
 
   font-family: 'Roboto';
   font-style: normal;
@@ -50,6 +93,27 @@
   line-height: 1.17;
 
   color: #ffffff;
+
+  @media screen and (min-width: 480px) {
+    top: 39px;
+    left: 33px;
+    width: 214px;
+    height: 65px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 321px;
+    height: 92px;
+    top: 132px;
+    left: 44px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    height: 100px;
+    width: 321px;
+    left: 50px;
+    top: 150px;
+  }
 }
 p {
   margin: 0;

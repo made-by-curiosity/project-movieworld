@@ -3,6 +3,7 @@ const movieId = showTrailerBtn.dataset.movieId;
 const modal = document.querySelector('.trailer-modal');
 const trailerElement = modal.querySelector('.trailer');
 const errorMessage = modal.querySelector('.no-video-msg');
+const api_key = 'f1b5155c1184f9f972000fc60d38fc3a';
 
 function showTrailerModal(trailerUrl) {
   trailerElement.setAttribute('src', trailerUrl);
@@ -21,7 +22,7 @@ function showErrorModal() {
 
 showTrailerBtn.addEventListener('click', () => {
   fetch(
-    `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=YOUR_API_KEY&language=en-US`
+    `https://api.themoviedb.org/3/movie/${movieId}/videos?${api_key}&language=en-US`
   )
     .then(response => {
       if (response.ok) {
