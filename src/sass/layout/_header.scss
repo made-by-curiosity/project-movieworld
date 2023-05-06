@@ -24,18 +24,25 @@
         padding: 10px;
     }
     &__navigation {
-        flex-grow: 1;
         display: flex;
         align-items: center;
+        gap: 60px;
+        @media screen and (min-width: 768px) {
+            flex-grow: 1;
+        }
+        @media screen and (min-width: 1280px) {
+            flex-grow: 0;
+            padding-left: 0;
+            gap: 318px;
+        }
     }
 };
 .logo {
-    margin-right: 60px;
+    // margin-right: 60px;
     @media screen and (min-width: 768px) {
         display: flex;
         align-items: center;
         gap: 8px;
-        // margin-right: 60px;
     }
     &__text {
         display: none;
@@ -87,7 +94,8 @@
                 }
         }
     }
-}
+};
+// кнопка меню для модалки
 .navModal-button{
     color: inherit;
     background-color: transparent;
