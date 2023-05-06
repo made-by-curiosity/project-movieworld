@@ -1,11 +1,21 @@
 import { getFullMovieInfo } from './fetchmoviedata';
 import { checkAverange } from './checkrateaverage';
 import { createMovieCardMarkup } from './createmoviecardmarkup';
-import { saveMovie, getSavedMovies } from './local-storage-service';
+import {
+  saveMovie,
+  getSavedMovies,
+  getCurrentTheme,
+  saveCurrentTheme,
+} from './local-storage-service';
 
 const myLibrary = document.querySelector('.movie-gallery__list');
 const btnLibrary = document.querySelector('.btn-library');
 const message = document.querySelector('.my-library__message');
+const body = document.body;
+
+if (body.classList.contains('light-theme')) {
+  message.classList.add('my-library__message--light');
+}
 
 /// ----- для теста --- удалить
 saveMovie(493529);
@@ -16,6 +26,7 @@ saveMovie(934433);
 saveMovie(420808);
 saveMovie(502356);
 saveMovie(649609);
+// saveCurrentTheme(dark),
 /////------- удалить выше
 
 renderFavoriteMovies();
@@ -24,7 +35,7 @@ async function renderFavoriteMovies() {
   const favoriteMoviesId = getSavedMovies();
   console.log(favoriteMoviesId);
 
-  if (favoriteMoviesId.length === 0) {
+  if (favoriteMoviesId.length === 14) {
     return;
   }
 
