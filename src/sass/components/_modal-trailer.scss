@@ -1,6 +1,10 @@
 .trailer-modal {
   position: relative;
+<<<<<<< Updated upstream
   background-color: #111111;
+=======
+  background-color: var(--main-dark-color);
+>>>>>>> Stashed changes
   width: 700px;
   height: 400px;
   // left: 290px;
@@ -24,10 +28,17 @@
   font-size: 16px;
   line-height: 1.2;
   margin: 0;
+<<<<<<< Updated upstream
   background-image: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
 
   padding: 2px;
   border-radius: 30px;
+=======
+  background-image: var(--btn-gradient);
+
+  padding: 2px;
+  border-radius: 50px;
+>>>>>>> Stashed changes
   transition: background-image 200ms linear;
 }
 
@@ -39,8 +50,13 @@
   height: 24px;
   left: 648px;
   top: 28px;
+<<<<<<< Updated upstream
   fill: #ffffff;
   background-color: #111111;
+=======
+  fill: var(--main-light-color);
+  background-color: var(--main-dark-color);
+>>>>>>> Stashed changes
 }
 
 .close-btn__svg svg {
@@ -68,6 +84,10 @@
   top: 132px;
 
   font-family: 'Roboto';
+<<<<<<< Updated upstream
+=======
+  font-style: normal;
+>>>>>>> Stashed changes
   font-weight: 400;
   font-size: 24px;
   line-height: 1.17;
@@ -104,8 +124,13 @@
   }
 
   .close-btn__svg {
+<<<<<<< Updated upstream
     width: 24px;
     height: 24px;
+=======
+    width: 32px;
+    height: 32px;
+>>>>>>> Stashed changes
     left: 240px;
     top: 20px;
   }
@@ -140,8 +165,13 @@
   }
 
   .close-btn__svg {
+<<<<<<< Updated upstream
     width: 24px;
     height: 24px;
+=======
+    width: 36px;
+    height: 36px;
+>>>>>>> Stashed changes
     left: 561px;
     top: 24px;
   }
@@ -176,8 +206,13 @@
   }
 
   .close-btn__svg {
+<<<<<<< Updated upstream
     width: 24px;
     height: 24px;
+=======
+    width: 36px;
+    height: 36px;
+>>>>>>> Stashed changes
     left: 648px;
     top: 28px;
   }
