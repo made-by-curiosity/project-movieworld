@@ -6,8 +6,7 @@ body {
   background-color: var(--main-dark-color);
 }
 
-body.light-theme,
-body.light-theme a {
+body.light-theme {
   color: var(--secondary-light-text-color);
   background-color: var(--main-light-color);
 }
