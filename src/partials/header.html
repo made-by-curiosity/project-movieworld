@@ -1,10 +1,55 @@
-<header class="section-outline">
-  HEADER
-  <ul>
-    <li><a href="./index.html">Home</a></li>
-    <li><a href="./page-catalog.html">Catalog</a></li>
-    <li><a href="./page-my-library.html">My Library</a></li>
-  </ul>
+<header class="header">
+  <section class="header__container">
+    <!-- ####################################################### -->
 
-  <include src="./partials/mobile-menu.html"></include>
+    <!-- ####################################################### -->
+    <nav class="header__navigation">
+      <!-- ****************************************************** -->
+      <a class="logo" href="./index.html">
+        <img
+          class="logo__image"
+          srcset="
+            ./images/header/logo-mobile.svg   480w,
+            ./images/header/logo_tablet.svg   768w,
+            ./images/header/logo-desktop.svg 1280w
+          "
+          src="./images/header/logo-mobile.svg"
+          alt="logo"
+        />
+        <span class="logo__text">Cinemania</span>
+      </a>
+      <!-- ****************************************************** -->
+      <ul class="nav-list">
+        <li class="nav-list__item"><a href="./index.html">home</a></li>
+        <li class="nav-list__item">
+          <a href="./page-catalog.html">catalog</a>
+        </li>
+        <li class="nav-list__item">
+          <a href="./page-my-library.html">my library</a>
+        </li>
+      </ul>
+      <button class="navModal-button" type="button" aria-controls="mobile-menu">
+        menu
+      </button>
+    </nav>
+
+    <!-- ####################################################### -->
+    <div class="theme-switcher">
+      <input
+        class="theme-switcher__input hidden-checkbox"
+        type="checkbox"
+        role="switch"
+        id="switchCheckDefault"
+      />
+      <label class="theme-switcher__button" for="switchCheckDefault">
+        <svg class="theme-switcher__button__icon moon">
+          <use xlink:href="./images/header/symbol-defs.svg#icon-moon"></use>
+        </svg>
+        <svg class="theme-switcher__button__icon sun">
+          <use xlink:href="./images/header/symbol-defs.svg#icon-sun"></use>
+        </svg>
+      </label>
+    </div>
+    <!-- ####################################################### -->
+  </section>
 </header>
