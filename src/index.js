@@ -1,3 +1,5 @@
+import { refs } from './js/refs';
+import './js/catalog.js';
 import {
   getSavedInfo,
   getCurrentTheme,
@@ -16,9 +18,8 @@ import {
   getMoviesGenres,
   getMoviesCountries,
 } from './js/fetchmoviedata';
-
+import './js/header';
 // примеры использования функций получения данных
-
 // getDayTrends();
 // getWeeklyTrends();
 // getTodayMovies();
@@ -27,4 +28,3 @@ import {
 // getMovieTrailer(640146);
 // getMoviesGenres();
 // getMoviesCountries();
-
