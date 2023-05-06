@@ -1,13 +1,3 @@
-<!-- <header class="section-outline">
-  HEADER
-  <ul>
-    <li><a href="./index.html">Home</a></li>
-    <li><a href="./page-catalog.html">Catalog</a></li>
-    <li><a href="./page-my-library.html">My Library</a></li>
-  </ul>
-  <include src="./partials/mobile-menu.html"></include>
-</header>
- -->
 <header class="header">
 	<section class="header__container">
 		<nav class="header__navigation">
@@ -25,7 +15,7 @@
 					<a href="./page-my-library.html">my library</a>
 				</li>
 			</ul>
-			<button class="navModal-button" type="button" aria-controls="mobile-menu">
+			<button class="navModal-button js-open-menu" type="button" aria-controls="mobile-menu">
 				menu
 			</button>
 		</nav>
@@ -43,4 +33,6 @@
 		</div>
 		<!-- ####################################################### -->
 	</section>
+
+	<include src="./partials/mobile-menu.html"></include>
 </header>
