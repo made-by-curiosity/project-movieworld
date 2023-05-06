@@ -1,4 +1,5 @@
 .section-upcoming {
+  color: var(--secondary-dark-text-color);
   padding-bottom: 52px;
 }
 .upcoming-title {
@@ -10,17 +11,36 @@
   line-height: 19px;
   text-transform: uppercase;
 
-  @media screen and (min-width: 321px) {
+  @media screen and (min-width: 768px) {
     font-size: 24px;
     line-height: 28px;
+  }
+  @media screen and (min-width: 1280px) {
+    font-size: 28px;
+    line-height: 33px;
+  }
+}
+.box {
+  @media screen and (min-width: 1280px) {
+    display: flex;
+  }
+}
+
+.box-info {
+  @media screen and (min-width: 1280px) {
+    max-width: 406px;
+    margin-left: 16px;
   }
 }
 .upcoming-image {
   border-radius: 5px;
   margin-bottom: 24px;
 
-  @media screen and (min-width: 321px) {
+  @media screen and (min-width: 768px) {
     margin-bottom: 32px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 0px;
   }
 }
 .upcoming__film-title {
@@ -31,15 +51,19 @@
   font-size: 20px;
   line-height: 23px;
 
-  @media screen and (min-width: 321px) {
+  @media screen and (min-width: 768px) {
     font-size: 28px;
     line-height: 33px;
     margin-bottom: 32px;
   }
+  @media screen and (min-width: 1280px) {
+    font-size: 32px;
+    line-height: 38px;
+    margin-bottom: 28px;
+  }
 }
 
 .upcoming__film-info {
-  color: var(--secondary-dark-text-color);
   display: flex;
   justify-content: space-between;
 
@@ -49,21 +73,28 @@
   font-weight: 500;
   line-height: 19px;
 
-  @media screen and (min-width: 321px) {
+  @media screen and (min-width: 768px) {
     display: none;
+  }
+  @media screen and (min-width: 1280px) {
+    display: flex;
+    justify-content: space-between;
   }
 }
 .upcoming__information {
   display: none;
-  @media screen and (min-width: 321px) {
+  @media screen and (min-width: 768px) {
     display: flex;
     justify-content: space-between;
 
     margin-bottom: 20px;
   }
+  @media screen and (min-width: 1280px) {
+    display: none;
+  }
 }
 .info-list {
-  @media screen and (min-width: 321px) {
+  @media screen and (min-width: 768px) {
     margin: 0;
   }
 }
@@ -96,7 +127,7 @@
 
   margin-right: 4px;
 
-  @media screen and (min-width: 321px) {
+  @media screen and (min-width: 768px) {
     font-size: 14px;
     line-height: 16px;
   }
@@ -114,7 +145,7 @@
 
   margin-left: 4px;
 
-  @media screen and (min-width: 321px) {
+  @media screen and (min-width: 768px) {
     font-size: 14px;
     line-height: 16px;
   }
@@ -135,3 +166,10 @@
   font-size: 14px;
   line-height: 20px;
 }
+// .upcoming__light-theme {
+//   background-color: var(--main-light-color);
+//   color: var(--main-dark-color);
+//   .light-theme-text {
+//     color: var(--main-dark-text-color);
+//   }
+// }
