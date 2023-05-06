@@ -3,7 +3,7 @@ import { checkAverange } from './checkrateaverage';
 export function createMovieCardMarkup(movies) {
   return movies
     .map(movie => {
-      const IMAGE_URL = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
+      const IMAGE_URL = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
       const year = movie.release_date.slice(0, 4);
 
       return `
