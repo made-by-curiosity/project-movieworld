@@ -1,8 +1,10 @@
 .trailer-modal {
   position: relative;
-  background-color: #111111;
+  background-color: var(--main-dark-color);
   width: 700px;
   height: 400px;
+  margin: 0;
+  padding: 0;
   // left: 290px;
   // top: 190px;
 
@@ -23,7 +25,6 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 1.2;
-  margin: 0;
   background-image: var(--btn-gradient);
 
   padding: 2px;
@@ -39,18 +40,17 @@
   height: 24px;
   left: 648px;
   top: 28px;
-  fill: #ffffff;
-  background-color: #111111;
+  fill: var(--main-light-color);
+  background-color: var(--main-dark-color);
 }
 
 .close-btn__svg svg {
   width: 100%;
   height: 100%;
 }
-.close-btn:hover,
-.close-btn:focus {
-  color: #111111;
-  text-decoration: none;
+.close-btn__svg:hover,
+.close-btn__svg:focus {
+  fill: var(--btn-gradient);
   cursor: pointer;
 }
 .movie-img {
