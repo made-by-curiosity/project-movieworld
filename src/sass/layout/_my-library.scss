@@ -1,12 +1,12 @@
 .my-library{
-    padding: 44px 20px 0px;
+    padding-top: 44px;
 
     @media screen and (min-width: 768px) {
-        padding: 80px 32px 0px;
+        padding-top: 80px;
     }
     
     @media screen and (min-width: 1280px) {
-        padding: 117px 32px 0px;
+        padding-top: 117px;
     }
 }
 
@@ -42,46 +42,7 @@
     margin: 0 auto;    
 }
 
-.gallery {
-    display: flex;
-    flex-wrap: wrap;
-    // margin-left: -16px;
-    margin-top: -16px;
-    justify-content: center;
-
-    @media screen and (min-width: 768px){
-        margin-left: -16px;
-        margin-top: -28px;
-    }
-    @media screen and (min-width: 1280px) {
-        margin-top: -32px;
-    }
-    
-}
-
-.gallery__item {
-    // flex-basis: calc(100%/3 - 16px);
-    // margin-left: 16px;
-    margin-top: 16px;
-    width: 280px;
-    height: 406px;
-    
-    background-color:yellowgreen;
-
-
-    @media screen and (min-width: 768px) {
-        flex-basis: calc(100%/3 - 16px);
-        margin-left: 16px;
-        margin-top: 28px;
-        height: 325px;
-
-        background-color: orange;
-    }
-    
-    @media screen and (min-width: 1280px) {
-        margin-top: 32px;
-        height: 574px;
-        
-        background-color: red;
-    }
+.library-isHidden{
+    display: none;
+    visibility: hidden;
 }
