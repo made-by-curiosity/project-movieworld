@@ -20,6 +20,7 @@ import {
   getMoviesCountries,
 } from './js/fetchmoviedata';
 import './js/header';
+import './js/modalTrailer';
 // примеры использования функций получения данных
 // getDayTrends();
 // getWeeklyTrends();
