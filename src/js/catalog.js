@@ -1,4 +1,8 @@
-import { getSearchMovies, getWeeklyTrends } from './fetchmoviedata';
+import {
+  getSearchMovies,
+  getWeeklyTrends,
+  getMoviesGenres,
+} from './fetchmoviedata';
 import { createMovieCardMarkup } from './createmoviecardmarkup';
 import { warningMessageMarkup } from './createwarningmessagemurkup';
 import { refs } from './refs';
@@ -44,6 +48,9 @@ async function onWeeklyTrends() {
   try {
     const trendsMovies = await getWeeklyTrends();
     renderMovies(trendsMovies.results);
+
+    const { genres } = await getMoviesGenres();
+    returnGenresList(genres);
   } catch (error) {
     console.log(error.message);
     renderWarningMessage();
@@ -51,3 +58,20 @@ async function onWeeklyTrends() {
 }
 
 onWeeklyTrends();
+
+// ===============Повернення строки з жанрами по id для розмітки=======
+
+function returnGenresList(genres) {
+  console.log(genres);
+}
+
+export function checkGenresById(genresIds) {
+  console.log(genresIds);
+  return 'Adventure';
+}
+
+//  genres.map(genre => {
+//    if (genresIds.includes(genre.id)) {
+//      console.log(genre.name);
+//    }
+//  });

@@ -1,4 +1,5 @@
 import { checkAverange } from './checkrateaverage';
+import { checkGenresById } from './catalog';
 
 export function createMovieCardMarkup(movies) {
   return movies
@@ -19,7 +20,9 @@ export function createMovieCardMarkup(movies) {
 			<div class="movie-gallery__thumb">
                 <div class="movie-gallery__info">
                 <p class="movie-gallery__name">${movie.original_title}</p>
-                <p class="movie-gallery__year">${year}</p>
+                <p class="movie-gallery__year">${year}<span>${checkGenresById(
+        movie.genre_ids
+      )}</span></p>
                 </div>
                 <p class="movie-gallery__range">
                 <img src="${checkAverange(
