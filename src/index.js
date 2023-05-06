@@ -1,6 +1,8 @@
 import { refs } from './js/refs';
 import './js/hero'
 import './js/catalog.js';
+import { onLibraryPage } from './js/my-library';
+import { onCatalogPage } from './js/catalog';
 import {
   getSavedInfo,
   getCurrentTheme,
@@ -20,6 +22,8 @@ import {
   getMoviesCountries,
 } from './js/fetchmoviedata';
 import './js/header';
+// import './js/mobile-menu';
+
 // примеры использования функций получения данных
 // getDayTrends();
 // getWeeklyTrends();
@@ -29,3 +33,11 @@ import './js/header';
 // getMovieTrailer(640146);
 // getMoviesGenres();
 // getMoviesCountries();
+
+if (document.location.pathname.includes('/page-catalog')) {
+  onCatalogPage();
+}
+
+if (document.location.pathname.includes('/page-my-library')) {
+  onLibraryPage();
+}
