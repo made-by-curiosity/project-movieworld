@@ -26,9 +26,10 @@
     &__navigation {
         display: flex;
         align-items: center;
-        gap: 60px;
+        gap: 80px;
         @media screen and (min-width: 768px) {
             flex-grow: 1;
+            gap: 65px;
         }
         @media screen and (min-width: 1280px) {
             flex-grow: 0;

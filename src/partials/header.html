@@ -4,10 +4,21 @@
 
     <!-- ####################################################### -->
     <nav class="header__navigation">
+      <!-- ****************************************************** -->
       <a class="logo" href="./index.html">
-        <img class="logo__image" src="./images/header/logo.png" alt="logo" />
+        <img
+          class="logo__image"
+          srcset="
+            ./images/header/logo-mobile.svg   480w,
+            ./images/header/logo_tablet.svg   768w,
+            ./images/header/logo-desktop.svg 1280w
+          "
+          src="./images/header/logo-mobile.svg"
+          alt="logo"
+        />
         <span class="logo__text">Cinemania</span>
       </a>
+      <!-- ****************************************************** -->
       <ul class="nav-list">
         <li class="nav-list__item"><a href="./index.html">home</a></li>
         <li class="nav-list__item">
