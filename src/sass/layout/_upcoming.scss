@@ -1,0 +1,137 @@
+.section-upcoming {
+  padding-bottom: 52px;
+}
+.upcoming-title {
+  color: var(--main-light-color);
+  margin-bottom: 24px;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-transform: uppercase;
+
+  @media screen and (min-width: 321px) {
+    font-size: 24px;
+    line-height: 28px;
+  }
+}
+.upcoming-image {
+  border-radius: 5px;
+  margin-bottom: 24px;
+
+  @media screen and (min-width: 321px) {
+    margin-bottom: 32px;
+  }
+}
+.upcoming__film-title {
+  color: var(--main-light-color);
+  margin-bottom: 20px;
+
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+
+  @media screen and (min-width: 321px) {
+    font-size: 28px;
+    line-height: 33px;
+    margin-bottom: 32px;
+  }
+}
+
+.upcoming__film-info {
+  color: var(--secondary-dark-text-color);
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 19px;
+
+  @media screen and (min-width: 321px) {
+    display: none;
+  }
+}
+.upcoming__information {
+  display: none;
+  @media screen and (min-width: 321px) {
+    display: flex;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+  }
+}
+.info-list {
+  @media screen and (min-width: 321px) {
+    margin: 0;
+  }
+}
+
+.upcoming__info-item:not(:last-child) {
+  margin-bottom: 12px;
+}
+.upcoming__info-value {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+}
+.upcoming__info-value:not(:last-child) {
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+.upcoming__item-data {
+  color: var(--accent-color);
+}
+.upcoming__info-vote {
+  padding: 1px 8px 1px 8px;
+  border-radius: 5px;
+  background-color: var(--main-light-color);
+  color: var(--main-dark-color);
+
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  text-transform: uppercase;
+
+  margin-right: 4px;
+
+  @media screen and (min-width: 321px) {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+.upcoming__info-votes {
+  padding: 1px 4px 1px 4px;
+  border-radius: 5px;
+  background-color: var(--main-light-color);
+  color: var(--main-dark-color);
+
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  text-transform: uppercase;
+
+  margin-left: 4px;
+
+  @media screen and (min-width: 321px) {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}
+.upcoming__about-title {
+  margin-bottom: 16px;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+
+  text-transform: uppercase;
+}
+.upcoming__about-text {
+  margin-bottom: 20px;
+
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
