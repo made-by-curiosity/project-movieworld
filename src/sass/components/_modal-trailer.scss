@@ -10,6 +10,22 @@
   box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
   border-radius: 20px;
 }
+.show-trailer-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 80px;
+  height: 40px;
+  top: 10px;
+  left: 10px;
+  border-radius: 50px;
+  background-image: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+
+  padding: 2px;
+  border-radius: 50px;
+  transition: background-image 200ms linear;
+}
 
 .close-btn__svg {
   position: absolute;
@@ -54,4 +70,49 @@
   line-height: 1.17;
 
   color: #ffffff;
+}
+
+@media (min-width: 480px) {
+  .trailer-modal {
+    width: 280px;
+    height: 289px;
+    border-radius: 16px;
+    gap: 10px;
+  }
+  .show-trailer-btn {
+    width: 30px;
+    height: 20px;
+  }
+  .movie-img {
+    width: 159px;
+    height: 153px;
+    left: 50px;
+    top: 110px;
+  }
+
+  .no-video-msg {
+    width: 214px;
+    height: 65px;
+    left: 33px;
+    top: 39px;
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  .close-btn__svg {
+    width: 16px;
+    height: 16px;
+    left: 235px;
+    top: 20px;
+  }
+}
+
+/* Брейкпоінт 768 */
+@media (max-width: 768px) {
+  /* Додаткові стилі для брейкпоінта 768 */
+}
+
+/* Брейкпоінт 1200 */
+@media (max-width: 1200px) {
+  /* Додаткові стилі для брейкпоінта 1200 */
 }
