@@ -26,7 +26,7 @@
     &__navigation {
         display: flex;
         align-items: center;
-        gap: 80px;
+        gap: 65px;
         @media screen and (min-width: 768px) {
             flex-grow: 1;
             gap: 65px;
@@ -34,11 +34,19 @@
         @media screen and (min-width: 1280px) {
             flex-grow: 0;
             padding-left: 0;
-            gap: 318px;
+            gap: 240px;
         }
     }
 };
 .logo {
+    &__image {
+        width: 32px;
+        height: 32px;
+        @media screen and (min-width: 768px) {
+            width: 48px;
+            height: 48px;
+        }
+    }
     // margin-right: 60px;
     @media screen and (min-width: 768px) {
         display: flex;
