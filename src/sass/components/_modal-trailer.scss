@@ -19,6 +19,10 @@
   height: 40px;
   top: 10px;
   left: 10px;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.2;
   border-radius: 50px;
   background-image: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
 
@@ -58,10 +62,10 @@
 }
 .no-video-msg {
   position: absolute;
-  height: 100px;
+  height: 92px;
   width: 321px;
-  left: 50px;
-  top: 150px;
+  left: 44px;
+  top: 132px;
 
   font-family: 'Roboto';
   font-style: normal;
@@ -72,7 +76,7 @@
   color: #ffffff;
 }
 
-@media (min-width: 480px) {
+@media (max-width: 767px) {
   .trailer-modal {
     width: 280px;
     height: 289px;
@@ -80,13 +84,14 @@
     gap: 10px;
   }
   .show-trailer-btn {
-    width: 30px;
-    height: 20px;
+    width: 60px;
+    height: 30px;
+    font-size: 12px;
   }
   .movie-img {
     width: 159px;
     height: 153px;
-    left: 50px;
+    left: 60px;
     top: 110px;
   }
 
@@ -94,25 +99,87 @@
     width: 214px;
     height: 65px;
     left: 33px;
-    top: 39px;
+    top: 50px;
     font-size: 12px;
     line-height: 1.2;
   }
 
   .close-btn__svg {
-    width: 16px;
-    height: 16px;
-    left: 235px;
+    width: 24px;
+    height: 24px;
+    left: 244px;
     top: 20px;
   }
 }
 
 /* Брейкпоінт 768 */
-@media (max-width: 768px) {
-  /* Додаткові стилі для брейкпоінта 768 */
+@media (min-width: 768px) {
+  .trailer-modal {
+    width: 609px;
+    height: 400px;
+    border-radius: 16px;
+    gap: 10px;
+  }
+  .show-trailer-btn {
+    width: 70px;
+    height: 40px;
+  }
+  .movie-img {
+    width: 296px;
+    height: 260px;
+    left: 303px;
+    top: 124px;
+  }
+
+  .no-video-msg {
+    width: 321px;
+    height: 92px;
+    left: 44px;
+    top: 132px;
+    font-size: 24px;
+    line-height: 1.7;
+  }
+
+  .close-btn__svg {
+    width: 24px;
+    height: 24px;
+    left: 561px;
+    top: 24px;
+  }
 }
 
 /* Брейкпоінт 1200 */
-@media (max-width: 1200px) {
-  /* Додаткові стилі для брейкпоінта 1200 */
+@media (min-width: 1200px) {
+  .trailer-modal {
+    width: 700px;
+    height: 400px;
+    border-radius: 20px;
+    gap: 10px;
+  }
+  .show-trailer-btn {
+    width: 70px;
+    height: 40px;
+  }
+  .movie-img {
+    width: 363px;
+    height: 318px;
+    left: 337px;
+    top: 77px;
+  }
+
+  .no-video-msg {
+    width: 321px;
+    height: 100px;
+    left: 50px;
+    top: 150px;
+    font-size: 24px;
+    line-height: 1.7;
+  }
+
+  .close-btn__svg {
+    width: 24px;
+    height: 24px;
+    left: 648px;
+    top: 28px;
+  }
 }
