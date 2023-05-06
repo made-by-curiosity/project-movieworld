@@ -1,11 +1,20 @@
 .hero {
     padding-top: 40px;
     padding-bottom: 28px;
-    height: 380px;
-    background-image: linear-gradient(87.8deg, #0E0E0E 15.61%, rgba(14, 14, 14, 0) 60.39%),
-        url('../images/hero-mobile-1.jpg');
-        background-repeat: no-repeat;
+    min-height: 380px;
+    background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
+
+    @media screen and (min-width: 768px) {
+            padding: 62 32px;
+            min-height: 372px;
+        }
+
+    @media screen and (min-width: 1280px) {
+            padding: 169px 32px;
+            min-height: 169px;
+    }
 
     &__title {
         margin-bottom: 8px;
@@ -15,6 +24,18 @@
         line-height: 1.19;
         align-items: center;
         color: var(--main-light-color);
+
+        @media screen and (min-width: 768px) {
+            max-width: 367px;
+            font-size: 44px;
+            line-height: 1.18;
+            }
+
+        @media screen and (min-width: 1280px) {
+            max-width: 464px;
+            font-size: 64px;
+            line-height: 1.17;
+    }
     }
 
     &__text {
@@ -22,5 +43,28 @@
         max-width: 165px;
         line-height: 1.14;
         align-items: center;
+
+        @media screen and (min-width: 768px) {
+                max-width: 367px;
+                margin-bottom: 32px;
+            }
+
+        @media screen and (min-width: 1280px) {
+            max-width: 464px;
+            font-size: 16px;
+            line-height: 1.18;
+    }    
+    }
+
+    &__rating {
+        margin-bottom: 21px;
+
+        @media screen and (min-width: 768px) {
+            margin-bottom: 22px;
+            }
+
+        @media screen and (min-width: 1280px) {
+            margin-bottom: 29px;
+    }
     }
 }
