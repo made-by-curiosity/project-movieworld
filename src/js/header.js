@@ -1,5 +1,5 @@
 const buttonToggle = document.querySelector('.theme-switcher__button');
-console.log(buttonToggle);
+// console.log(buttonToggle);
 
 buttonToggle.addEventListener('click', toggleTheme);
 
