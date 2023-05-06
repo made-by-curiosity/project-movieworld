@@ -1,6 +1,15 @@
 .section-upcoming {
   color: var(--secondary-dark-text-color);
-  padding-bottom: 52px;
+  margin-bottom: 40px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 77px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 100px;
+  }
+}
+.section-upcoming.light-theme {
+  color: var(--main-dark-color);
 }
 .upcoming-title {
   color: var(--main-light-color);
@@ -20,12 +29,19 @@
     line-height: 33px;
   }
 }
+.upcoming-title.light-theme {
+  color: var(--main-dark-color);
+}
 .box {
   @media screen and (min-width: 1280px) {
     display: flex;
   }
 }
-
+.box-image {
+  @media screen and (min-width: 1280px) {
+    height: 458px;
+  }
+}
 .box-info {
   @media screen and (min-width: 1280px) {
     max-width: 406px;
@@ -40,6 +56,7 @@
     margin-bottom: 32px;
   }
   @media screen and (min-width: 1280px) {
+    height: 100%;
     margin-bottom: 0px;
   }
 }
@@ -62,7 +79,9 @@
     margin-bottom: 28px;
   }
 }
-
+.upcoming__film-title.light-theme {
+  color: var(--main-dark-color);
+}
 .upcoming__film-info {
   display: flex;
   justify-content: space-between;
@@ -93,7 +112,7 @@
     display: none;
   }
 }
-.info-list {
+.upcoming__info-list {
   @media screen and (min-width: 768px) {
     margin: 0;
   }
@@ -150,6 +169,18 @@
     line-height: 16px;
   }
 }
+.upcoming__info-votes.light-theme,
+.upcoming__info-vote.light-theme {
+  color: var(--main-dark-text-color);
+}
+.popularity-value,
+.ganre-value {
+  color: var(--main-light-color);
+}
+.popularity-value.light-theme,
+.ganre-value.light-theme {
+  color: var(--main-dark-text-color);
+}
 .upcoming__about-title {
   margin-bottom: 16px;
 
@@ -166,10 +197,10 @@
   font-size: 14px;
   line-height: 20px;
 }
-// .upcoming__light-theme {
-//   background-color: var(--main-light-color);
-//   color: var(--main-dark-color);
-//   .light-theme-text {
-//     color: var(--main-dark-text-color);
-//   }
-// }
+
+.upcoming__about-text.light-theme {
+  color: var(--main-dark-text-color);
+}
+.upcoming__light-theme.light-theme {
+  color: var(--main-dark-color);
+}
