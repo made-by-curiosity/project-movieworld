@@ -71,14 +71,17 @@
 }
 
 .movie-gallery__name {
+  max-width: 180px;
   margin-bottom: 5px;
   text-transform: uppercase;
 
   @media screen and (min-width: 768px) {
+    max-width: 130px;
     margin-bottom: 7px;
   }
 
   @media screen and (min-width: 1280px) {
+    max-width: 225px;
     margin-bottom: 10px;
   }
 
@@ -87,4 +90,16 @@
 
 .movie-gallery__year {
   color: var(--secondary-dark-text-color);
+}
+
+.movie-gallery__range--size {
+  width: 86px;
+
+  @media screen and (min-width: 768px) {
+    width: 66px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 106px;
+  }
 }
