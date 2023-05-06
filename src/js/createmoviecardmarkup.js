@@ -29,7 +29,7 @@ export function createMovieCardMarkup(movies) {
             </div>
                 </a>
             </div>
-            
+
         </li>`;
     })
     .join('');
