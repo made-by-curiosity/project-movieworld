@@ -22,7 +22,7 @@ function showErrorModal() {
 
 showTrailerBtn.addEventListener('click', () => {
   fetch(
-    `https://api.themoviedb.org/3/movie/${movieId}/videos?${api_key}&language=en-US`
+    `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=YOUR_API_KEY&language=en-US`
   )
     .then(response => {
       if (response.ok) {
@@ -45,7 +45,7 @@ showTrailerBtn.addEventListener('click', () => {
     });
 });
 
-modal.querySelector('.close-btn').addEventListener('click', function () {
+modal.querySelector('.close-btn__svg').addEventListener('click', function () {
   hideTrailerModal();
 });
 
