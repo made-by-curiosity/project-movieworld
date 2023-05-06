@@ -6,6 +6,12 @@ body {
   background-color: var(--main-dark-color);
 }
 
+body.light-theme,
+body.light-theme a {
+  color: var(--secondary-light-text-color);
+  background-color: var(--main-light-color);
+}
+
 img {
   max-width: 100%;
   height: auto;
