@@ -1,10 +1,12 @@
-const movieGalleryEl = document.querySelector('.movie-gallery__list');
 import { checkAverange } from './checkrateaverage';
 
-export const createMovieCardMarkup = function MovieCardMarkup(movies) {
-  const movieCardMarkUp = movies
+export function createMovieCardMarkup(movies) {
+  return movies
     .map(movie => {
-      const IMAGE_URL = `https://image.tmdb.org/t/p/original${movie.poster_path}`;
+      let IMAGE_URL = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+      if (movie.poster_path === null) {
+        IMAGE_URL = '/moviecoverholder.262f5a65.jpg';
+      }
       const year = movie.release_date.slice(0, 4);
 
       return `
@@ -20,7 +22,9 @@ export const createMovieCardMarkup = function MovieCardMarkup(movies) {
                 <p class="movie-gallery__year">${year}</p>
                 </div>
                 <p class="movie-gallery__range">
-                <img src="${checkAverange(movie.vote_average)}" alt="range" />
+                <img src="${checkAverange(
+                  movie.vote_average
+                )}" alt="range" class='movie-gallery__range--size' />
                 </p>
             </div>
                 </a>
@@ -29,6 +33,4 @@ export const createMovieCardMarkup = function MovieCardMarkup(movies) {
         </li>`;
     })
     .join('');
-
-  movieGalleryEl.insertAdjacentHTML('beforeend', movieCardMarkUp);
-};
+}

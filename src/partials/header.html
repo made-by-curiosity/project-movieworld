@@ -1,38 +1,41 @@
 <header class="header">
-	<section class="header__container">
-		<nav class="header__navigation">
-			<a class="logo" href="./index.html">
-				<img class="logo__image" src="./images/header/logo.png" alt="logo" />
-				<span class="logo__text">Cinemania</span>
-			</a>
+  <section class="header__container">
+    <nav class="header__navigation">
+      <a class="logo" href="./index.html">
+        <img class="logo__image" src="./images/header/logo.png" alt="logo" />
+        <span class="logo__text">Cinemania</span>
+      </a>
 
-			<ul class="nav-list">
-				<li class="nav-list__item"><a href="./index.html">home</a></li>
-				<li class="nav-list__item">
-					<a href="./page-catalog.html">catalog</a>
-				</li>
-				<li class="nav-list__item">
-					<a href="./page-my-library.html">my library</a>
-				</li>
-			</ul>
-			<button class="navModal-button js-open-menu" type="button" aria-controls="mobile-menu">
-				menu
-			</button>
-		</nav>
-		<!-- ####################################################### -->
-		<div class="theme-switcher">
-			<input class="theme-switcher__input hidden-checkbox" type="checkbox" role="switch" id="switchCheckDefault" />
-			<label class="theme-switcher__button" for="switchCheckDefault">
-				<svg class="theme-switcher__button__icon moon">
-					<use xlink:href="./images/header/symbol-defs.svg#icon-moon"></use>
-				</svg>
-				<svg class="theme-switcher__button__icon sun">
-					<use xlink:href="./images/header/symbol-defs.svg#icon-sun"></use>
-				</svg>
-			</label>
-		</div>
-		<!-- ####################################################### -->
-	</section>
-
-	<include src="./partials/mobile-menu.html"></include>
+      <ul class="nav-list">
+        <li class="nav-list__item"><a href="./index.html">home</a></li>
+        <li class="nav-list__item">
+          <a href="./page-catalog.html">catalog</a>
+        </li>
+        <li class="nav-list__item">
+          <a href="./page-my-library.html">my library</a>
+        </li>
+      </ul>
+      <button class="navModal-button" type="button" aria-controls="mobile-menu">
+        menu
+      </button>
+    </nav>
+    <!-- ####################################################### -->
+    <div class="theme-switcher">
+      <input
+        class="theme-switcher__input hidden-checkbox"
+        type="checkbox"
+        role="switch"
+        id="switchCheckDefault"
+      />
+      <label class="theme-switcher__button" for="switchCheckDefault">
+        <svg class="theme-switcher__button__icon moon">
+          <use xlink:href="./images/header/symbol-defs.svg#icon-moon"></use>
+        </svg>
+        <svg class="theme-switcher__button__icon sun">
+          <use xlink:href="./images/header/symbol-defs.svg#icon-sun"></use>
+        </svg>
+      </label>
+    </div>
+    <!-- ####################################################### -->
+  </section>
 </header>
