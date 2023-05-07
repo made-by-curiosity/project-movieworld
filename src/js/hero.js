@@ -41,6 +41,11 @@ function updateHero(markup) {
 }
 
 function onError(err) {
+  const pathname = document.location.pathname;
+
+  if (pathname === '/page-my-library.html') {
+    section.classList.add("hero__cover-library");
+  }
   section.classList.add("hero__cover")
   section.insertAdjacentHTML("beforeend", markupCover)
   console.error(err)
