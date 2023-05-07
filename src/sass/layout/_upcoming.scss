@@ -1,11 +1,11 @@
 .section-upcoming {
   color: var(--secondary-dark-text-color);
-  margin-bottom: 40px;
+
   @media screen and (min-width: 768px) {
-    margin-bottom: 77px;
+    padding-bottom: 17px;
   }
   @media screen and (min-width: 1280px) {
-    margin-bottom: 100px;
+    padding-bottom: 0px;
   }
 }
 .section-upcoming.light-theme {
@@ -17,16 +17,16 @@
 
   font-weight: 500;
   font-size: 16px;
-  line-height: 19px;
+  line-height: 1.19;
   text-transform: uppercase;
 
   @media screen and (min-width: 768px) {
     font-size: 24px;
-    line-height: 28px;
+    line-height: 1.17;
   }
   @media screen and (min-width: 1280px) {
     font-size: 28px;
-    line-height: 33px;
+    line-height: 1.18;
   }
 }
 .upcoming-title.light-theme {
@@ -66,16 +66,18 @@
 
   font-weight: 500;
   font-size: 20px;
-  line-height: 23px;
+  line-height: 1.15;
 
   @media screen and (min-width: 768px) {
     font-size: 28px;
-    line-height: 33px;
+    line-height: 1.18;
+
     margin-bottom: 32px;
   }
   @media screen and (min-width: 1280px) {
     font-size: 32px;
-    line-height: 38px;
+    line-height: 1.19;
+
     margin-bottom: 28px;
   }
 }
@@ -90,7 +92,7 @@
 
   font-size: 16px;
   font-weight: 500;
-  line-height: 19px;
+  line-height: 1.19;
 
   @media screen and (min-width: 768px) {
     display: none;
@@ -124,7 +126,7 @@
 .upcoming__info-value {
   font-weight: 500;
   font-size: 16px;
-  line-height: 19px;
+  line-height: 1.19;
 }
 .upcoming__info-value:not(:last-child) {
   margin-bottom: 12px;
@@ -140,7 +142,7 @@
   color: var(--main-dark-color);
 
   font-size: 14px;
-  line-height: 16px;
+  line-height: 1.14;
   text-align: center;
   text-transform: uppercase;
 
@@ -148,7 +150,7 @@
 
   @media screen and (min-width: 768px) {
     font-size: 14px;
-    line-height: 16px;
+    line-height: 1.14;
   }
 }
 .upcoming__info-votes {
@@ -158,19 +160,16 @@
   color: var(--main-dark-color);
 
   font-size: 14px;
-  line-height: 16px;
+  line-height: 1.14;
+
   text-align: center;
   text-transform: uppercase;
 
   margin-left: 4px;
-
-  @media screen and (min-width: 768px) {
-    font-size: 14px;
-    line-height: 16px;
-  }
 }
 .upcoming__info-votes.light-theme,
 .upcoming__info-vote.light-theme {
+  background-color: var(--main-light-text-color);
   color: var(--main-dark-text-color);
 }
 .popularity-value,
@@ -186,16 +185,15 @@
 
   font-weight: 500;
   font-size: 16px;
-  line-height: 19px;
+  line-height: 1.19;
 
   text-transform: uppercase;
 }
 .upcoming__about-text {
   margin-bottom: 20px;
 
-  font-weight: 400;
   font-size: 14px;
-  line-height: 20px;
+  line-height: 1.42;
 }
 
 .upcoming__about-text.light-theme {
