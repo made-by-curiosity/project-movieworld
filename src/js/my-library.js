@@ -5,6 +5,10 @@ import { saveMovie, getSavedMovies } from './local-storage-service';
 export function onLibraryPage() {
   const myLibrary = document.querySelector('.movie-gallery__list');
   const noMoviesMessage = document.querySelector('.no-movies-message');
+  const btnLoadMore = document.querySelector('.btn-loadMore');
+
+  btnLoadMore.addEventListener('click', renderFavoriteMovies);
+  let start = 0;
 
   /// ----- для теста --- удалить
   // saveMovie(493529);
@@ -20,15 +24,22 @@ export function onLibraryPage() {
   renderFavoriteMovies();
 
   async function renderFavoriteMovies() {
+    myLibrary.innerHTML = ''; //--очистка галереи фильмов
+
     const favoriteMoviesId = getSavedMovies();
     console.log(favoriteMoviesId);
+
+    const stepSlice = 5;
+    let end = start + stepSlice;
+    let sliceMoviesId = favoriteMoviesId.slice(start, end);
+    console.log(sliceMoviesId);
 
     if (favoriteMoviesId.length === 0) {
       noMoviesMessage.classList.remove('library-isHidden');
       return;
     }
 
-    const moviesPromises = favoriteMoviesId.map(async movieId => {
+    const moviesPromises = sliceMoviesId.map(async movieId => {
       return await getFullMovieInfo(movieId);
     });
 
@@ -36,5 +47,33 @@ export function onLibraryPage() {
 
     const markup = createMovieCardMarkup(movies);
     myLibrary.insertAdjacentHTML('beforeend', markup);
+
+    start += stepSlice;
   }
 }
+
+//////----------------- main version----------------
+// async function renderFavoriteMovies() {
+//   const favoriteMoviesId = getSavedMovies();
+//   console.log(favoriteMoviesId);
+
+//   const stepSlice = 5;
+//   let start = 0;
+//   let end = start + stepSlice;
+//   let sliceMoviesId = favoriteMoviesId.slice(start, end);
+//   console.log(sliceMoviesId);
+
+//   if (favoriteMoviesId.length === 0) {
+//     noMoviesMessage.classList.remove('library-isHidden');
+//     return;
+//   }
+
+//   const moviesPromises = favoriteMoviesId.map(async movieId => {
+//     return await getFullMovieInfo(movieId);
+//   });
+
+//   const movies = await Promise.all(moviesPromises);
+
+//   const markup = createMovieCardMarkup(movies);
+//   myLibrary.insertAdjacentHTML('beforeend', markup);
+// }
