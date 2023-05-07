@@ -13,12 +13,16 @@
 // #############################
 
 .header {
-  // outline: 1px solid red;
+  background-color: var(--header-bg-color);
+
   &__container {
     @extend .container-section;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media screen and (min-width: 768px) {
+      padding: 0 32px;
+    }
   }
   &__navigation {
     display: flex;
@@ -115,4 +119,19 @@
   @media screen and (min-width: 768px) {
     display: none;
   }
+}
+
+.header.light-theme {
+  background-color: var(--main-light-color);
+}
+.logo {
+  &__text.light-theme {
+    color: var(--header-bg-color);
+  }
+}
+.nav-list.light-theme a {
+  color: var(--secondary-light-text-color);
+}
+.navModal-button.light-theme {
+  color: var(--secondary-light-text-color);
 }

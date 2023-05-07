@@ -40,7 +40,7 @@ export function createMovieCardMarkup(movies, genres) {
             </div>
                 </a>
             </div>
-            
+
         </li>`;
     })
     .join('');

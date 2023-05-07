@@ -1,4 +1,3 @@
-
 export function warningMessageMarkup() {
   return `
     <p>
@@ -8,6 +7,3 @@ export function warningMessageMarkup() {
      <p>
     We don't have any results due to your search.</p>`;
 }
-
-
-

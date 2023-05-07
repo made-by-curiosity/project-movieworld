@@ -1,0 +1,48 @@
+.my-library{
+    padding-top: 44px;
+
+    @media screen and (min-width: 768px) {
+        padding-top: 80px;
+    }
+    
+    @media screen and (min-width: 1280px) {
+        padding-top: 117px;
+    }
+}
+
+.my-library__message{
+    margin-bottom: 20px;
+    
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.4; 
+    text-align: center;    
+    color: var(--main-light-color);
+
+    @media screen and (min-width: 768px) {
+        font-size: 24px;
+        line-height: 1.33;
+    }
+    
+    @media screen and (min-width: 1280px) {
+        font-size: 32px;
+        line-height: 1.12;
+    }
+}
+
+.my-library__message--light{
+    color: var(--main-dark-color);
+}
+
+.btn-library{
+    display: block;
+    margin: 0 auto;    
+}
+
+.library-isHidden{
+    display: none;
+    visibility: hidden;
+}
