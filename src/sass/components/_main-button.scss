@@ -90,9 +90,9 @@
   width: 40px;
   height: 40px;
 
-  padding: 14px;
+  // padding: 14px;
 
-  color: var(--main-light-color);
+  // color: var(--main-light-color);
 
   background: var(--btn-gradient);
 
@@ -113,8 +113,6 @@
     background: var(--main-light-color);
 
     border: 1px solid var(--accent-color);
-
-    color: var(--accent-color);
   }
 
   &__light {
