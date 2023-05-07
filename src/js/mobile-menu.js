@@ -9,8 +9,6 @@
       refs.openMenuBtn.getAttribute('aria-expanded') === 'true' || false;
     refs.openMenuBtn.setAttribute('aria-expanded', !isMenuOpen);
     refs.mobileMenu.classList.toggle('is-open');
-
-    // console.log(isMenuOpen);
   };
 
   refs.openMenuBtn.addEventListener('click', onClickBtn);

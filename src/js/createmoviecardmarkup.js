@@ -7,7 +7,8 @@ export async function createMovieCardMarkup(movies) {
   const markup = movies.map(movie => {
     let IMAGE_URL = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
     if (movie.poster_path === null) {
-      IMAGE_URL = '/moviecoverholder.262f5a65.jpg';
+      IMAGE_URL =
+        'https://github.com/made-by-curiosity/project-movieworld/blob/main/src/images/moviecoverholder.jpg?raw=true';
     }
     const year = movie.release_date.slice(0, 4);
     const genresArray = [];
