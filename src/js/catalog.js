@@ -23,6 +23,7 @@ async function onSearchMovies(evt) {
   try {
     const videos = await getSearchMovies(query);
     const { genres } = await getMoviesGenres();
+
     if (videos.results.length === 0) {
       renderWarningMessage();
       return;
