@@ -4,7 +4,7 @@ const API_KEY = 'f1b5155c1184f9f972000fc60d38fc3a';
 // ===== Трендові фільми дня  -https://developers.themoviedb.org/3/trending/get-trending========
 
 export const getDayTrends = async function getDayTrends() {
-  const BASE_URL = 'https://api.themoviedb.org/3/trending/movie/dayy';
+  const BASE_URL = 'https://api.themoviedb.org/3/trending/movie/day';
   const params = {
     api_key: API_KEY,
   };
