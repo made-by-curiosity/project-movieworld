@@ -21,26 +21,6 @@
   justify-content: center;
   height: 100%;
 }
-.show-trailer-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  width: 80px;
-  height: 40px;
-  top: 10px;
-  left: 10px;
-  font-family: 'Roboto';
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.2;
-  background-image: var(--btn-gradient);
-  z-index: 1;
-
-  padding: 2px;
-  border-radius: 50px;
-  transition: background-image 200ms linear;
-}
 
 .close-btn__svg {
   position: absolute;
@@ -68,13 +48,7 @@
   width: 100%;
   height: 100%;
 }
-// .movie-img {
-//   position: absolute;
-//   width: 363px;
-//   height: 318px;
-//   left: 337px;
-//   top: 77px;
-// }
+
 .no-video-msg {
   position: absolute;
   height: 92px;
