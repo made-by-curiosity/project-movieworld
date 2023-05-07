@@ -1,7 +1,15 @@
-<div class="trailer-modal">
-  <button class="show-trailer-btn" data-movie-id="211">Show trailer</button>
+<button
+  type="button"
+  class="btn btn-main btn-main__hero"
+  id="watchTrailerBtn"
+  data-movie-id="278"
+>
+  Watch trailer
+</button>
+
+<div class="trailer-modal hidden">
   <div class="modal-content">
-    <button class="close-btn__svg">
+    <button class="close-btn" onclick="closeTrailerModal()">
       <svg>
         <use href="./images/icons.svg#modaltrailerclose"></use>
       </svg>
@@ -9,9 +17,8 @@
 
     <div class="modal-body">
       <div class="movie-container"></div>
-    </div>
-    <iframe class="trailer-element" frameborder="0" allowfullscreen></iframe>
-    <div class="no-video-msg"></div>
+      <iframe class="trailer-element" frameborder="0" allowfullscreen></iframe>
+      <div class="no-video-msg"></div>
     </div>
   </div>
 </div>
