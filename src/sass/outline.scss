@@ -13,6 +13,10 @@
 
 .black-bgc {
   padding: 20px;
-
   background-color: black;
 }
+
+.section-outline.light-theme {
+  color: var(--main-dark-text-color);
+  background-color: var(--main-light-color);
+};

@@ -9,16 +9,20 @@
         overflow: hidden;
         z-index: -1;
         // transform: translate(150%, 50%);
-    }
+    };
+
     &__input:checked+&__button {
         background-image: var(--stars-gradient);
-    }
+    };
+
     &__input:checked+&__button::after {
         transform: translate(-22px);
+
         @media screen and (min-width: 768px) {
             transform: translate(-34px);
-        }
-    }
+        };
+    };
+
     &__button {
         display: flex;
         align-items: center;
@@ -37,19 +41,20 @@
         transition: background-image 200ms linear;
 
         @media screen and (min-width: 768px) {
-                width: 60;
-                height: 24px;
-                padding: 4px;
-            }
+            width: 60;
+            height: 24px;
+            padding: 4px;
+        };
 
         &__icon {
             position: absolute;
             fill: transparent;
             stroke: aliceblue;
             stroke: #fff;
-        }
+        };
+
         .moon {
-            
+
             width: 10px;
             height: 10px;
             left: 4px;
@@ -60,23 +65,25 @@
             @media screen and (min-width: 768px) {
                 width: 14px;
                 height: 14px;
-            }
-        }
+            };
+        };
+
         .sun {
             opacity: 0;
             width: 10px;
             height: 10px;
             right: 4px;
             transform: translateX(38);
-            transition: transform 200ms ease-in-out, opacity 550ms ease-in ;
-            
-            
+            transition: transform 200ms ease-in-out, opacity 550ms ease-in;
+
+
             @media screen and (min-width: 768px) {
                 width: 14px;
                 height: 14px;
-            }
-        }
-    }
+            };
+        };
+    };
+
     &__button::after {
         content: '';
         position: absolute;
@@ -95,14 +102,16 @@
             top: 3px;
             width: 18px;
             height: 18px;
-        }
-    }
+        };
+    };
+
     &__input:checked+&__button .moon {
         opacity: 0;
         transform: translateX(-38);
-    }
+    };
+
     &__input:checked+&__button .sun {
         opacity: 1;
         transform: translateX(0);
-    }
+    };
 };
