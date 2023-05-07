@@ -33,7 +33,16 @@ function showTrailerModal(trailerUrl, imageUrl) {
 
   const siteTheme = getSiteTheme();
   updateModalBackground(siteTheme);
+
+  trailerElement.contentWindow.postMessage(
+    '{"event":"command","func":"' + 'playVideo' + '"args":""}',
+    '*'
+  );
 }
+
+modal.addEventListener('show.bs.modal', () => {
+  playTrailer();
+});
 
 // Ховання модального вікна з трейлером
 function hideTrailerModal() {
@@ -76,6 +85,12 @@ showTrailerBtn.addEventListener('click', () => {
         const videoKey = videos[0].key;
         const trailerUrl = `https://www.youtube.com/embed/${videoKey}`;
         showTrailerModal(trailerUrl);
+        // Отримання посилання на кнопку відтворення
+        const playButton = modal.querySelector('.show-trailer-btn');
+        // Додавання обробника кліку на кнопку відтворення
+        playButton.addEventListener('click', () => {
+          playTrailer();
+        });
       } else {
         showErrorModal();
       }
@@ -84,6 +99,13 @@ showTrailerBtn.addEventListener('click', () => {
       console.error('Request video error', error);
     });
 });
+
+// function playTrailer() {
+//   trailerElement.contentWindow.postMessage(
+//     '{"event":"command","func":"' + 'playVideo' + '"args":""}',
+//     '*'
+//   );
+// }
 
 // Обробник кліку на кнопці закриття
 modal.querySelector('.close-btn').addEventListener('click', function () {
