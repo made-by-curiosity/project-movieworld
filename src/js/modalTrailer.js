@@ -1,8 +1,6 @@
 const showTrailerBtn = document.querySelector('.show-trailer-btn');
-const movieId = showTrailerBtn.dataset.movieId;
 const modal = document.querySelector('.trailer-modal');
-const trailerElement = modal.querySelector('.trailer');
-const errorMessage = modal.querySelector('.no-video-msg');
+const trailerElement = modal.querySelector('.trailer-element');
 
 // Отримання теми сайту (світла або темна)
 function getSiteTheme() {
@@ -12,64 +10,8 @@ function getSiteTheme() {
   return siteTheme;
 }
 
-// // Функція зміни фону модального вікна
-// function updateModalBackground(theme) {
-//   modal.style.backgroundColor = theme === 'dark' ? '#111111' : '#ffffff';
-// }
-
-// Показ модального вікна з трейлером
-function showTrailerModal(trailerUrl, imageUrl) {
-  trailerElement.setAttribute('src', trailerUrl);
-  modal.classList.add('show');
-
-  const errorText = modal.querySelector('.no-video-msg');
-  if (errorText) {
-    modal.removeChild(errorText);
-  }
-
-  const trailerImage = document.createElement('img');
-  trailerImage.setAttribute('src', imageUrl);
-  trailerElement.append(trailerImage);
-
-  const siteTheme = getSiteTheme();
-  updateModalBackground(siteTheme);
-
-  trailerElement.contentWindow.postMessage(
-    '{"event":"command","func":"' + 'playVideo' + '"args":""}',
-    '*'
-  );
-}
-
-modal.addEventListener('show.bs.modal', () => {
-  playTrailer();
-});
-
-// Ховання модального вікна з трейлером
-function hideTrailerModal() {
-  modal.classList.remove('show');
-  trailerElement.setAttribute('src', '');
-  const trailerImage = trailerElement.querySelector('img');
-  if (trailerImage) {
-    trailerElement.removeChild(trailerImage);
-  }
-
-  const errorText = modal.querySelector('.no-video-img');
-  if (errorText) {
-    modal.removeChild(errorText);
-  }
-}
-
-// Відображення повідомлення про помилку
-function showErrorModal() {
-  const errorText = document.createElement('p');
-  errorText.classList.add('no-video-msg');
-  errorText.textContent =
-    "OOPS... We are very sorry! But we couldn't find the trailer.";
-  modal.appendChild(errorText);
-}
-
-// Обробник кліку на кнопці "Show trailer"
-showTrailerBtn.addEventListener('click', () => {
+// Функція для завантаження трейлера по ідентифікатору фільму
+function loadTrailerById(movieId) {
   fetch(
     `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=f1b5155c1184f9f972000fc60d38fc3a&language=en-US`
   )
@@ -84,13 +26,8 @@ showTrailerBtn.addEventListener('click', () => {
       if (videos.length > 0) {
         const videoKey = videos[0].key;
         const trailerUrl = `https://www.youtube.com/embed/${videoKey}`;
-        showTrailerModal(trailerUrl);
-        // Отримання посилання на кнопку відтворення
-        const playButton = modal.querySelector('.show-trailer-btn');
-        // Додавання обробника кліку на кнопку відтворення
-        playButton.addEventListener('click', () => {
-          playTrailer();
-        });
+        const imageUrl = 'path/to/trailer-image.png';
+        showTrailerModal(trailerUrl, imageUrl);
       } else {
         showErrorModal();
       }
@@ -98,31 +35,96 @@ showTrailerBtn.addEventListener('click', () => {
     .catch(error => {
       console.error('Request video error', error);
     });
+}
+
+// Показ модального вікна з трейлером
+function showTrailerModal(trailerUrl, imageUrl) {
+  trailerElement.setAttribute('src', trailerUrl);
+  modal.style.display = 'block';
+
+  const siteTheme = getSiteTheme();
+  updateModalBackground(siteTheme);
+
+  const errorContainer = modal.querySelector('.error-container');
+  if (errorContainer) {
+    modal.removeChild(errorContainer);
+  }
+
+  const trailerImage = document.createElement('img');
+  trailerImage.setAttribute('src', imageUrl);
+  trailerElement.appendChild(trailerImage);
+
+  trailerElement.contentWindow.postMessage(
+    '{"event":"command","func":"' + 'playVideo' + '","args":""}',
+    '*'
+  );
+
+  // Блокування подальшого поширення події кліку до елементу трейлера
+  trailerElement.addEventListener('click', event => {
+    event.stopPropagation();
+  });
+}
+
+// Ховання модального вікна з трейлером
+function hideTrailerModal() {
+  modal.style.display = 'none';
+  trailerElement.setAttribute('src', '');
+}
+
+// Відображення повідомлення про помилку разом із зображенням
+function showErrorModal() {
+  // Implement your error modal here
+}
+
+// Обробник кліку на кнопці "Show trailer"
+showTrailerBtn.addEventListener('click', () => {
+  const movieId = showTrailerBtn.dataset.movieId;
+  loadTrailerById(movieId);
 });
 
-// function playTrailer() {
-//   trailerElement.contentWindow.postMessage(
-//     '{"event":"command","func":"' + 'playVideo' + '"args":""}',
-//     '*'
-//   );
-// }
+// Ініціалізація бібліотеки Lightbox
+function initializeLightbox() {
+  const lightbox = new SimpleLightbox('.show-trailer-btn', {
+    elements: '.show-trailer-btn',
+    history: false,
+    docClose: false,
+    nav: false,
+    captionsData: 'alt',
+    captionDelay: 250,
+    captions: true,
+    captionSelector: 'self',
+    captionType: 'attr',
+    captionPosition: 'bottom',
+    captionsDataAlt: 'data-title',
+    captionAttribute: 'alt',
+  });
+
+  // Додавання обробника кліку на кнопці "Show trailer" у Lightbox
+  const lightboxItems = lightbox.elements;
+  lightboxItems.forEach(item => {
+    const showTrailerBtn = item;
+    showTrailerBtn.addEventListener('click', event => {
+      event.stopPropagation();
+      const movieId = showTrailerBtn.dataset.movieId;
+      loadTrailerById(movieId);
+    });
+  });
+}
+
+// Ініціалізація бібліотеки Lightbox після завантаження сторінки
+window.addEventListener('DOMContentLoaded', () => {
+  initializeLightbox();
+});
 
 // Обробник кліку на кнопці закриття
-modal.querySelector('.close-btn').addEventListener('click', function () {
+const closeBtn = modal.querySelector('.close-btn');
+closeBtn.addEventListener('click', () => {
   hideTrailerModal();
 });
 
 // Обробник кліку поза модальним вікном
-window.addEventListener('click', function (event) {
+window.addEventListener('click', event => {
   if (event.target === modal) {
     hideTrailerModal();
   }
 });
-
-// Оновлення фону модального вікна при зміні теми сайту
-window
-  .matchMedia('(prefers-color-scheme: dark)')
-  .addEventListener('change', event => {
-    const newTheme = event.matches ? 'dark' : 'light';
-    updateModalBackground(newTheme);
-  });
