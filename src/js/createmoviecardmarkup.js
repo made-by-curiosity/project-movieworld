@@ -1,6 +1,6 @@
 import { checkAverange } from './checkrateaverage';
 
-export function createMovieCardMarkup(movies) {
+export function createMovieCardMarkup(movies, genres) {
   return movies
     .map(movie => {
       let IMAGE_URL = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
@@ -8,6 +8,15 @@ export function createMovieCardMarkup(movies) {
         IMAGE_URL = '/moviecoverholder.262f5a65.jpg';
       }
       const year = movie.release_date.slice(0, 4);
+      const genresArray = [];
+
+      genres.map(genre => {
+        if (movie.genre_ids.includes(genre.id)) {
+          genresArray.push(genre.name);
+        }
+      });
+
+      const movieGenres = genresArray.slice(0, 2).join(', ');
 
       return `
         <li class="movie-gallery__item">
@@ -19,7 +28,9 @@ export function createMovieCardMarkup(movies) {
 			<div class="movie-gallery__thumb">
                 <div class="movie-gallery__info">
                 <p class="movie-gallery__name">${movie.original_title}</p>
-                <p class="movie-gallery__year">${year}</p>
+                <p class="movie-gallery__year"><span>${movieGenres}
+       
+      </span>${year}</p>
                 </div>
                 <p class="movie-gallery__range">
                 <img src="${checkAverange(

@@ -1,4 +1,8 @@
-import { getSearchMovies, getWeeklyTrends } from './fetchmoviedata';
+import {
+  getSearchMovies,
+  getWeeklyTrends,
+  getMoviesGenres,
+} from './fetchmoviedata';
 import { createMovieCardMarkup } from './createmoviecardmarkup';
 import { warningMessageMarkup } from './createwarningmessagemurkup';
 import { refs } from './refs';
@@ -17,18 +21,20 @@ export function onCatalogPage() {
 
     try {
       const videos = await getSearchMovies(query);
+      const { genres } = await getMoviesGenres();
+
       if (videos.results.length === 0) {
         renderWarningMessage();
         return;
       }
-      renderMovies(videos.results);
+      renderMovies(videos.results, genres);
     } catch (error) {
       console.log(error.message);
     }
   }
 
-  function renderMovies(movies) {
-    const markup = createMovieCardMarkup(movies);
+  function renderMovies(movies, genres) {
+    const markup = createMovieCardMarkup(movies, genres);
     refs.movieGalleryEl.insertAdjacentHTML('beforeend', markup);
   }
 
@@ -42,7 +48,8 @@ export function onCatalogPage() {
   async function onWeeklyTrends() {
     try {
       const trendsMovies = await getWeeklyTrends();
-      renderMovies(trendsMovies.results);
+      const { genres } = await getMoviesGenres();
+      renderMovies(trendsMovies.results, genres);
     } catch (error) {
       console.log(error.message);
       renderWarningMessage();
