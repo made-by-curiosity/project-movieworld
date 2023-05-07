@@ -1,0 +1,101 @@
+.tui-pagination {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    margin: 40px 0 0 0;
+     }
+  
+  .tui-page-btn.tui-prev.hide-prev,
+  .tui-page-btn.tui-first.tui-is-disabled,
+  .tui-page-btn.tui-next.hide-next,
+  .tui-page-btn.tui-last.tui-is-disabled,
+  .tui-page-btn.tui-next-is-ellip.change-next,
+  .tui-page-btn.tui-prev-is-ellip.change-prev {
+    display: none;
+  }
+    
+  .tui-pagination .tui-next {
+    margin-left: 12px;
+  }
+  
+  .tui-pagination .tui-prev {
+    margin-right: 12px;
+  }
+  
+  .tui-pagination .tui-page-btn {
+    display: flex;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: #B7B7B7;
+    border: 1px solid #B7B7B7;
+    font-family: 'roboto';
+    margin-left: 16px;
+   }
+  
+  .tui-pagination .tui-is-selected {
+    color: white;
+    background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
+  }
+  
+  .tui-pagination .tui-is-disabled:hover {
+    background: transparent;
+    border: none;
+  }
+  
+  .tui-pagination .hide-first,
+  .tui-pagination .hide-last {
+   background: rgba(247, 247, 247, 0.5);
+  }
+  
+  .tui-pagination .tui-first-is-ellip:hover,
+  .tui-pagination .tui-last-is-ellip:hover,
+  .tui-pagination .hide-last:hover,
+  .tui-pagination .hide-first:hover {
+    background: purple;
+  }
+  
+  .tui-pagination .tui-prev-is-ellip:hover > .tui-ico-ellip,
+  .tui-pagination .tui-next-is-ellip:hover > .tui-ico-ellip,
+  .tui-pagination .hide-first:hover > .tui-ico-first,
+  .tui-pagination .hide-last:hover > .tui-ico-last {
+    fill: plum;
+  }
+  
+  .tui-pagination .tui-is-selected:hover {
+    background: #F5F5F5;
+    color: #282828;
+  }
+  
+  .tui-pagination .tui-ico-ellip {
+    margin-top: 0;
+  }
+  
+  .tui-pagination .tui-first-child.tui-is-selected {
+    border-left: none;
+  }
+  
+  .tui-pagination .tui-ico-prev,
+  .tui-pagination .tui-ico-next,
+  .tui-pagination .tui-ico-first,
+  .tui-pagination .tui-ico-last,
+  .tui-pagination .tui-ico-ellip {
+    background-image: none;
+  }
+  
+  .tui-pagination .tui-ico-ellip,
+  .tui-pagination .tui-ico-first,
+  .tui-pagination .tui-ico-last {
+    width: 16px;
+    height: 16px;
+    fill: green;
+    transition: all 250ms ease-in-out;
+  }
+  
+  .tui-pagination .tui-last-child.tui-is-selected {
+    border-right: 1px solid red;
+  }
