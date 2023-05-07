@@ -1,7 +1,7 @@
 import { getFullMovieInfo } from './fetchmoviedata.js';
 
-watchTrailerBtn.addEventListener('click', () => {
-  const movieId = watchTrailerBtn.dataset.movieId;
+document.getElementById('watchTrailerBtn').addEventListener('click', () => {
+  const movieId = document.getElementById('watchTrailerBtn').dataset.movieId;
   loadTrailerById(movieId);
 });
 
