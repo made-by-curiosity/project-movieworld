@@ -8,6 +8,15 @@
 //   };
 
 //   const response = await axios.get(BASE_URL, { params });
+<<<<<<< Updated upstream
+
+//   const weeklyTrends = await response.data;
+//   console.log('weeklyTrends', weeklyTrends);
+
+//   return weeklyTrends;
+// };
+=======
+>>>>>>> Stashed changes
 
 //   const weeklyTrends = await response.data;
 //   console.log('weeklyTrends', weeklyTrends);
@@ -15,15 +24,19 @@
 //   return weeklyTrends;
 // };
 
+const weeklyTrendsEl = document.querySelector('.films-list')
 
 
 
-
-
+<<<<<<< Updated upstream
 export default function getWeeklyTrends(data) {
   if (!data) {
     return;
   }
+=======
+export default function markUpFilms(data) {
+
+>>>>>>> Stashed changes
 
   return data
     .map(
@@ -36,7 +49,7 @@ export default function getWeeklyTrends(data) {
       }) => {
         let movieGenres = [];
         for (let i = 0; i < genreIds.length; i += 1) {
-          let genre = convertIdInGenre(genreIds[i]);
+          let genre = genreIds[i];
           movieGenres.push(genre);
         }
 
@@ -46,7 +59,11 @@ export default function getWeeklyTrends(data) {
                 <img src="${BASE_URL + posterPath}" alt="Poster of ${title ? title : ''}" />
                 <div class="item__image-containet">
                     <p class="item__text">${title ? title : 'Title unavailable'}</p>
+<<<<<<< Updated upstream
                     <p class="item__text-color">${movieGenres} | ${movieDate ? movieDate.slice(0, 4) : 'Date unavailable'}
+=======
+                  <p class="item__text-color">${movieGenres} | ${movieDate ? movieDate.slice(0, 4) : 'Date unavailable'}
+>>>>>>> Stashed changes
                     </p>
                 </div>
                 {/* <div class="item__icon">
