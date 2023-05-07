@@ -25,7 +25,8 @@ export function onLibraryPage() {
   renderFavoriteMovies();
 
   async function renderFavoriteMovies() {
-    myLibrary.innerHTML = ''; //--очистка галереи фильмов
+    myLibrary.innerHTML = ''; //--очистить галерею фильмов
+    btnLoadMore.classList.remove('library-isHidden'); //--отобразить кнопку Load More
 
     const favoriteMoviesId = getSavedMovies();
     console.log(favoriteMoviesId);
@@ -48,10 +49,14 @@ export function onLibraryPage() {
 
     const markup = await createMovieCardMarkup(movies);
     myLibrary.insertAdjacentHTML('beforeend', markup);
+
+    if (end >= favoriteMoviesId.length) {
+      btnLoadMore.classList.add('library-isHidden');
+    } //-- скрыть кнопку Load More после отображения всех фильмов из Local Storage
   }
 }
 
-//////----------------- main version----------------
+//////----------------- first version----------------
 // async function renderFavoriteMovies() {
 //   const favoriteMoviesId = getSavedMovies();
 //   console.log(favoriteMoviesId);
