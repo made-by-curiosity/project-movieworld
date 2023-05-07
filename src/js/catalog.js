@@ -21,20 +21,20 @@ export function onCatalogPage() {
 
     try {
       const videos = await getSearchMovies(query);
-      const { genres } = await getMoviesGenres();
 
       if (videos.results.length === 0) {
         renderWarningMessage();
         return;
       }
-      renderMovies(videos.results, genres);
+      renderMovies(videos.results);
     } catch (error) {
       console.log(error.message);
     }
   }
 
-  function renderMovies(movies, genres) {
-    const markup = createMovieCardMarkup(movies, genres);
+  async function renderMovies(movies) {
+    const markup = await createMovieCardMarkup(movies);
+
     refs.movieGalleryEl.insertAdjacentHTML('beforeend', markup);
   }
 
@@ -48,8 +48,7 @@ export function onCatalogPage() {
   async function onWeeklyTrends() {
     try {
       const trendsMovies = await getWeeklyTrends();
-      const { genres } = await getMoviesGenres();
-      renderMovies(trendsMovies.results, genres);
+      renderMovies(trendsMovies.results);
     } catch (error) {
       console.log(error.message);
       renderWarningMessage();
