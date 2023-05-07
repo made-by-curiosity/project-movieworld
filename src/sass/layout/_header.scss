@@ -29,12 +29,9 @@
     align-items: center;
     gap: 82px;
     @media screen and (min-width: 768px) {
-      flex-grow: 1;
       gap: 65px;
     }
     @media screen and (min-width: 1280px) {
-      flex-grow: 0;
-      padding-left: 0;
       gap: 300px;
     }
   }
@@ -64,9 +61,6 @@
       align-items: center;
       text-align: center;
 
-      flex: none;
-      order: 1;
-      flex-grow: 0;
       color: var(--main-light-color);
     }
   }
@@ -88,9 +82,7 @@
       text-transform: uppercase;
       /* Grey */
       color: var(--secondary-dark-text-color);
-      flex: none;
-      order: 0;
-      flex-grow: 0;
+
       transition: color 200ms ease-in-out;
 
       &:hover {
