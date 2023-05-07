@@ -8,7 +8,8 @@ export function onLibraryPage() {
   const btnLoadMore = document.querySelector('.btn-loadMore');
 
   btnLoadMore.addEventListener('click', renderFavoriteMovies);
-  let start = 0;
+  const stepSlice = 6;
+  let stepNumber = 1;
 
   /// ----- для теста --- удалить
   // saveMovie(493529);
@@ -29,9 +30,9 @@ export function onLibraryPage() {
     const favoriteMoviesId = getSavedMovies();
     console.log(favoriteMoviesId);
 
-    const stepSlice = 5;
-    let end = start + stepSlice;
-    let sliceMoviesId = favoriteMoviesId.slice(start, end);
+    let end = stepSlice * stepNumber;
+    const sliceMoviesId = favoriteMoviesId.slice(0, end);
+    stepNumber += 1;
     console.log(sliceMoviesId);
 
     if (favoriteMoviesId.length === 0) {
@@ -47,8 +48,6 @@ export function onLibraryPage() {
 
     const markup = await createMovieCardMarkup(movies);
     myLibrary.insertAdjacentHTML('beforeend', markup);
-
-    start += stepSlice;
   }
 }
 
