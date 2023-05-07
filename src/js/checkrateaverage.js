@@ -1,6 +1,9 @@
-const AVERAGE_BAD = '/rangebad.e7154eae.png';
-const AVERAGE_GOOD = '/rangegood.de2bd7fb.png';
-const AVERAGE_GREAT = '/rangegreat.41d4fa5e.png';
+const AVERAGE_BAD =
+  'https://github.com/made-by-curiosity/project-movieworld/blob/main/src/images/rangebad.png?raw=true';
+const AVERAGE_GOOD =
+  'https://github.com/made-by-curiosity/project-movieworld/blob/main/src/images/rangegood.png?raw=true';
+const AVERAGE_GREAT =
+  'https://github.com/made-by-curiosity/project-movieworld/blob/main/src/images/rangegreat.png?raw=true';
 
 export function checkAverange(average) {
   if (average < 5) {

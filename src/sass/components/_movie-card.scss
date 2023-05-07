@@ -74,6 +74,7 @@
   max-width: 180px;
   margin-bottom: 5px;
   text-transform: uppercase;
+  color: var(--main-light-color);
 
   @media screen and (min-width: 768px) {
     max-width: 130px;
@@ -84,12 +85,33 @@
     max-width: 225px;
     margin-bottom: 10px;
   }
-
-  color: var(--main-light-color);
 }
 
 .movie-gallery__year {
+  max-width: 180px;
   color: var(--secondary-dark-text-color);
+
+  @media screen and (min-width: 768px) {
+    max-width: 135px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    max-width: 225px;
+  }
+}
+
+.movie-gallery__year > span::after {
+  display: inline-block;
+  margin-right: 3px;
+  content: '';
+  width: 2px;
+  height: 10px;
+  background-color: var(--secondary-dark-text-color);
+
+  @media screen and (min-width: 1280px) {
+    height: 16px;
+    margin-right: 5px;
+  }
 }
 
 .movie-gallery__range--size {

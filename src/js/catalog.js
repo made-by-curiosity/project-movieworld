@@ -1,4 +1,8 @@
-import { getSearchMovies, getWeeklyTrends } from './fetchmoviedata';
+import {
+  getSearchMovies,
+  getWeeklyTrends,
+  getMoviesGenres,
+} from './fetchmoviedata';
 import { createMovieCardMarkup } from './createmoviecardmarkup';
 import { warningMessageMarkup } from './createwarningmessagemurkup';
 import { refs } from './refs';
@@ -17,6 +21,7 @@ export function onCatalogPage() {
 
     try {
       const videos = await getSearchMovies(query);
+
       if (videos.results.length === 0) {
         renderWarningMessage();
         return;
@@ -27,8 +32,9 @@ export function onCatalogPage() {
     }
   }
 
-  function renderMovies(movies) {
-    const markup = createMovieCardMarkup(movies);
+  async function renderMovies(movies) {
+    const markup = await createMovieCardMarkup(movies);
+
     refs.movieGalleryEl.insertAdjacentHTML('beforeend', markup);
   }
 

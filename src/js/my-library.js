@@ -45,7 +45,7 @@ export function onLibraryPage() {
 
     const movies = await Promise.all(moviesPromises);
 
-    const markup = createMovieCardMarkup(movies);
+    const markup = await createMovieCardMarkup(movies);
     myLibrary.insertAdjacentHTML('beforeend', markup);
 
     start += stepSlice;
