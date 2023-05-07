@@ -47,25 +47,11 @@ function getFullMovieInfo(movieId) {
 
 function showTrailerModal(trailerUrl, imageUrl) {
   trailerElement.setAttribute('src', trailerUrl);
-  modal.classList.add('show');
+  modal.style.display = 'block';
   modal.classList.remove('hidden');
-
-  const errorText = modal.querySelector('.no-video-msg');
-  if (errorText) {
-    modal.removeChild(errorText);
-  }
-
-  const trailerImage = document.createElement('img');
-  trailerImage.setAttribute('src', imageUrl);
-  trailerElement.append(trailerImage);
 
   const siteTheme = getSiteTheme();
   updateModalBackground(siteTheme);
-
-  trailerElement.contentWindow.postMessage(
-    '{"event":"command","func":"' + 'playVideo' + '"args":""}',
-    '*'
-  );
 }
 
 function showErrorModal() {
