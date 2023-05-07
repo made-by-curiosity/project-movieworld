@@ -22,7 +22,7 @@ import {
   getMoviesCountries,
 } from './js/fetchmoviedata';
 import './js/header';
-// import './js/mobile-menu';
+import './js/mobile-menu';
 
 // примеры использования функций получения данных
 // getDayTrends();
