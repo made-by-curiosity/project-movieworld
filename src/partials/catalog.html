@@ -6,6 +6,9 @@
       name="searchQuery"
       autocomplete="off"
       placeholder="Search movies..."
+      required
+      oninvalid="this.setCustomValidity('Please fill field')"
+      oninput="setCustomValidity('')"
     />
     <button type="submit" class="btn-search">
       <svg class="search-form__icon">
