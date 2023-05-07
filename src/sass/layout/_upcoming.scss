@@ -43,6 +43,9 @@
   }
 }
 .box-info {
+  @media screen and (min-width: 768px) {
+    max-width: 629px;
+  }
   @media screen and (min-width: 1280px) {
     max-width: 406px;
     margin-left: 16px;
@@ -100,6 +103,13 @@
   @media screen and (min-width: 1280px) {
     display: flex;
     justify-content: space-between;
+
+    padding-right: 129px;
+  }
+}
+.upcoming__wrapper-info-value {
+  @media screen and (min-width: 1280px) {
+    max-width: 110px;
   }
 }
 .upcoming__information {
