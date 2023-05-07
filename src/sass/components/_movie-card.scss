@@ -92,6 +92,15 @@
   color: var(--secondary-dark-text-color);
 }
 
+.movie-gallery__year > span::after {
+  display: inline-block;
+  margin-right: 5px;
+  content: '';
+  width: 2px;
+  height: 18px;
+  background-color: var(--secondary-dark-text-color);
+}
+
 .movie-gallery__range--size {
   width: 86px;
 

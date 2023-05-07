@@ -22,18 +22,19 @@ async function onSearchMovies(evt) {
 
   try {
     const videos = await getSearchMovies(query);
+    const { genres } = await getMoviesGenres();
     if (videos.results.length === 0) {
       renderWarningMessage();
       return;
     }
-    renderMovies(videos.results);
+    renderMovies(videos.results, genres);
   } catch (error) {
     console.log(error.message);
   }
 }
 
-function renderMovies(movies) {
-  const markup = createMovieCardMarkup(movies);
+function renderMovies(movies, genres) {
+  const markup = createMovieCardMarkup(movies, genres);
   refs.movieGalleryEl.insertAdjacentHTML('beforeend', markup);
 }
 
@@ -47,10 +48,8 @@ function renderWarningMessage() {
 async function onWeeklyTrends() {
   try {
     const trendsMovies = await getWeeklyTrends();
-    renderMovies(trendsMovies.results);
-
     const { genres } = await getMoviesGenres();
-    returnGenresList(genres);
+    renderMovies(trendsMovies.results, genres);
   } catch (error) {
     console.log(error.message);
     renderWarningMessage();
@@ -58,20 +57,3 @@ async function onWeeklyTrends() {
 }
 
 onWeeklyTrends();
-
-// ===============Повернення строки з жанрами по id для розмітки=======
-
-function returnGenresList(genres) {
-  console.log(genres);
-}
-
-export function checkGenresById(genresIds) {
-  console.log(genresIds);
-  return 'Adventure';
-}
-
-//  genres.map(genre => {
-//    if (genresIds.includes(genre.id)) {
-//      console.log(genre.name);
-//    }
-//  });
