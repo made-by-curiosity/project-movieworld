@@ -6,11 +6,24 @@
       name="searchQuery"
       autocomplete="off"
       placeholder="Search movies..."
+      required
+      oninvalid="this.setCustomValidity('Please fill field')"
+      oninput="setCustomValidity('')"
     />
-    <button type="submit" class="btn-search"></button>
+    <button type="submit" class="btn-search">
+      <svg class="search-form__icon">
+        <use href="./images/icons.svg#icon-search"></use>
+      </svg>
+    </button>
   </form>
   <ul class="movie-gallery__list"></ul>
-  <img src="./images/rangebad.png" alt="range bad" />
-  <img src="./images/rangegood.png" alt="range" />
-  <img src="./images/rangegreat.png" alt="range" />
+  <div class="movie-gallery__message"></div>
+  <img src="./images/rangebad.png" alt="range bad" style="display: none" />
+  <img src="./images/rangegood.png" alt="range good" style="display: none" />
+  <img src="./images/rangegreat.png" alt="range great" style="display: none" />
+  <img
+    src="./images/moviecoverholder.jpg"
+    alt="movie cover holder"
+    style="display: none"
+  />
 </section>

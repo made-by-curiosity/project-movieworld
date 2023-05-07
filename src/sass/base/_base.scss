@@ -6,11 +6,16 @@ body {
   background-color: var(--main-dark-color);
 }
 
+body.light-theme, body.light-theme a {
+  color: var(--header-bg-color);
+  background-color: var(--main-light-color);
+}
+
 img {
   max-width: 100%;
   height: auto;
   display: block;
-}
+} 
 
 button {
   display: inline-block;
