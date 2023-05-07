@@ -27,7 +27,7 @@
   background-color: var(--main-dark-color);
   color: var(--secondary-dark-text-color);
 
-  border: 1px solid #ffffff;
+  border: 1px solid var(--main-light-color);
   border-radius: 8px;
   outline: none;
 
@@ -39,6 +39,11 @@
     width: 334px;
     height: 48px;
   }
+}
+
+.search-form__input.light-theme {
+  border: 1px solid var(--secondary-light-text-color);
+  background-color: var(--main-light-color);
 }
 
 .btn-search {
@@ -62,6 +67,10 @@
     width: 20px;
     height: 20px;
   }
+}
+
+.search-form__icon.light-theme {
+  fill: var(--main-dark-color);
 }
 
 .movie-gallery__message {
