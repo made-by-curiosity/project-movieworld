@@ -7,14 +7,14 @@ export function onLibraryPage() {
   const noMoviesMessage = document.querySelector('.no-movies-message');
 
   /// ----- для теста --- удалить
-  saveMovie(493529);
-  saveMovie(447365);
-  saveMovie(758323);
-  saveMovie(640146);
-  saveMovie(934433);
-  saveMovie(420808);
-  saveMovie(502356);
-  saveMovie(649609);
+  // saveMovie(493529);
+  // saveMovie(447365);
+  // saveMovie(758323);
+  // saveMovie(640146);
+  // saveMovie(934433);
+  // saveMovie(420808);
+  // saveMovie(502356);
+  // saveMovie(649609);
   /////------- удалить выше
 
   renderFavoriteMovies();
