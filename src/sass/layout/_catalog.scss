@@ -44,6 +44,7 @@
 .search-form__input.light-theme {
   border: 1px solid var(--secondary-light-text-color);
   background-color: var(--main-light-color);
+  color: var(--secondary-light-text-color);
 }
 
 .btn-search {
@@ -77,6 +78,8 @@
   text-align: center;
   margin-top: 48px;
 
+  color: var(--main-light-color);
+
   font-size: 20px;
   line-height: 1.4;
 
@@ -89,4 +92,8 @@
     font-size: 32px;
     line-height: 1.12;
   }
+}
+
+.movie-gallery__message.light-theme {
+  color: var(--main-dark-color);
 }
