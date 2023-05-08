@@ -35,7 +35,7 @@ export async function createMovieCardMarkup(movies) {
                 <a href="#" class="movie-gallery__link" data-id='${movie.id}'>
                     <img src="${IMAGE_URL}" alt="${
       movie.original_title
-    }" class="movie-gallery__image"/>
+    }" loading="lazy" class="movie-gallery__image"/>
 			<div class="movie-gallery__thumb">
                 <div class="movie-gallery__info">
                 <p class="movie-gallery__name">${movie.original_title}</p>
