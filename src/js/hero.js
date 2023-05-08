@@ -42,8 +42,9 @@ async function fetchMovie() {
 
 async function getHeroMarkup() {
   try {
-    const { results } = await getDayTrends()
-    return results.reduce((markup, results) => markup + createMarkup(results), "")
+    const { results } = await getDayTrends();
+    const showMovie = results.slice(0, 5);
+    return showMovie.reduce((markup, results) => markup + createMarkup(results), "")
   }
   catch (err) {
           onError(err);

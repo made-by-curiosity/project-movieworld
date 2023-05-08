@@ -90,7 +90,7 @@
         color: var(--main-light-color);
 
         @media screen and (min-width: 768px) {
-            max-width: 367px;
+            max-width: 330px;
             font-size: 44px;
             line-height: 1.18;
             }
@@ -104,17 +104,17 @@
 
     &__text {
         margin-bottom: 16px;
-        max-width: 165px;
+        max-width: 128px;
         line-height: 1.14;
         align-items: center;
 
         @media screen and (min-width: 768px) {
-                max-width: 367px;
+                max-width: 254px;
                 margin-bottom: 32px;
             }
 
         @media screen and (min-width: 1280px) {
-            max-width: 464px;
+            max-width: 367px;
             font-size: 16px;
             line-height: 1.18;
     }    
@@ -133,7 +133,7 @@
     }
 
     &__cover {
-        background-position: bottom;;
+        background-position: bottom;
         background-image: linear-gradient(87.8deg, #0E0E0E 15.61%, rgba(14, 14, 14, 0) 60.39%), url(/src/images/hero/hero-mobile-1.jpg);
         background-size: cover;
         width: 100%;
