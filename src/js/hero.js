@@ -1,7 +1,33 @@
 import { getDayTrends } from "./fetchmoviedata";
 import { checkAverange } from "./checkrateaverage.js";
+import Swiper, { Navigation, Pagination } from 'swiper';
 
-const section = document.querySelector(".hero")
+  
+const swiper = new Swiper('.swiper', {
+  modules: [Navigation, Pagination],
+  // Optional parameters
+  loop: true,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+});
+
+
+const section = document.querySelector(".hero");
+const swiperBox = document.querySelector(".swiper-wrapper")
 
 window.addEventListener('load', fetchMovie)
 
@@ -17,7 +43,7 @@ async function fetchMovie() {
 async function getHeroMarkup() {
   try {
     const { results } = await getDayTrends()
-    return createMarkup(results[1])
+    return results.reduce((markup, results) => markup + createMarkup(results), "")
   }
   catch (err) {
           onError(err);
@@ -25,19 +51,21 @@ async function getHeroMarkup() {
 }
 
 function createMarkup({ title, overview, backdrop_path, vote_average }) {
-  const imageUrl = `url(https://image.tmdb.org/t/p/original${backdrop_path})`;
-  const gradient = "linear-gradient(87.8deg, #0E0E0E 15.61%, rgba(14, 14, 14, 0) 60.39%)";
+  let imageUrl = `https://image.tmdb.org/t/p/original${backdrop_path}`;
+  // const gradient = "linear-gradient(87.8deg, #0E0E0E 15.61%, rgba(14, 14, 14, 0) 60.39%)";
 
-  section.style.backgroundImage = `${gradient}, ${imageUrl}`;
+  // section.style.backgroundImage = `${gradient}, ${imageUrl}`;
 
-    return `<div class="container"><h1 class="hero__title">${title}</h1><img src='${checkAverange(vote_average)}' class="hero__rating"/>
+    return `<div class="swiper-slide"><img src="${imageUrl}" alt="${
+      title
+    }" class="hero__image"/><div class="hero__container"><h1 class="hero__title">${title}</h1><img src='${checkAverange(vote_average)}' class="hero__rating"/>
         <p class="hero__text">${overview}</p>
-        <button class="btn btn-main hero__btn">Watch trailer</button></div>`
+        <button class="btn btn-main hero__btn">Watch trailer</button></div></div>`
 }
 
 function updateHero(markup) {
   if (markup !== undefined)
-    section.insertAdjacentHTML("beforeend", markup)
+    swiperBox.insertAdjacentHTML("afterbegin", markup)
 }
 
 function onError(err) {
@@ -52,7 +80,7 @@ function onError(err) {
 }
 
 
-const markupCover = `<div class="container">
+const markupCover = `<div class="hero__container">
         <h1 class="hero__title">Let’s Make Your Own Cinema</h1>
         <p class="hero__text">Is a guide to creating a personalized movie theater experience. You'll need a projector,
             screen, and speakers.</p>
