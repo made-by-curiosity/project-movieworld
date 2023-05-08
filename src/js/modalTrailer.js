@@ -27,6 +27,9 @@ async function loadTrailerById(movieId) {
   } catch (error) {
     console.error('Request video error', error);
   }
+
+  const closeButton = document.querySelector('.close-btn__svg');
+  closeButton.style.display = 'block';
 }
 
 function showTrailerModal(trailerUrl, imageUrl) {
@@ -45,13 +48,6 @@ function showNoVideoMessage(posterUrl) {
   modal.classList.remove('hidden');
 }
 
-// function closeTrailerModal() {
-//   trailerElement.setAttribute('src', '');
-//   noVideoMsg.textContent = '';
-//   movieContainer.innerHTML = '';
-//   modal.classList.add('hidden');
-// }
-
 const closeBtn = document.querySelector('.close-btn__svg');
 
 closeBtn.addEventListener('click', closeTrailerModal);
@@ -61,4 +57,15 @@ function closeTrailerModal() {
   noVideoMsg.textContent = '';
   movieContainer.innerHTML = '';
   modal.style.display = 'none';
+
+  const closeButton = document.querySelector('.close-btn__svg');
+  closeButton.style.display = 'none';
 }
+
+window.addEventListener('click', function (event) {
+  const trailerModal = document.querySelector('.trailer-modal');
+
+  if (event.target === trailerModal) {
+    closeTrailerModal();
+  }
+});
