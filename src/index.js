@@ -1,4 +1,6 @@
 import { refs } from './js/refs';
+import './js/hero'
+import './js/catalog.js';
 import { onLibraryPage } from './js/my-library';
 import { onCatalogPage } from './js/catalog';
 import {
