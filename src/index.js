@@ -21,6 +21,7 @@ import {
 } from './js/fetchmoviedata';
 import './js/header';
 import './js/mobile-menu';
+import './js/weeklyTrends';
 
 // примеры использования функций получения данных
 // getDayTrends();
