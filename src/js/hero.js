@@ -2,7 +2,6 @@ import { getDayTrends } from "./fetchmoviedata";
 import { checkAverange } from "./checkrateaverage.js";
 import Swiper, { Navigation, Pagination } from 'swiper';
 
-  
 const swiper = new Swiper('.swiper', {
   modules: [Navigation, Pagination],
   // Optional parameters
@@ -24,6 +23,7 @@ const swiper = new Swiper('.swiper', {
     el: '.swiper-scrollbar',
   },
 });
+
 
 
 const section = document.querySelector(".hero");
@@ -50,17 +50,14 @@ async function getHeroMarkup() {
         }
 }
 
-function createMarkup({ title, overview, backdrop_path, vote_average }) {
+function createMarkup({ title, overview, backdrop_path, vote_average, id }) {
   let imageUrl = `https://image.tmdb.org/t/p/original${backdrop_path}`;
-  // const gradient = "linear-gradient(87.8deg, #0E0E0E 15.61%, rgba(14, 14, 14, 0) 60.39%)";
-
-  // section.style.backgroundImage = `${gradient}, ${imageUrl}`;
 
     return `<div class="swiper-slide"><img src="${imageUrl}" alt="${
       title
     }" class="hero__image"/><div class="hero__container"><h1 class="hero__title">${title}</h1><img src='${checkAverange(vote_average)}' class="hero__rating"/>
         <p class="hero__text">${overview}</p>
-        <button class="btn btn-main hero__btn">Watch trailer</button></div></div>`
+        <button class="btn btn-main hero__btn" data-id="${id}">Watch trailer</button></div></div>`
 }
 
 function updateHero(markup) {
