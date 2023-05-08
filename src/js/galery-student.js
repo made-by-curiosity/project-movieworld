@@ -77,11 +77,7 @@ refs = {
 const changeInValue = value => {
 	counterValue += value;
 
-																console.log(counterValue);
-																console.log(team);
-
 	const newCard = creatingNewCard(team[counterValue]);
-																console.log(newCard);
 	refs.galery.innerHTML = newCard;
 
 	refs.downBtn.disabled = counterValue === 0 ? true : false;
@@ -90,7 +86,7 @@ const changeInValue = value => {
 
 let counterValue = 0;
 refs.downBtn.disabled = true;
-// changeInValue(0);	
+changeInValue(0);	
 
 function creatingNewCard(item) {
 	const { name, dev, photo } = item;
