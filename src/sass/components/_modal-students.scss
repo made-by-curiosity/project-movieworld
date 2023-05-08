@@ -1,4 +1,4 @@
-.backdrop {
+.backdrop-modal {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -12,12 +12,12 @@
 		opacity var(--time-animation) var(--timing-function);
 }
 
-.backdrop.js-hidden {
+.backdrop-modal.js-hidden {
 	pointer-events: none;
 	opacity: 0;
 }
 
-.backdrop.js-hidden .modal-team {
+.backdrop-modal.js-hidden .modal-team {
 	opacity: 0;
 	transform: translate(-50%, -50%) scale(0);
 }
