@@ -95,7 +95,8 @@ function onEscPress(event) {
 }
 
 
-// const addToLibraryBtn = document.querySelector('.btn-lib');
+ const addToLibraryBtn = document.querySelector('.btn-lib');
+ console.log("ss", addToLibraryBtn);
 
 // addToLibraryBtn.addEventListener('click', () => {
 //     saveMovie(movieId);
