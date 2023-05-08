@@ -54,6 +54,21 @@
     }
 }
 
+.swiper-pagination.light-theme >* {
+
+    @media screen and (min-width: 768px) {
+    color: var(--secondary-light-text-color);
+    border: 1px solid #595959;
+    }
+}
+
+.swiper-pagination.light-theme > .swiper-pagination-bullet-active{
+
+    @media screen and (min-width: 768px) {
+    border: inherit
+    }
+}
+
 .hero {
     position: relative;
 
