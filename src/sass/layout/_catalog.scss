@@ -1,6 +1,5 @@
 .catalog {
   padding-top: 20px;
-  padding-bottom: 20px;
 }
 
 .search-form {
@@ -96,4 +95,68 @@
 
 .movie-gallery__message.light-theme {
   color: var(--main-dark-color);
+}
+
+// =====================TuiPagination css
+
+.tui-pagination {
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  margin: 40px 0 0 0;
+}
+
+.tui-page-btn,
+.tui-page-btn.tui-is-disabled,
+.tui-page-btn,
+.tui-page-btn.tui-is-disabled,
+.tui-page-btn.tui-next-is-ellip.change-next,
+.tui-page-btn.tui-prev-is-ellip.change-prev {
+  display: none;
+}
+
+.tui-pagination {
+  margin-left: 12px;
+}
+
+.tui-pagination {
+  margin-right: 12px;
+}
+
+.tui-pagination .tui-page-btn {
+  display: flex;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #b7b7b7;
+  border: 1px solid #b7b7b7;
+  font-family: 'roboto';
+  margin-left: 16px;
+}
+
+.tui-pagination .tui-is-selected {
+  color: white;
+  background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
+}
+
+.tui-pagination .tui-is-disabled:hover {
+  background: transparent;
+  border: none;
+}
+
+.tui-pagination .tui-is-selected:hover {
+  background: #f5f5f5;
+  color: #282828;
+}
+
+.tui-pagination .tui-ico-ellip {
+  margin-top: 0;
+}
+
+.tui-pagination .tui-first-child.tui-is-selected {
+  border-left: none;
 }
