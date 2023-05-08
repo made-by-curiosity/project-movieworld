@@ -43,7 +43,7 @@ function onOpenModalMovie () {
             <img class="modal-movie__poster js-theme" src="${IMAGE_SRC}" alt="movie image">
         </div>
         <div class="modal-movie__info">
-            <h2 class="modal-movie__title">${original_title}</h2>
+            <h2 class="modal-movie__title js-theme">${original_title}</h2>
             <div class="modal-movie__info-wrap">
                 <div class="modal-movie__info-title">
                     <p class="info-title__paragraph js-theme">Vote / Votes</p>
@@ -51,16 +51,20 @@ function onOpenModalMovie () {
                     <p class="info-title__paragraph js-theme">Genre</p>
                 </div>
                 <div class="modal-movie__info-value">
-                    <p class="info-value__paragraph js-theme"><span class="paragraph-span">${vote_average}</span>/<span class="paragraph-span">${vote_count}</span></p>
+                    <p class="info-value__paragraph js-theme">
+                    <span class="paragraph-span">${vote_average}</span>
+                    /
+                    <span class="paragraph-span">${vote_count}</span>
+                    </p>
                     <p class="info-value__paragraph js-theme">${popularity}</p>
                     <p class="info-value__paragraph js-theme">${genres}</p>
                 </div>
             </div>
-            <div class="modal-movie__info-about js-theme">
+            <div class="modal-movie__info-about">
                 <h3 class="title-about js-theme">About</h3>
                 <p class="paragraph-about js-theme">${overview}</p>
             </div>
-            <div class="modal-movie__button-wrap js-theme">
+            <div class="modal-movie__button-wrap">
                 <button class="btn-lib btn js-theme" type="button" id="${movieId}">
                     Add to my library
                 </button>
