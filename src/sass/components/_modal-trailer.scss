@@ -15,6 +15,9 @@
   box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
   border-radius: 20px;
 }
+.trailer-modal.light-theme {
+  background-color: var(--main-light-color);
+}
 
 .modal-content {
   display: flex;
@@ -38,6 +41,9 @@
   background-color: rgba(0, 0, 0, 0);
   opacity: 1;
   transition: opacity 0.3s ease;
+}
+.close-btn__svg.light-theme {
+  fill: var(--main-dark-color);
 }
 
 .close-btn__svg:hover,
