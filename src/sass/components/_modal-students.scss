@@ -1,22 +1,21 @@
-// .backdrop {
-// 	position: fixed;
-// 	top: 0;
-// 	left: 0;
+.backdrop {
+	position: fixed;
+	top: 0;
+	left: 0;
 
-// 	width: 100%;
-// 	height: 100%;
-// 	// z-index: 998;
+	width: 100%;
+	height: 100%;
 
-// 	background-color: rgba(255, 255, 255, 0.2);
-// 	opacity: 1;
-// 	transition:
-// 		opacity var(--time-animation) var(--timing-function);
-// }
+	background-color: rgba(255, 255, 255, 0.2);
+	opacity: 1;
+	transition:
+		opacity var(--time-animation) var(--timing-function);
+}
 
-// .backdrop.js-hidden {
-// 	pointer-events: none;
-// 	opacity: 0;
-// }
+.backdrop.js-hidden {
+	pointer-events: none;
+	opacity: 0;
+}
 
 .backdrop.js-hidden .modal-team {
 	opacity: 0;
@@ -42,14 +41,14 @@
 
 	@media screen and (min-width: 768px) {
 		width: 704px;
-		padding: 44px;
+		padding: 28px;
 
 		border-radius: 16px;
 	}
 
 	@media screen and (min-width: 1280px) {
 		width: 846px;
-		padding: 60px;
+		padding: 40px;
 
 		border-radius: 20px;
 	}
@@ -75,26 +74,46 @@
 	font-size: 20px;
 }
 
+.modal-team__card {
+	padding: 12px;
+
+	@media screen and (min-width: 768px) {
+		padding: 16px;
+	}
+	
+	@media screen and (min-width: 1280px) {
+		padding: 20px;
+	}
+}
+
 .modal-team__dev {
-	width: 248px;
-	height: 315px;
+	width: 172px;
+	// height: 315px;
+	background-color: green;
 
 	border-radius: 5px;
 
 	@media screen and (min-width: 768px) {
-		width: 294px;
-		// height: 400px;
+		width: 204px;
 	}
+
 	@media screen and (min-width: 1280px) {
-		width: 375px;
-		// height: 478px;
+		width: 264px;
 		box-shadow: 1px 1px 24px 2px rgba(1, 1, 1, 0.45);
 	}
 }
 
 .modal-team__dev-info {
-	padding: 30px 32px;
+	padding: 12px;
 	text-align: center;
+
+	@media screen and (min-width: 768px) {
+		padding: 16px;
+	}
+	
+	@media screen and (min-width: 1280px) {
+		padding: 20px;
+	}
 }
 
 .modal-team__dev-head {
@@ -115,6 +134,8 @@
 }
 
 .modal-team__dev-text {
+	padding: 8px;
+	
 	font-weight: 500;
 	color: var(--secondary-dark-text-color);
 
@@ -122,6 +143,8 @@
 	line-height: 1.14;
 
 	@media screen and (min-width: 1280px) {
+		padding: 12px;
+
 		font-size: 16px;
 		line-height: 1.19;
 	}
@@ -132,6 +155,8 @@
 	position: absolute;
 	justify-content: center;
 	align-items: center;
+
+	padding: 0;
 
 	top: 24px;
 	right: 24px;

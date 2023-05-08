@@ -5,12 +5,6 @@
 		closeTeamModal: document.querySelector('.js-close-modal-team'),
 	}
 	
-// refs.teamModal.classList.toggle('js-hidden');
-	// const onClickBtnOpen = () => {
-  //   const isFormOpen = refs.openTeamModal.getAttribute('aria-expanded') === 'true' || false;
-  //   refs.openTeamModal.setAttribute('aria-expanded', !isFormOpen);
-	// 	refs.teamModal.classList.toggle('js-hidden');
-  // };
 	const onClickBtnOpen = () => {
 		refs.teamModal.classList.remove('js-hidden');
   };
