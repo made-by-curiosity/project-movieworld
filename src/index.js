@@ -22,7 +22,7 @@ import {
 import './js/header';
 import './js/mobile-menu';
 import './js/weeklyTrends';
- import './js/modal-movie';
+import './js/modal-movie';
 // примеры использования функций получения данных
 // getDayTrends();
 // getWeeklyTrends();

@@ -1,6 +1,5 @@
 import { getFullMovieInfo } from "./fetchmoviedata";
-import axios from "axios";
-// import { movieGalleryEl } from "./createmoviecardmarkup";
+import { saveMovie } from "./local-storage-service"
 
 const openModalMovie = document.querySelector(".movie-gallery__list");
 const backdrop = document.querySelector('.js-backdrop');
@@ -62,7 +61,7 @@ function onOpenModalMovie () {
                 <p class="paragraph-about">${overview}</p>
             </div>
             <div class="modal-movie__button-wrap">
-                <button class="btn-lib btn" type="button">
+                <button class="btn-lib btn" type="button" id="${movieId}">
                     Add to my library
                 </button>
             </div>
@@ -73,13 +72,6 @@ function onOpenModalMovie () {
       console.error(error);
     });
 }
-
-// function onCloseModalMovie() {
-//   window.removeEventListener('keydown', onEscPress);
-//   document.body.classList.remove('show-modal-movie');
-//   const modalContainer = document.querySelector('.modal-movie.container');
-//   modalContainer.innerHTML = "";
-// }
 
 function onCloseModalMovie() {
   window.removeEventListener('keydown', onEscPress);
@@ -101,3 +93,17 @@ function onEscPress(event) {
         onCloseModalMovie();
     }
 }
+
+
+// const addToLibraryBtn = document.querySelector('.btn-lib');
+
+// addToLibraryBtn.addEventListener('click', () => {
+//     saveMovie(movieId);
+// });
+
+// function onCloseModalMovie() {
+//   window.removeEventListener('keydown', onEscPress);
+//   document.body.classList.remove('show-modal-movie');
+//   const modalContainer = document.querySelector('.modal-movie.container');
+//   modalContainer.innerHTML = "";
+// }
