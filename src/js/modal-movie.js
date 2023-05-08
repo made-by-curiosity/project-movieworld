@@ -4,10 +4,9 @@ import { saveMovie } from "./local-storage-service"
 const openModalMovie = document.querySelector(".movie-gallery__list");
 const backdrop = document.querySelector('.js-backdrop');
 const closeModalMovie = document.querySelector('[data-action="close-modal-movie"]');
-
+const movieGalleryEl = document.querySelector(".movie-gallery__list");
 let movieId;
 
-const movieGalleryEl = document.querySelector(".movie-gallery__list");
 
 movieGalleryEl.addEventListener('click', e => {
   e.preventDefault();
@@ -98,26 +97,9 @@ function onEscPress(event) {
     }
 }
 
-
 //  const addToLibraryBtn = document.querySelector('.btn-lib');
 //  console.log("ss", addToLibraryBtn);
 
 // addToLibraryBtn.addEventListener('click', () => {
 //     saveMovie(movieId);
 // });
-
-
-
-
-
-
-
-
-
-
-// function onCloseModalMovie() {
-//   window.removeEventListener('keydown', onEscPress);
-//   document.body.classList.remove('show-modal-movie');
-//   const modalContainer = document.querySelector('.modal-movie.container');
-//   modalContainer.innerHTML = "";
-// }
