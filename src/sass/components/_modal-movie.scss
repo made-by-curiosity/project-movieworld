@@ -28,6 +28,8 @@ body.show-modal-movie .modal-movie__backdrop {
     background-color: var(--main-dark-color);
 }
 
+
+
 @media screen and (min-width: 320px) and (max-width: 767px) {
     .modal-movie {
         padding-top: 52px;  
@@ -364,6 +366,44 @@ body.show-modal-movie .modal-movie__backdrop {
         fill: var(--main-light-text-color); 
     }
 
-    .modal-movie.light-theme.js-theme {
+
+
+
+
+    // light them ==========================================
+
+
+
+
+    .modal-movie.light-theme {
         background-color: var(--main-light-color);
+        box-shadow: 1px 1px 14px 4px rgba(0, 0, 0, 0.22);
+    }
+    
+    .info-title__paragraph.light-them {
+        color: var(--main-dark-color);
+    }
+
+    .info-value__paragraph.light-theme {
+        color: var(--main-dark-color);
+    }
+
+    .title-about.light-theme {
+        color: var(--main-dark-color);
+    }
+
+    .paragraph-about.light-theme {
+        color: var(--main-dark-color);
+    }
+
+    .modal-movie__poster.js-theme {
+        box-shadow: 1px 1px 24px 2px rgba(1, 1, 1, 0.45)
+    }
+
+    .btn.light-theme {
+        color:var(--main-dark-color);
+    }
+
+    .modal-movie__button-colse.light-theme {
+        fill: var(--main-dark-color);
     }

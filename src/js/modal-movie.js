@@ -35,33 +35,33 @@ function onOpenModalMovie () {
       const popularity = fullMovieInfo.popularity;
       const genres = fullMovieInfo.genres.map((genre) => genre.name).join(", ");
       const overview = fullMovieInfo.overview;
-      const IMAGE_SRC = fullMovieInfo.poster_path ? `https://image.tmdb.org/t/p/original${fullMovieInfo.poster_path}` : 'https://cdn.pixabay.com/photo/2019/04/24/21/55/cinema-4153289__340.jpg';
+      const IMAGE_SRC = fullMovieInfo.poster_path ? `https://image.tmdb.org/t/p/original${fullMovieInfo.poster_path}` : 'https://raw.githubusercontent.com/made-by-curiosity/project-movieworld/main/src/images/moviecoverholder.jpg';
       const modalContainer = document.querySelector('.modal-movie.container');
       
       modalContainer.insertAdjacentHTML('beforeend', `
         <div class="modal-movie__poster-wrap" data-modal="modal-movie">
-            <img class="modal-movie__poster" src="${IMAGE_SRC}" alt="movie image">
+            <img class="modal-movie__poster js-theme" src="${IMAGE_SRC}" alt="movie image">
         </div>
         <div class="modal-movie__info">
             <h2 class="modal-movie__title">${original_title}</h2>
             <div class="modal-movie__info-wrap">
                 <div class="modal-movie__info-title">
-                    <p class="info-title__paragraph">Vote / Votes</p>
-                    <p class="info-title__paragraph">Popularity</p>
-                    <p class="info-title__paragraph">Genre</p>
+                    <p class="info-title__paragraph js-theme">Vote / Votes</p>
+                    <p class="info-title__paragraph js-theme">Popularity</p>
+                    <p class="info-title__paragraph js-theme">Genre</p>
                 </div>
                 <div class="modal-movie__info-value">
-                    <p class="info-value__paragraph"><span class="paragraph-span">${vote_average}</span>/<span class="paragraph-span">${vote_count}</span></p>
-                    <p class="info-value__paragraph">${popularity}</p>
-                    <p class="info-value__paragraph">${genres}</p>
+                    <p class="info-value__paragraph js-theme"><span class="paragraph-span">${vote_average}</span>/<span class="paragraph-span">${vote_count}</span></p>
+                    <p class="info-value__paragraph js-theme">${popularity}</p>
+                    <p class="info-value__paragraph js-theme">${genres}</p>
                 </div>
             </div>
-            <div class="modal-movie__info-about">
-                <h3 class="title-about">About</h3>
-                <p class="paragraph-about">${overview}</p>
+            <div class="modal-movie__info-about js-theme">
+                <h3 class="title-about js-theme">About</h3>
+                <p class="paragraph-about js-theme">${overview}</p>
             </div>
-            <div class="modal-movie__button-wrap">
-                <button class="btn-lib btn" type="button" id="${movieId}">
+            <div class="modal-movie__button-wrap js-theme">
+                <button class="btn-lib btn js-theme" type="button" id="${movieId}">
                     Add to my library
                 </button>
             </div>
@@ -95,12 +95,21 @@ function onEscPress(event) {
 }
 
 
- const addToLibraryBtn = document.querySelector('.btn-lib');
- console.log("ss", addToLibraryBtn);
+//  const addToLibraryBtn = document.querySelector('.btn-lib');
+//  console.log("ss", addToLibraryBtn);
 
 // addToLibraryBtn.addEventListener('click', () => {
 //     saveMovie(movieId);
 // });
+
+
+
+
+
+
+
+
+
 
 // function onCloseModalMovie() {
 //   window.removeEventListener('keydown', onEscPress);
