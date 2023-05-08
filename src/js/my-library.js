@@ -8,8 +8,9 @@ export function onLibraryPage() {
   const btnLoadMore = document.querySelector('.btn-loadMore');
 
   btnLoadMore.addEventListener('click', renderFavoriteMovies);
-  const stepSlice = 6;
-  let stepNumber = 1;
+  const itemsOnPage = 6;
+  let page = 1;
+  let start = 0;
 
   /// ----- для теста --- удалить
   // saveMovie(493529);
@@ -25,15 +26,12 @@ export function onLibraryPage() {
   renderFavoriteMovies();
 
   async function renderFavoriteMovies() {
-    myLibrary.innerHTML = ''; //--очистить галерею фильмов
-    btnLoadMore.classList.remove('library-isHidden'); //--отобразить кнопку Load More
-
     const favoriteMoviesId = getSavedMovies();
     console.log(favoriteMoviesId);
 
-    let end = stepSlice * stepNumber;
-    const sliceMoviesId = favoriteMoviesId.slice(0, end);
-    stepNumber += 1;
+    let end = start + itemsOnPage;
+    const sliceMoviesId = favoriteMoviesId.slice(start, end);
+
     console.log(sliceMoviesId);
 
     if (favoriteMoviesId.length === 0) {
@@ -49,6 +47,13 @@ export function onLibraryPage() {
 
     const markup = await createMovieCardMarkup(movies);
     myLibrary.insertAdjacentHTML('beforeend', markup);
+
+    if (favoriteMoviesId.length > itemsOnPage) {
+      btnLoadMore.classList.remove('library-isHidden');
+    }
+
+    start += itemsOnPage;
+    page += 1;
 
     if (end >= favoriteMoviesId.length) {
       btnLoadMore.classList.add('library-isHidden');
