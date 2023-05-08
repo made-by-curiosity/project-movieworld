@@ -3,4 +3,5 @@ export const refs = {
   galleryEl: document.querySelector('.movie-gallery__list'),
   movieGalleryEl: document.querySelector('.movie-gallery__list'),
   movieGalleryMessageEl: document.querySelector('.movie-gallery__message'),
+  paginationContainer: document.querySelector('#pagination'),
 };

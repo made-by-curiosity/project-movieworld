@@ -2,26 +2,10 @@
     height: 40px;
     display: flex;
     justify-content: center;
-    margin: 40px 0 0 0;
+    margin-top: 0;
+    margin-bottom: 60px;
      }
-  
-  .tui-page-btn.tui-prev.hide-prev,
-  .tui-page-btn.tui-first.tui-is-disabled,
-  .tui-page-btn.tui-next.hide-next,
-  .tui-page-btn.tui-last.tui-is-disabled,
-  .tui-page-btn.tui-next-is-ellip.change-next,
-  .tui-page-btn.tui-prev-is-ellip.change-prev {
-    display: none;
-  }
-    
-  .tui-pagination .tui-next {
-    margin-left: 12px;
-  }
-  
-  .tui-pagination .tui-prev {
-    margin-right: 12px;
-  }
-  
+   
   .tui-pagination .tui-page-btn {
     display: flex;
     border: none;
@@ -35,8 +19,27 @@
     border: 1px solid #B7B7B7;
     font-family: 'roboto';
     margin-left: 16px;
+
+    background-color: transparent;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
    }
   
+   .tui-pagination .tui-page-btn.tui-last {
+    background-color:#000000;
+    color: none;
+  }
+  .tui-pagination .tui-page-btn.tui-next {
+    background-color: #000000;
+  }
+  .tui-pagination .tui-page-btn.tui-prev {
+    background-color: #000000;
+    text-decoration: none;
+  }
+  .tui-pagination .tui-page-btn.tui-first {
+    background-color: #000000;
+    color: #000000;
+  }
+
   .tui-pagination .tui-is-selected {
     color: white;
     background: linear-gradient(141.22deg, #FFC226 9.4%, #F84119 91.91%);
@@ -46,56 +49,69 @@
     background: transparent;
     border: none;
   }
-  
-  .tui-pagination .hide-first,
-  .tui-pagination .hide-last {
-   background: rgba(247, 247, 247, 0.5);
-  }
-  
-  .tui-pagination .tui-first-is-ellip:hover,
-  .tui-pagination .tui-last-is-ellip:hover,
-  .tui-pagination .hide-last:hover,
-  .tui-pagination .hide-first:hover {
-    background: purple;
-  }
-  
-  .tui-pagination .tui-prev-is-ellip:hover > .tui-ico-ellip,
-  .tui-pagination .tui-next-is-ellip:hover > .tui-ico-ellip,
-  .tui-pagination .hide-first:hover > .tui-ico-first,
-  .tui-pagination .hide-last:hover > .tui-ico-last {
-    fill: plum;
-  }
-  
-  .tui-pagination .tui-is-selected:hover {
+
+  .tui-pagination .tui-is-selected:hover,
+  .tui-pagination .tui-is-selected:focus {
     background: #F5F5F5;
     color: #282828;
+    border: none;
+    outline: none;
   }
   
-  .tui-pagination .tui-ico-ellip {
-    margin-top: 0;
-  }
-  
-  .tui-pagination .tui-first-child.tui-is-selected {
-    border-left: none;
-  }
-  
-  .tui-pagination .tui-ico-prev,
-  .tui-pagination .tui-ico-next,
-  .tui-pagination .tui-ico-first,
-  .tui-pagination .tui-ico-last,
-  .tui-pagination .tui-ico-ellip {
-    background-image: none;
-  }
-  
-  .tui-pagination .tui-ico-ellip,
-  .tui-pagination .tui-ico-first,
-  .tui-pagination .tui-ico-last {
-    width: 16px;
-    height: 16px;
-    fill: green;
-    transition: all 250ms ease-in-out;
-  }
-  
-  .tui-pagination .tui-last-child.tui-is-selected {
-    border-right: 1px solid red;
-  }
+.tui-pagination .tui-first-child.tui-is-selected {
+  border-left: none;
+}
+
+.tui-pagination .tui-last-child.tui-is-selected {
+  border-right: none;
+}
+
+div.tui-pagination .tui-ico-next,
+div.tui-pagination .tui-ico-last,
+div.tui-pagination .tui-ico-prev,
+div.tui-pagination .tui-ico-first,
+div.tui-pagination .tui-ico-ellip {
+  background-image: none;
+}
+
+div.tui-pagination .tui-page-btn.tui-next::after {
+  content: '›';
+  position: absolute;
+  color: inherit;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+div.tui-pagination .tui-page-btn.tui-last::after {
+  content: '»';
+  position: absolute;
+  color: inherit;
+  font-weight: 400;
+  font-size: 25px;
+}
+
+div.tui-pagination .tui-page-btn.tui-prev::after {
+  content: '‹';
+  position: absolute;
+  color: inherit;
+  font-weight: 400;
+  font-size: 25px;
+}
+
+div.tui-pagination .tui-page-btn.tui-first::after {
+  content: '«';
+  position: absolute;
+  color: inherit;
+  font-weight: 400;
+  font-size: 25px;
+}
+
+div.tui-pagination .tui-prev-is-ellip::after,
+div.tui-pagination .tui-next-is-ellip::after {
+  content: '...';
+  position: absolute;
+  color: inherit;
+  font-weight: 400;
+  font-size: 20px;
+  color:#F84119;
+}
