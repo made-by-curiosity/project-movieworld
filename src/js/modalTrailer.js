@@ -1,6 +1,11 @@
-document.getElementById('watchTrailerBtn').addEventListener('click', () => {
-  const movieId = document.getElementById('watchTrailerBtn').dataset.movieId;
-  loadTrailerById(movieId);
+import { getMovieTrailer } from './fetchmoviedata';
+
+document.querySelector('.hero').addEventListener('click', event => {
+  const watchTrailerBtn = event.target.closest('.hero__btn');
+  if (watchTrailerBtn) {
+    const movieId = watchTrailerBtn.getAttribute('data-id');
+    loadTrailerById(movieId);
+  }
 });
 
 const modal = document.querySelector('.trailer-modal');
@@ -10,70 +15,50 @@ const noVideoMsg = modal.querySelector('.no-video-msg');
 
 async function loadTrailerById(movieId) {
   try {
-    const movieInfo = await getFullMovieInfo(movieId);
-    const videos = movieInfo.videos.results;
+    const movieTrailer = await getMovieTrailer(movieId);
+    const videos = movieTrailer.results;
     if (videos.length > 0) {
       const videoKey = videos[0].key;
-      const trailerUrl = `https://www.youtube.com/embed/${videoKey}`;
-      showTrailerModal(trailerUrl, movieInfo.poster_path);
+      const trailerUrl = `https://www.youtube.com/embed/${videoKey}?autoplay=1`;
+      showTrailerModal(trailerUrl, movieTrailer.poster_path);
     } else {
-      showNoVideoMessage(movieInfo.poster_path);
+      showNoVideoMessage(movieTrailer.poster_path);
     }
   } catch (error) {
     console.error('Request video error', error);
   }
 }
 
-function getFullMovieInfo(movieId) {
-  const apiKey = 'f1b5155c1184f9f972000fc60d38fc3a';
-  const url = `https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&append_to_response=videos`;
-
-  return new Promise((resolve, reject) => {
-    fetch(url)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Failed to fetch movie information');
-        }
-        return response.json();
-      })
-      .then(data => {
-        resolve(data);
-      })
-      .catch(error => {
-        reject(error);
-      });
-  });
-}
-
 function showTrailerModal(trailerUrl, imageUrl) {
   trailerElement.setAttribute('src', trailerUrl);
+  trailerElement.style.width = '100%';
+  trailerElement.style.height = '100%';
   modal.style.display = 'block';
   modal.classList.remove('hidden');
-
-  const siteTheme = getSiteTheme();
-  updateModalBackground(siteTheme);
 }
 
-function showErrorModal() {
-  const errorContainer = document.createElement('div');
-  errorContainer.classList.add('error-container');
-
-  const errorText = document.createElement('p');
-  errorText.classList.add('no-video-msg');
-  errorText.textContent =
-    "OOPS... We are very sorry! But we couldn't find the trailer.";
-  errorContainer.appendChild(errorText);
-
-  const errorImage = document.createElement('img');
-  errorImage.setAttribute('src', 'path/to/error-image.png');
-  errorContainer.appendChild(errorImage);
-
-  modal.appendChild(errorContainer);
+function showNoVideoMessage(posterUrl) {
+  noVideoMsg.textContent =
+    "Oops... We are very sorry! But we couldn't find the trailer.";
+  movieContainer.innerHTML = `<img src="${posterUrl}" alt="Movie Poster">`;
+  modal.style.display = 'block';
+  modal.classList.remove('hidden');
 }
+
+// function closeTrailerModal() {
+//   trailerElement.setAttribute('src', '');
+//   noVideoMsg.textContent = '';
+//   movieContainer.innerHTML = '';
+//   modal.classList.add('hidden');
+// }
+
+const closeBtn = document.querySelector('.close-btn__svg');
+
+closeBtn.addEventListener('click', closeTrailerModal);
 
 function closeTrailerModal() {
   trailerElement.setAttribute('src', '');
   noVideoMsg.textContent = '';
   movieContainer.innerHTML = '';
-  modal.classList.add('hidden');
+  modal.style.display = 'none';
 }
