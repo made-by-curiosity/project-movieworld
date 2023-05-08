@@ -15,6 +15,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 28px;
 }
 
 .title-grup__link{
@@ -51,6 +52,10 @@
         font-size: 28px;
 
     }
+}
+
+.films-list {
+    display: flex;
 }
 
 

@@ -6,13 +6,14 @@ import { createMovieCardMarkup } from './createmoviecardmarkup.js'
 export async function renderWeekelyTrends() {
 
   const moviesAll = await getWeeklyTrends();
-  console.log(moviesAll);
-  const moviesToShow = moviesAll.slice(0, 3);
+  // console.log(moviesAll);
+  const moviesToShow = moviesAll.results.slice(0, 3);
   console.log(moviesToShow);
   const weeklyTrendsMarkup = await createMovieCardMarkup(moviesToShow);
 
   const weeklyTrendsEl = document.querySelector('.films-list');
-  weeklyTrendsEl.insertAdjacentElement('beforeend', weeklyTrendsMarkup);
+
+  weeklyTrendsEl.insertAdjacentHTML('beforeend', weeklyTrendsMarkup);
 
 }
 
