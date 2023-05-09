@@ -41,11 +41,15 @@ function showTrailerModal(trailerUrl, imageUrl) {
 }
 
 function showNoVideoMessage(posterUrl) {
-  noVideoMsg.textContent =
-    "Oops... We are very sorry! But we couldn't find the trailer.";
-  movieContainer.innerHTML = `<img src="${posterUrl}" alt="Movie Poster">`;
-  modal.style.display = 'block';
-  modal.classList.remove('hidden');
+  const noVideoMsg = document.querySelector('.no-video-msg');
+  noVideoMsg.innerHTML = `
+    <div>
+      <p>OOPS... We are very sorry! But we couldn't find the trailer.</p>
+    </div>
+    <div>
+      <img src="./images/noTrailer.png" alt="No Trailer">
+    </div>
+  `;
 }
 
 const closeBtn = document.querySelector('.close-btn__svg');
@@ -53,6 +57,11 @@ const closeBtn = document.querySelector('.close-btn__svg');
 closeBtn.addEventListener('click', closeTrailerModal);
 
 function closeTrailerModal() {
+  const trailerElement = document.querySelector('.trailer-element');
+  const noVideoMsg = document.querySelector('.no-video-msg');
+  const movieContainer = document.querySelector('.movie-container');
+  const modal = document.querySelector('.trailer-modal');
+
   trailerElement.setAttribute('src', '');
   noVideoMsg.textContent = '';
   movieContainer.innerHTML = '';

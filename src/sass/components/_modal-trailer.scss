@@ -62,7 +62,7 @@
 }
 
 .modal-body {
-  // position: relative;
+  position: relative;
   width: 100%;
   height: 0;
   padding-bottom: 56.25%;
@@ -79,108 +79,20 @@
   height: 100%;
   border: none;
 }
+.no-video-msg {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.7;
+  color: var(--main-light-color);
+  width: 321px;
+  height: auto;
+}
 
 .hidden {
   display: none;
 }
 
-// @media (max-width: 767px) {
-//   .trailer-modal {
-//     width: 280px;
-//     height: 289px;
-//     border-radius: 16px;
-//     gap: 10px;
-//     overflow: hidden;
-//     top: 50px;
-//     left: 100px;
-//   }
-//   .show-trailer-btn {
-//     width: 60px;
-//     height: 30px;
-//     font-size: 12px;
-//   }
-
-//   .no-video-msg {
-//     width: 214px;
-//     height: 65px;
-//     left: 33px;
-//     top: 50px;
-//     font-size: 12px;
-//     line-height: 1.2;
-//   }
-
-//   .close-btn__svg {
-//     width: 32px;
-//     height: 32px;
-//     left: 240px;
-//     top: 20px;
-//   }
-// }
-
-// /* Брейкпоінт 768 */
-// @media (min-width: 768px) {
-//   .trailer-modal {
-//     width: 609px;
-//     height: 400px;
-//     border-radius: 16px;
-//     gap: 10px;
-//     top: 50px;
-//     left: 100px;
-//   }
-//   .show-trailer-btn {
-//     width: 70px;
-//     height: 40px;
-//   }
-
-//   .no-video-msg {
-//     width: 321px;
-//     height: 92px;
-//     left: 44px;
-//     top: 132px;
-//     font-size: 24px;
-//     line-height: 1.7;
-//   }
-
-//   .close-btn__svg {
-//     width: 36px;
-//     height: 36px;
-//     left: 561px;
-//     top: 24px;
-//   }
-// }
-
-// /* Брейкпоінт 1200 */
-// @media (min-width: 1200px) {
-//   .trailer-modal {
-//     width: 700px;
-//     height: 400px;
-//     border-radius: 20px;
-//     gap: 10px;
-//     top: 190px;
-//     left: 650px;
-//   }
-//   .show-trailer-btn {
-//     width: 70px;
-//     height: 40px;
-//   }
-
-//   .no-video-msg {
-//     width: 321px;
-//     height: 100px;
-//     left: 50px;
-//     top: 150px;
-//     font-size: 24px;
-//     line-height: 1.7;
-//   }
-
-//   .close-btn__svg {
-//     width: 36px;
-//     height: 36px;
-//     left: 648px;
-//     top: 28px;
-//   }
-// }
-/* Мобільні пристрої до 319px */
 @media (max-width: 319px) {
   .trailer-modal {
     width: 90%;
