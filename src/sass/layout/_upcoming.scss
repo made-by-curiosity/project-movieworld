@@ -38,17 +38,11 @@
   }
 }
 .box-image {
-  max-width: 280px;
-
   margin-bottom: 24px;
   @media screen and (min-width: 768px) {
-    height: 400px;
-    max-width: 704px;
     margin-bottom: 32px;
   }
   @media screen and (min-width: 1280px) {
-    max-width: 805px;
-    height: 458px;
     margin-bottom: 0px;
   }
 }
@@ -62,7 +56,19 @@
   }
 }
 .upcoming-image {
+  object-fit: cover;
   border-radius: 5px;
+
+  max-width: 280px;
+  height: 402px;
+  @media screen and (min-width: 768px) {
+    height: 400px;
+    max-width: 704px;
+  }
+  @media screen and (min-width: 1280px) {
+    max-width: 805px;
+    height: 458px;
+  }
 }
 .upcoming__film-title {
   color: var(--main-light-color);

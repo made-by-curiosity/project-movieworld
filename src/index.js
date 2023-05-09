@@ -33,6 +33,8 @@ import { onUpcomingPage } from './js/upcoming';
 // getMoviesGenres();
 // getMoviesCountries();
 
+onUpcomingPage();
+
 if (document.location.pathname.includes('/page-catalog')) {
   onCatalogPage();
 }

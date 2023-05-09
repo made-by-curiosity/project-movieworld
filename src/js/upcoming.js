@@ -22,7 +22,7 @@ export async function onUpcomingPage() {
     }
   });
 
-  let IMAGE_URL = `https://image.tmdb.org/t/p/w500${arrayDataMovies.poster_path}`;
+  let IMAGE_URL = `https://image.tmdb.org/t/p/w500${arrayDataMovies.backdrop_path}`;
   if (arrayDataMovies.poster_path === null) {
     IMAGE_URL =
       'https://github.com/made-by-curiosity/project-movieworld/blob/main/src/images/moviecoverholder.jpg?raw=true';
@@ -34,7 +34,7 @@ export async function onUpcomingPage() {
   <div class="box">
     <div class="box-image">
         <img
-          src="https://image.tmdb.org/t/p/w500${arrayDataMovies.poster_path}"
+          src="https://image.tmdb.org/t/p/w500${arrayDataMovies.backdrop_path}"
           alt="upcoming-film"
           class="upcoming-image"
         />
@@ -101,4 +101,6 @@ export async function onUpcomingPage() {
       <button type="button" class="btn btn-main">Remind me</button>
     </div>
   </div>`;
+
+  upcomingSection.innerHTML = markup;
 }
