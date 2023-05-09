@@ -9,6 +9,7 @@ import './js/header';
 import './js/mobile-menu';
 import './js/hero';
 import './js/modal-movie';
+import './js/modalTrailer';
 
 if (
   !document.location.pathname.includes('/page-catalog') &&
