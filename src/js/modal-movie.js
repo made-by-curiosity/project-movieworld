@@ -71,14 +71,10 @@ function onOpenModalMovie () {
             </div>
         </div>
       `);
-    })
-    .catch(error => {
-      console.error(error);
-    });
 
-    const buttonToggle = document.querySelector('.theme-switcher__button');
+      const themeCheckbox = document.querySelector('.theme-switcher__input');
     
-    if (buttonToggle.checked) {
+    if (themeCheckbox.checked) {
       toggleTheme();
     }
 
@@ -89,17 +85,18 @@ function onOpenModalMovie () {
       element.classList.toggle('light-theme');
       });
     }
-    
+    })
+    .catch(error => {
+      console.error(error);
+    });
 
-    
-  
-    //  addToLibraryBtn.addEventListener('click', onMovieBtnClick);
+     addToLibraryBtn.addEventListener('click', onMovieBtnClick);
 }
 
-// function onMovieBtnClick(event) {
-//   const movieId = event.target.id;
-//   saveMovie(movieId);
-// }
+function onMovieBtnClick(event) {
+  const movieId = event.target.id;
+  saveMovie(movieId);
+}
 
 function onCloseModalMovie() {
   window.removeEventListener('keydown', onEscPress);
@@ -123,14 +120,3 @@ function onEscPress(event) {
         onCloseModalMovie();
     }
 }
-
-
-// function onSaveMovieClick () {
-//     const addToLibraryBtn = document.querySelector('.btn-lib');
-//      addToLibraryBtn.addEventListener('click', () => {
-//      saveMovie(movieId);
-//   });
-// }
-
-
-

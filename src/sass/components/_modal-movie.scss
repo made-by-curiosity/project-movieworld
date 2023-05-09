@@ -233,12 +233,10 @@ body.show-modal-movie .modal-movie__backdrop {
         }
 
         &__poster {
-            height: 100%;
             width: 100%;
+            height: 100%;
             border-radius: 5px;
             object-fit: cover;
-            // object-position: 0px -25px;
-            object-position: center;
         }
 
         &__info {
@@ -333,5 +331,8 @@ body.show-modal-movie .modal-movie__backdrop {
     fill: var(--main-dark-color);
 }
 
+.btn-lib.btn.light-theme:hover {
+    background-color: black;
+}
 
 
