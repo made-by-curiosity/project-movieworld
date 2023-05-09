@@ -39,7 +39,7 @@ const team = [
 	},
 	{
 		id: 7,
-		name: "Oleg Vlasyk",
+		name: "Oleg Vlasiuk",
 		dev: "Developer",
 		photo: "./images/dev_7.jpg",
 	},
