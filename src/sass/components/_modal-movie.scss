@@ -92,7 +92,7 @@ body.show-modal-movie .modal-movie__backdrop {
     color:var(--main-light-text-color);
    }
 
-   svg path {
+   path {
     stroke: var(--main-light-text-color);
 
     &.light-theme {
@@ -118,6 +118,7 @@ path:hover {
         border-radius: 16px;
 
         &__poster {
+            object-fit: cover;
             border-radius: 5px;
             width: 248px;
             height: 315px;
@@ -303,10 +304,6 @@ path:hover {
     }
 }
 
-    .button-close__movie-icon {
-        fill: var(--main-light-text-color); 
-    }
-
 //=================== light them =======================
 
 .modal-movie.light-theme {
@@ -339,5 +336,5 @@ path:hover {
 }
 
 .btn-lib.btn.light-theme:hover {
-    background-color: black;
+    background-color: var(--main-dark-color);
 }

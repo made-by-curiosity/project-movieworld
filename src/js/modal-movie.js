@@ -8,7 +8,6 @@ const movieGalleryEl = document.querySelector(".movie-gallery__list");
 const addToLibraryBtn = document.querySelector('.btn-lib .btn');
 let movieId;
 
-
 movieGalleryEl.addEventListener('click', e => {
   e.preventDefault();
   const movieLinkEl = e.target.closest('.movie-gallery__link');
@@ -104,8 +103,6 @@ function onCloseModalMovie() {
   const modalContainer = document.querySelector('.modal-movie.container');
   const modalContent = modalContainer.querySelectorAll('.modal-movie__poster-wrap, .modal-movie__info, .modal-movie__button-wrap');
   modalContent.forEach(content => content.remove());
-
-  // addToLibraryBtn.removeEventListener('click', onMovieBtnClick);
 }
 
 function onCloseBackdropClick(event) {
