@@ -20,10 +20,6 @@
 	opacity: 0;
 }
 
-.backdrop.light-theme {
-	background-color: rgba(0, 0, 0, 0.2);
-}
-
 .backdrop.js-hidden .mobile-menu {
 	transform: translateX(-100vw);
 	transition: transform 500ms ease-in-out;
@@ -73,18 +69,26 @@
 	margin-bottom: 24px;
 }
 
-.mobile-menu.light-theme {
-	background-color: #fff;
-}
-
-.mobile-menu__link.light-theme {
-	color: var(--main-dark-color);
+.mobile-menu__link.current {
+	color: var(--accent-color);
 }
 
 .mobile-menu__link {
-
 	&:hover,
 	&:focus {
 		color: var(--accent-color);
 	}
+}
+
+// light-theme
+.backdrop.light-theme {
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+.mobile-menu.light-theme {
+	background-color: var(--main-light-color);
+}
+
+.mobile-menu__link.light-theme {
+	color: var(--main-dark-color);
 }
