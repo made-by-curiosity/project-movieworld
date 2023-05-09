@@ -28,8 +28,6 @@ function onOpenModalMovie() {
 
   getFullMovieInfo(movieId)
     .then(fullMovieInfo => {
-      console.log('масив інформації по фільму', fullMovieInfo);
-
       const original_title = fullMovieInfo.original_title;
       const vote_average = fullMovieInfo.vote_average;
       const vote_count = fullMovieInfo.vote_count;
