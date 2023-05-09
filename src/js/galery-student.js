@@ -1,22 +1,23 @@
 // import { team } from './team';
+
 const team =[
 	{
 		id: 1,
 		name: "Vadim",
 		dev: "Team lead",
-		photo: "./images/employee_1.jpg",
+		photo: "./images/desctop-2x.jpg",
 	},
 	{
 		id: 2,
 		name: "Viktor",
 		dev: "Scrum master",
-		photo: "./images/employee_2.jpg",
+		photo: "./images/kat1.png",
 	},
 	{
 		id: 3,
 		name: "Anrii",
 		dev: "Developer",
-		photo: "./images/employee_3.jpg",
+		photo: "./images/left.svg",
 	},
 	{
 		id: 4,

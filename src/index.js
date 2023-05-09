@@ -23,6 +23,11 @@ import {
 } from './js/fetchmoviedata';
 import './js/header';
 import './js/mobile-menu';
+
+import './js/team';
+import './js/modal-students';
+import './js/galery-student';
+
 import { onUpcomingPage } from './js/upcoming';
 import { renderWeekelyTrends } from './js/weeklyTrends';
 
