@@ -1,12 +1,9 @@
-import { getSearchMovies, getWeeklyTrends } from './fetchmoviedata';
-import { onPagination } from './pagination';
+import { getSearchMovies, getWeeklyTrendsPagination } from './fetchmoviedata';
+import { createCatalogPagination } from './pagination';
+import { createWeeklyTrendsPagination } from './pagination';
 import { createMovieCardMarkup } from './createmoviecardmarkup';
 import { warningMessageMarkup } from './createwarningmessagemurkup';
 import { refs } from './refs';
-
-import Pagination from 'tui-pagination';
-
-const container = refs.paginationEl;
 
 let page = 1;
 
@@ -16,6 +13,8 @@ export function onCatalogPage() {
   refs.formSearchEl.addEventListener('submit', onSearchMovies);
 
   async function onSearchMovies(evt) {
+    refs.paginationEl.classList.remove('tui-pagination--is-hidden');
+
     evt.preventDefault();
     const query = evt.target.elements.searchQuery.value.trim();
 
@@ -25,46 +24,18 @@ export function onCatalogPage() {
     try {
       const videos = await getSearchMovies(query, page);
 
-      const options = {
-        // below default value of options
-        totalItems: `${videos.total_results}`,
-        itemsPerPage: `${videos.results.length}`,
-        visiblePages: 5,
-        page,
-        centerAlign: false,
-        firstItemClassName: 'tui-first-child',
-        lastItemClassName: 'tui-last-child',
-        template: {
-          page: '<a href="#" class="tui-page-btn">{{page}}</a>',
-          currentPage:
-            '<strong class="tui-page-btn tui-is-selected">{{page}}</strong>',
-          moveButton:
-            '<a href="#" class="tui-page-btn tui-{{type}}">' +
-            '<span class="tui-ico-{{type}}">{{type}}</span>' +
-            '</a>',
-          disabledMoveButton:
-            '<span class="tui-page-btn tui-is-disabled tui-{{type}}">' +
-            '<span class="tui-ico-{{type}}">{{type}}</span>' +
-            '</span>',
-          moreButton:
-            '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
-            '<span class="tui-ico-ellip">...</span>' +
-            '</a>',
-        },
-      };
-      const pagination = new Pagination(container, options);
-
-      pagination.on('afterMove', event => {
-        const currentPage = event.page;
-        onPagination(query, currentPage);
-      });
-
-      console.log(videos.results);
+      createCatalogPagination(videos, query);
 
       if (videos.results.length === 0) {
+        refs.paginationEl.classList.add('tui-pagination--is-hidden');
         renderWarningMessage();
         return;
       }
+
+      if (videos.results.length < 20) {
+        refs.paginationEl.classList.add('tui-pagination--is-hidden');
+      }
+
       renderMovies(videos.results);
     } catch (error) {
       console.log(error.message);
@@ -75,8 +46,10 @@ export function onCatalogPage() {
 
   async function onWeeklyTrends() {
     try {
-      const trendsMovies = await getWeeklyTrends();
+      const trendsMovies = await getWeeklyTrendsPagination(page);
       renderMovies(trendsMovies.results);
+
+      createWeeklyTrendsPagination(trendsMovies);
     } catch (error) {
       console.log(error.message);
       renderWarningMessage();
@@ -93,4 +66,13 @@ export async function renderMovies(movies) {
   const markup = await createMovieCardMarkup(movies);
 
   refs.movieGalleryEl.insertAdjacentHTML('beforeend', markup);
+}
+
+refs.paginationEl.addEventListener('click', onSmothScroll);
+
+function onSmothScroll() {
+  const { height: galleryHeight } = document
+    .querySelector('.movie-gallery__list')
+    .getBoundingClientRect();
+  window.scrollBy({ top: -galleryHeight, behavior: 'smooth' });
 }
