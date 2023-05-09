@@ -26,7 +26,6 @@ import './js/mobile-menu';
 import { onUpcomingPage } from './js/upcoming';
 import { renderWeekelyTrends } from './js/weeklyTrends';
 
-
 // примеры использования функций получения данных
 // getDayTrends();
 // getWeeklyTrends();
@@ -37,16 +36,13 @@ import { renderWeekelyTrends } from './js/weeklyTrends';
 // getMoviesGenres();
 // getMoviesCountries();
 
-
-onUpcomingPage();
-
 if (
   !document.location.pathname.includes('/page-catalog') &&
   !document.location.pathname.includes('/page-my-library')
 ) {
   renderWeekelyTrends();
+  onUpcomingPage();
 }
-
 
 if (document.location.pathname.includes('/page-catalog')) {
   onCatalogPage();
