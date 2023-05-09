@@ -24,42 +24,7 @@ export function onCatalogPage() {
     try {
       const videos = await getSearchMovies(query, page);
 
-
-      const options = {
-        // below default value of options
-        totalItems: `${videos.total_results}`,
-        itemsPerPage: `${videos.results.length}`,
-        visiblePages: 3,
-        page,
-        centerAlign: false,
-        firstItemClassName: 'tui-first-child',
-        lastItemClassName: 'tui-last-child',
-        template: {
-          page: '<a href="#" class="tui-page-btn js-theme">{{page}}</a>',
-          currentPage:
-            '<strong class="tui-page-btn tui-is-selected js-theme">{{page}}</strong>',
-            currentPage: '<a href="#" class="tui-page-btn js-theme tui-is-selected">{{page}}</a>',
-            moveButton:
-            '<a href="#" class="tui-page-btn js-theme tui-next tui-prev hide-{{type}}"></a>',
-          disabledMoveButton:
-            '<span class="tui-page-btn js-theme tui-is-disabled tui-{{type}}"></span>',
-            moreButton:
-            '<a href="#" class="tui-page-btn js-theme tui-{{type}}-is-ellip">'+
-            '<span class="tui-ico-ellip">...</span>' +
-            '</a>',
-        },
-      };
-      const pagination = new Pagination(container, options);
-
-      pagination.on('afterMove', event => {
-        const currentPage = event.page;
-        onPagination(query, currentPage);
-      });
-
-      console.log(videos.results);
-
       createCatalogPagination(videos, query);
-
 
       if (videos.results.length === 0) {
         refs.paginationEl.classList.add('tui-pagination--is-hidden');
