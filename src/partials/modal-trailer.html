@@ -1,1 +1,22 @@
-<div class="section-outline">МОДАЛКА С ТРЕЙЛЕРОМ</div>
+<div class="trailer-modal hidden js-theme">
+  <div class="modal-content">
+    <button class="close-btn__svg" onclick="closeTrailerModal()">
+      <svg>
+        <use href="./images/icons.svg#modaltrailerclose"></use>
+      </svg>
+    </button>
+
+    <div class="modal-body">
+      <div class="movie-container">
+        <img src="./images/noTrailer.png" alt="No Trailer" />
+        <div class="no-video-msg"></div>
+      </div>
+      <iframe
+        class="trailer-element"
+        frameborder="0"
+        allowfullscreen
+        allow="autoplay"
+      ></iframe>
+    </div>
+  </div>
+</div>

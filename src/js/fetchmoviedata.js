@@ -13,7 +13,6 @@ export const getDayTrends = async function getDayTrends() {
 
   const dayTrends = await response.data;
 
-  console.log('dayTrends', dayTrends);
   return dayTrends;
 };
 
@@ -28,7 +27,6 @@ export const getWeeklyTrends = async function getWeeklyTrends() {
   const response = await axios.get(BASE_URL, { params });
 
   const weeklyTrends = await response.data;
-  console.log('weeklyTrends', weeklyTrends);
 
   return weeklyTrends;
 };
@@ -44,7 +42,6 @@ export const getWeeklyTrendsPagination =
     const response = await axios.get(BASE_URL, { params });
 
     const weeklyTrendsPagination = await response.data;
-    console.log('weeklyTrendsPagination', weeklyTrendsPagination);
 
     return weeklyTrendsPagination;
   };
@@ -60,7 +57,6 @@ export const getTodayMovies = async function getTodayMovies() {
   const response = await axios.get(BASE_URL, { params });
 
   const todayMovies = await response.data;
-  console.log('todayMovies', todayMovies);
 
   return todayMovies;
 };
@@ -78,7 +74,6 @@ export const getSearchMovies = async function getSearchMovies(query, page) {
   const response = await axios.get(BASE_URL, { params });
 
   const searchMovies = await response.data;
-  console.log('searchMovies', searchMovies);
 
   return searchMovies;
 };
@@ -94,7 +89,6 @@ export const getFullMovieInfo = async function getFullMovieInfo(movie_id) {
   const response = await axios.get(BASE_URL, { params });
 
   const fullMovieInfo = await response.data;
-  console.log('fullMovieInfo', fullMovieInfo);
 
   return fullMovieInfo;
 };
@@ -110,7 +104,6 @@ export const getMovieTrailer = async function getMovieTrailer(movie_id) {
   const response = await axios.get(BASE_URL, { params });
 
   const movieTrailer = await response.data;
-  console.log('movieTrailer', movieTrailer);
 
   return movieTrailer;
 };
@@ -126,7 +119,6 @@ export const getMoviesGenres = async function getMoviesGenres() {
   const response = await axios.get(BASE_URL, { params });
 
   const genres = await response.data;
-  console.log('genres', genres);
 
   return genres;
 };
@@ -142,7 +134,6 @@ export const getMoviesCountries = async function getMoviesGenres() {
   const response = await axios.get(BASE_URL, { params });
 
   const countries = await response.data;
-  console.log('countries', countries);
 
   return countries;
 };
