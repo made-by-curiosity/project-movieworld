@@ -4,7 +4,7 @@ import { saveMovie, getSavedMovies } from './local-storage-service';
 
 export function onLibraryPage() {
   const myLibrary = document.querySelector('.movie-gallery__list');
-  const noMoviesMessage = document.querySelector('.no-movies-message');
+
   const btnLoadMore = document.querySelector('.btn-loadMore');
 
   btnLoadMore.addEventListener('click', renderFavoriteMovies);
@@ -17,13 +17,15 @@ export function onLibraryPage() {
   async function renderFavoriteMovies() {
     const favoriteMoviesId = getSavedMovies();
 
-    let end = start + itemsOnPage;
-    const sliceMoviesId = favoriteMoviesId.slice(start, end);
+    const noMoviesMessage = document.querySelector('.no-movies-message');
 
     if (favoriteMoviesId.length === 0) {
       noMoviesMessage.classList.remove('library-isHidden');
       return;
     }
+
+    let end = start + itemsOnPage;
+    const sliceMoviesId = favoriteMoviesId.slice(start, end);
 
     const moviesPromises = sliceMoviesId.map(async movieId => {
       return await getFullMovieInfo(movieId);
