@@ -38,7 +38,7 @@ export function onCatalogPage() {
           page: '<a href="#" class="tui-page-btn js-theme">{{page}}</a>',
           currentPage:
             '<strong class="tui-page-btn tui-is-selected js-theme">{{page}}</strong>',
-            currentPage: '<a href="#" class="tui-page-btn tui-is-selected">{{page}}</a>',
+            currentPage: '<a href="#" class="tui-page-btn js-theme tui-is-selected">{{page}}</a>',
             moveButton:
             '<a href="#" class="tui-page-btn js-theme tui-next tui-prev hide-{{type}}"></a>',
           disabledMoveButton:
