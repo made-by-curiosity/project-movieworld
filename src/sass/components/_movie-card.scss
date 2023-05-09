@@ -9,6 +9,12 @@
   width: 280px;
   height: 406px;
 
+  transition: box-shadow 300ms ease-in-out;
+
+  &:hover {
+    box-shadow: var(--card-shadow);
+  }
+
   @media screen and (min-width: 768px) {
     width: 224px;
     height: 325px;

@@ -116,6 +116,19 @@
   display: none;
 }
 
+
+.tui-pagination {
+  margin-left: 12px;
+}
+
+.tui-pagination--is-hidden {
+  display: none;
+}
+
+.tui-pagination {
+  margin-right: 12px;
+}
+
 .tui-pagination .tui-page-btn {
   display: flex;
   border: none;

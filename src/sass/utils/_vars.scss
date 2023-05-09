@@ -7,6 +7,7 @@
   --secondary-light-text-color: #595959;
   --secondary-dark-text-color: #b7b7b7;
   --header-bg-color: #000000;
+  --modal-box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
 
   --btn-gradient: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
   --stars-gradient: linear-gradient(
@@ -14,6 +15,13 @@
     #f84119 9.4%,
     rgba(248, 159, 25, 0.68) 91.91%
   );
+
+
+	--time-animation: 250ms;
+	--timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --card-shadow: 1px 1px 24px 2px rgba(1, 1, 1, 0.45);
+
 }
 
 // breakpoints

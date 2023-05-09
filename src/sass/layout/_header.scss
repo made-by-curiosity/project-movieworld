@@ -10,7 +10,6 @@
         max-width: 1280px;
     }
 }
-
 // #############################
 
 .header {
@@ -93,9 +92,9 @@
             /* Grey */
             color: var(--secondary-dark-text-color);
 
-            transition: color 200ms ease-in-out;
+            transition: color 250ms ease-in-out;
 
-            &:hover {
+            &:hover, &:focus{
                 color: var(--accent-color);
             }
 
@@ -103,10 +102,9 @@
                 padding: 22px 0;
             }
 
-            @media screen and (min-width: 1280px) {}
+            // @media screen and (min-width: 1280px) {}
         }
     }
-
     @media screen and (min-width: 1280px) {
         gap: 40px;
     }
@@ -120,7 +118,11 @@
     border: none;
     text-transform: uppercase;
     color: var(--secondary-dark-text-color);
+    transition: color 250ms ease-in-out;
 
+    &:hover, &:focus {
+        color: var(--accent-color);
+    }
     @media screen and (min-width: 768px) {
         display: none;
     }
@@ -138,8 +140,14 @@
 
 .nav-list.light-theme a {
     color: var(--secondary-light-text-color);
+    &:hover, &:focus {
+        color: var(--accent-color);
+    }
 }
 
 .navModal-button.light-theme {
     color: var(--secondary-light-text-color);
+    &:hover, &:focus {
+        color: var(--accent-color);
+    }
 }
