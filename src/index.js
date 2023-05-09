@@ -10,9 +10,9 @@ import './js/mobile-menu';
 import './js/hero';
 import './js/modal-movie';
 import './js/modalTrailer';
-import './js/team';
-import './js/modal-students';
-import './js/galery-student';
+// import './js/team';
+// import './js/modal-students';
+// import './js/galery-student';
 
 if (
   !document.location.pathname.includes('/page-catalog') &&
