@@ -40,8 +40,8 @@ if (
   !document.location.pathname.includes('/page-catalog') &&
   !document.location.pathname.includes('/page-my-library')
 ) {
-  renderWeekelyTrends();
   onUpcomingPage();
+  renderWeekelyTrends();
 }
 
 if (document.location.pathname.includes('/page-catalog')) {

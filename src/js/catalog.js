@@ -55,11 +55,13 @@ export function onCatalogPage() {
       renderWarningMessage();
     }
   }
-}
 
-function renderWarningMessage() {
-  const markup = warningMessageMarkup();
-  refs.movieGalleryMessageEl.insertAdjacentHTML('beforeend', markup);
+  function renderWarningMessage() {
+    const markup = warningMessageMarkup();
+    refs.movieGalleryMessageEl.insertAdjacentHTML('beforeend', markup);
+  }
+
+  refs.paginationEl.addEventListener('click', onSmothScroll);
 }
 
 export async function renderMovies(movies) {
@@ -67,8 +69,6 @@ export async function renderMovies(movies) {
 
   refs.movieGalleryEl.insertAdjacentHTML('beforeend', markup);
 }
-
-refs.paginationEl.addEventListener('click', onSmothScroll);
 
 function onSmothScroll() {
   const { height: galleryHeight } = document
