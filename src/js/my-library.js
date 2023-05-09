@@ -12,17 +12,6 @@ export function onLibraryPage() {
   let page = 1;
   let start = 0;
 
-  /// ----- для теста --- удалить
-  // saveMovie(493529);
-  // saveMovie(447365);
-  // saveMovie(758323);
-  // saveMovie(640146);
-  // saveMovie(934433);
-  // saveMovie(420808);
-  // saveMovie(502356);
-  // saveMovie(649609);
-  /////------- удалить выше
-
   renderFavoriteMovies();
 
   async function renderFavoriteMovies() {
@@ -30,8 +19,6 @@ export function onLibraryPage() {
 
     let end = start + itemsOnPage;
     const sliceMoviesId = favoriteMoviesId.slice(start, end);
-
-    console.log(sliceMoviesId);
 
     if (favoriteMoviesId.length === 0) {
       noMoviesMessage.classList.remove('library-isHidden');
@@ -59,29 +46,3 @@ export function onLibraryPage() {
     } //-- скрыть кнопку Load More после отображения всех фильмов из Local Storage
   }
 }
-
-//////----------------- first version----------------
-// async function renderFavoriteMovies() {
-//   const favoriteMoviesId = getSavedMovies();
-//   console.log(favoriteMoviesId);
-
-//   const stepSlice = 5;
-//   let start = 0;
-//   let end = start + stepSlice;
-//   let sliceMoviesId = favoriteMoviesId.slice(start, end);
-//   console.log(sliceMoviesId);
-
-//   if (favoriteMoviesId.length === 0) {
-//     noMoviesMessage.classList.remove('library-isHidden');
-//     return;
-//   }
-
-//   const moviesPromises = favoriteMoviesId.map(async movieId => {
-//     return await getFullMovieInfo(movieId);
-//   });
-
-//   const movies = await Promise.all(moviesPromises);
-
-//   const markup = createMovieCardMarkup(movies);
-//   myLibrary.insertAdjacentHTML('beforeend', markup);
-// }
