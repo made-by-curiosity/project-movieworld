@@ -68,9 +68,11 @@ export async function renderMovies(movies) {
   refs.movieGalleryEl.insertAdjacentHTML('beforeend', markup);
 }
 
-
 refs.paginationEl.addEventListener('click', onSmothScroll);
 
 function onSmothScroll() {
-  window.scroll(0, 700);
+  const { height: galleryHeight } = document
+    .querySelector('.movie-gallery__list')
+    .getBoundingClientRect();
+  window.scrollBy({ top: -galleryHeight, behavior: 'smooth' });
 }
