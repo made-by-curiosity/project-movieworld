@@ -1,0 +1,328 @@
+.swiper {
+  width: 100%;
+  height: 450px;
+
+  @media screen and (min-width: 768px) {
+    height: 430px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    height: 660px;
+  }
+}
+
+.swiper-pagination-bullet {
+  width: 24px;
+  height: 24px;
+  text-align: center;
+  line-height: 2.2;
+  font-size: 10px;
+  color: var(--secondary-dark-text-color);
+  opacity: 1;
+  background: transparent;
+  border: 1px solid var(--secondary-dark-text-color);
+
+  @media screen and (min-width: 768px) {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 40px;
+    height: 40px;
+    line-height: 2.8;
+  }
+}
+
+.swiper-pagination-bullet-active {
+  color: var(--main-light-color);
+  background: var(--btn-gradient);
+  box-shadow: 1px 1px 14px rgba(1, 1, 1, 0.25);
+  border: inherit;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--main-light-text-color);
+}
+
+.swiper-button-next.light-theme,
+.swiper-button-prev.light-theme {
+  @media screen and (min-width: 768px) {
+    color: var(--secondary-light-text-color);
+  }
+}
+
+.swiper-pagination.light-theme > * {
+  @media screen and (min-width: 768px) {
+    color: var(--secondary-light-text-color);
+    border: 1px solid #595959;
+  }
+}
+
+.swiper-pagination.light-theme > .swiper-pagination-bullet-active {
+  @media screen and (min-width: 768px) {
+    border: inherit;
+  }
+}
+
+.hero {
+  position: relative;
+
+  // min-height: 380px;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+
+  @media screen and (min-width: 768px) {
+    // padding: 62 32px;
+    min-height: 430px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    // padding: 169px 32px;
+    min-height: 660px;
+  }
+
+  &__image {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+
+    @media screen and (min-width: 768px) {
+      position: relative;
+      left: 30%;
+    }
+  }
+
+  &__container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px 40px;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(
+      87.8deg,
+      #0e0e0e 15.61%,
+      rgba(14, 14, 14, 0) 60.39%
+    );
+
+    @media screen and (min-width: 768px) {
+      padding: 32px 36px;
+      background-image: url(/src/images/hero/subtract-tablet.png);
+      background-position: bottom;
+    }
+
+    @media screen and (min-width: 1280px) {
+      padding: 118px 134px;
+      background-image: url(/src/images/hero/subtract-desktop-2.png);
+    }
+  }
+
+  &__container.light-theme {
+    @media screen and (min-width: 768px) {
+      background-image: url(/src/images/hero/subtract-tablet-2.png);
+    }
+
+    @media screen and (min-width: 1280px) {
+      background-image: url(/src/images/hero/subtract-desktop.png);
+    }
+  }
+
+  &__title {
+    margin-bottom: 8px;
+    max-width: 200px;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.19;
+    align-items: center;
+    color: var(--main-light-color);
+
+    @media screen and (min-width: 768px) {
+      max-width: 330px;
+      font-size: 44px;
+      line-height: 1.18;
+    }
+
+    @media screen and (min-width: 1280px) {
+      max-width: 464px;
+      font-size: 64px;
+      line-height: 1.17;
+    }
+  }
+
+  &__title.light-theme {
+    @media screen and (min-width: 768px) {
+      color: var(--header-bg-color);
+      text-shadow: 1px 0px 25px var(--secondary-dark-text-color);
+    }
+  }
+
+  &__text {
+    margin-bottom: 16px;
+    max-width: 128px;
+    line-height: 1.14;
+    align-items: center;
+    max-height: 130px;
+    overflow: hidden;
+
+    @media screen and (min-width: 768px) {
+      max-width: 254px;
+      margin-bottom: 32px;
+      max-height: 200px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      max-width: 367px;
+      font-size: 16px;
+      line-height: 1.18;
+    }
+  }
+
+  &__text.light-theme {
+    color: var(--main-light-color);
+
+    @media screen and (min-width: 768px) {
+      color: var(--main-dark-text-color);
+    }
+  }
+
+  &__rating {
+    margin-bottom: 21px;
+    width: 96px;
+    height: 16px;
+
+    @media screen and (min-width: 768px) {
+      margin-bottom: 22px;
+      width: 116px;
+      height: 20px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      margin-bottom: 29px;
+      width: 136px;
+      height: 24px;
+    }
+  }
+
+  &__cover {
+    background-position: bottom;
+    background-image: linear-gradient(
+        87.8deg,
+        #0e0e0e 15.61%,
+        rgba(14, 14, 14, 0) 60.39%
+      ),
+      url(/src/images/hero/hero-mobile-1.jpg);
+    background-size: cover;
+    width: 100%;
+
+    &__text::-webkit-scrollbar {
+      background-color: transparent;
+      /* Колір фону */
+      width: 0px;
+      /* Ширина смуги прокрутки */
+    }
+    &__text::-webkit-scrollbar-button {
+      display: none;
+      /* Приховуємо кнопки прокрутки */
+    }
+
+    &__text::-webkit-scrollbar-thumb {
+      background-color: rgba(0, 0, 0, 0);
+      /* Колір полоси */
+      border-radius: 4px;
+      /* Закруглені кути */
+    }
+
+    &__text.light-theme {
+      color: var(--main-light-color);
+
+      @media (min-device-pixel-ratio: 2),
+        (-webkit-min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        background-image: linear-gradient(
+            87.8deg,
+            #0e0e0e 15.61%,
+            rgba(14, 14, 14, 0) 60.39%
+          ),
+          url(/src/images/hero/hero-mobile-1@2x.jpg);
+      }
+
+      @media screen and (min-width: 768px) {
+        background-image: url(/src/images/hero/subtract-tablet.png),
+          url(/src/images/hero/hero-tablet-1.jpg);
+        @media (min-device-pixel-ratio: 2),
+          (-webkit-min-device-pixel-ratio: 2),
+          (min-resolution: 192dpi),
+          (min-resolution: 2dppx) {
+          background-image: url(/src/images/hero/subtract-tablet.png),
+            url(/src/images/hero/hero-tablet-1@2x.jpg);
+        }
+      }
+
+      @media screen and (min-width: 1280px) {
+        min-height: 660px;
+        background-image: url(/src/images/hero/subtract-desktop-2.png),
+          url(/src/images/hero/hero-desktop-1.jpg);
+        @media (min-device-pixel-ratio: 2),
+          (-webkit-min-device-pixel-ratio: 2),
+          (min-resolution: 192dpi),
+          (min-resolution: 2dppx) {
+          background-image: url(/src/images/hero/subtract-desktop-2.png),
+            url(/src/images/hero/hero-desktop-1@2x.jpg);
+        }
+      }
+    }
+
+    &__cover-library {
+      background-position: bottom;
+      background-image: linear-gradient(
+          87.8deg,
+          #0e0e0e 15.61%,
+          rgba(14, 14, 14, 0) 60.39%
+        ),
+        url(/src/images/hero/hero-mobile-2.jpg);
+      background-size: cover;
+      width: 100%;
+
+      @media (min-device-pixel-ratio: 2),
+        (-webkit-min-device-pixel-ratio: 2),
+        (min-resolution: 192dpi),
+        (min-resolution: 2dppx) {
+        background-image: linear-gradient(
+            87.8deg,
+            #0e0e0e 15.61%,
+            rgba(14, 14, 14, 0) 60.39%
+          ),
+          url(/src/images/hero/hero-mobile-2@2x.jpg);
+      }
+
+      @media screen and (min-width: 768px) {
+        background-image: url(/src/images/hero/subtract-tablet.png),
+          url(/src/images/hero/hero-tablet-2.jpg);
+        @media (min-device-pixel-ratio: 2),
+          (-webkit-min-device-pixel-ratio: 2),
+          (min-resolution: 192dpi),
+          (min-resolution: 2dppx) {
+          background-image: url(/src/images/hero/subtract-tablet.png),
+            url(/src/images/hero/hero-tablet-2@2x.jpg);
+        }
+      }
+
+      @media screen and (min-width: 1280px) {
+        min-height: 660px;
+        background-image: url(/src/images/hero/subtract-desktop-2.png),
+          url(/src/images/hero/hero-desktop-2.jpg);
+        @media (min-device-pixel-ratio: 2),
+          (-webkit-min-device-pixel-ratio: 2),
+          (min-resolution: 192dpi),
+          (min-resolution: 2dppx) {
+          background-image: url(/src/images/hero/subtract-desktop-2.png),
+            url(/src/images/hero/hero-desktop-2@2x.jpg);
+        }
+      }
+    }
+  }
+}
