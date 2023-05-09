@@ -106,10 +106,6 @@
   margin: 40px 0 0 0;
 }
 
-.is-hidden {
-  display: none;
-}
-
 .tui-page-btn,
 .tui-page-btn.tui-is-disabled,
 .tui-page-btn,
@@ -121,6 +117,10 @@
 
 .tui-pagination {
   margin-left: 12px;
+}
+
+.tui-pagination--is-hidden {
+  display: none;
 }
 
 .tui-pagination {

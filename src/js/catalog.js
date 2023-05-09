@@ -1,5 +1,6 @@
-import { getSearchMovies, getWeeklyTrends } from './fetchmoviedata';
-import { createPagination } from './pagination';
+import { getSearchMovies, getWeeklyTrendsPagination } from './fetchmoviedata';
+import { createCatalogPagination } from './pagination';
+import { createWeeklyTrendsPagination } from './pagination';
 import { createMovieCardMarkup } from './createmoviecardmarkup';
 import { warningMessageMarkup } from './createwarningmessagemurkup';
 import { refs } from './refs';
@@ -12,6 +13,8 @@ export function onCatalogPage() {
   refs.formSearchEl.addEventListener('submit', onSearchMovies);
 
   async function onSearchMovies(evt) {
+    refs.paginationEl.classList.remove('tui-pagination--is-hidden');
+
     evt.preventDefault();
     const query = evt.target.elements.searchQuery.value.trim();
 
@@ -20,15 +23,19 @@ export function onCatalogPage() {
 
     try {
       const videos = await getSearchMovies(query, page);
-      refs.paginationEl.classList.remove('is-hidden');
 
-      createPagination(videos, query);
+      createCatalogPagination(videos, query);
 
       if (videos.results.length === 0) {
-        refs.paginationEl.classList.add('is-hidden');
+        refs.paginationEl.classList.add('tui-pagination--is-hidden');
         renderWarningMessage();
         return;
       }
+
+      if (videos.results.length < 20) {
+        refs.paginationEl.classList.add('tui-pagination--is-hidden');
+      }
+
       renderMovies(videos.results);
     } catch (error) {
       console.log(error.message);
@@ -39,7 +46,10 @@ export function onCatalogPage() {
 
   async function onWeeklyTrends() {
     try {
-      const trendsMovies = await getWeeklyTrends();
+      const trendsMovies = await getWeeklyTrendsPagination(page);
+
+      createWeeklyTrendsPagination(trendsMovies);
+
       renderMovies(trendsMovies.results);
     } catch (error) {
       console.log(error.message);
