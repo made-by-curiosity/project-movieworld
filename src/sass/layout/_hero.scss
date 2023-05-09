@@ -217,6 +217,28 @@
     background-size: cover;
     width: 100%;
 
+
+    &__text::-webkit-scrollbar {
+        background-color: transparent;
+        /* Колір фону */
+        width: 0px;
+        /* Ширина смуги прокрутки */
+    }
+    &__text::-webkit-scrollbar-button {
+        display: none;
+        /* Приховуємо кнопки прокрутки */
+    }
+
+    &__text::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0);
+        /* Колір полоси */
+        border-radius: 4px;
+        /* Закруглені кути */
+    }
+
+    &__text.light-theme {
+        color: var(--main-light-color);
+
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
@@ -228,6 +250,7 @@
         ),
         url(/src/images/hero/hero-mobile-1@2x.jpg);
     }
+
 
     @media screen and (min-width: 768px) {
       background-image: url(/src/images/hero/subtract-tablet.png),
@@ -302,5 +325,8 @@
           url(/src/images/hero/hero-desktop-2@2x.jpg);
       }
     }
+}
+
   }
 }
+

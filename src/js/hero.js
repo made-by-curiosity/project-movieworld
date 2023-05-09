@@ -1,7 +1,7 @@
 import { getDayTrends } from "./fetchmoviedata";
 import { checkAverange } from "./checkrateaverage.js";
 import Swiper from 'swiper/swiper-bundle.esm';
-
+import { scrollFunction, topFunction } from "./backtotop";
 
 const swiper = new Swiper('.swiper', {
   
@@ -33,7 +33,11 @@ const swiper = new Swiper('.swiper', {
 const section = document.querySelector(".hero");
 const swiperBox = document.querySelector(".swiper-wrapper")
 
-window.addEventListener('load', fetchMovie)
+window.addEventListener('load', fetchMovie);
+window.onscroll = function () { scrollFunction() };
+const btn = document.getElementById("myBtn");
+
+btn.addEventListener("click", topFunction)
 
 async function fetchMovie() { 
     try {
@@ -88,6 +92,4 @@ const markupCover = `<div class="hero__container js-theme">
             screen, and speakers.</p>
         <a class="btn btn-main hero__btn">Get Started</button></a>
     </div>`
-
-
 
