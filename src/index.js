@@ -23,6 +23,7 @@ import {
 } from './js/fetchmoviedata';
 import './js/header';
 import './js/mobile-menu';
+import { onUpcomingPage } from './js/upcoming';
 import { renderWeekelyTrends } from './js/weeklyTrends';
 
 // примеры использования функций получения данных
@@ -39,6 +40,7 @@ if (
   !document.location.pathname.includes('/page-catalog') &&
   !document.location.pathname.includes('/page-my-library')
 ) {
+  onUpcomingPage();
   renderWeekelyTrends();
 }
 

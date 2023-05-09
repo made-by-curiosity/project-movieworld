@@ -33,6 +33,22 @@ export const getWeeklyTrends = async function getWeeklyTrends() {
   return weeklyTrends;
 };
 
+export const getWeeklyTrendsPagination =
+  async function getWeeklyTrendsPagination(page) {
+    const BASE_URL = 'https://api.themoviedb.org/3/trending/movie/week';
+    const params = {
+      api_key: API_KEY,
+      page: `${page}`,
+    };
+
+    const response = await axios.get(BASE_URL, { params });
+
+    const weeklyTrendsPagination = await response.data;
+    console.log('weeklyTrendsPagination', weeklyTrendsPagination);
+
+    return weeklyTrendsPagination;
+  };
+
 // ===== Нові фільми   -https://developers.themoviedb.org/3/movies/get-upcoming========
 
 export const getTodayMovies = async function getTodayMovies() {
@@ -51,11 +67,12 @@ export const getTodayMovies = async function getTodayMovies() {
 
 // / ===== Фільми за ключовим словом   -https://developers.themoviedb.org/3/search/search-movies========
 
-export const getSearchMovies = async function getSearchMovies(query) {
+export const getSearchMovies = async function getSearchMovies(query, page) {
   const BASE_URL = 'https://api.themoviedb.org/3/search/movie';
   const params = {
     api_key: API_KEY,
     query: ` ${query}`,
+    page: `${page}`,
   };
 
   const response = await axios.get(BASE_URL, { params });
