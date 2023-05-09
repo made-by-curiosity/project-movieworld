@@ -2,7 +2,6 @@ import { getSearchMovies } from './fetchmoviedata';
 import { getWeeklyTrendsPagination } from './fetchmoviedata';
 import { refs } from './refs';
 import { renderMovies } from './catalog';
-import { backToTop } from './backtotop';
 
 import Pagination from 'tui-pagination';
 
@@ -49,7 +48,6 @@ async function onCatalogPagination(query, currentPage) {
     refs.galleryEl.innerHTML = '';
     const videos = await getSearchMovies(query, currentPage);
     renderMovies(videos.results);
-    backToTop();
   } catch (error) {
     console.log(error.message);
   }
@@ -96,7 +94,6 @@ async function onWeeklyTrendsPagination(currentPage) {
     refs.galleryEl.innerHTML = '';
     const videos = await getWeeklyTrendsPagination(currentPage);
     renderMovies(videos.results);
-    backToTop();
   } catch (error) {
     console.log(error.message);
   }

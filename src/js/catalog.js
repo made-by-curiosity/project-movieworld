@@ -47,10 +47,9 @@ export function onCatalogPage() {
   async function onWeeklyTrends() {
     try {
       const trendsMovies = await getWeeklyTrendsPagination(page);
+      renderMovies(trendsMovies.results);
 
       createWeeklyTrendsPagination(trendsMovies);
-
-      renderMovies(trendsMovies.results);
     } catch (error) {
       console.log(error.message);
       renderWarningMessage();
@@ -67,4 +66,11 @@ export async function renderMovies(movies) {
   const markup = await createMovieCardMarkup(movies);
 
   refs.movieGalleryEl.insertAdjacentHTML('beforeend', markup);
+}
+
+
+refs.paginationEl.addEventListener('click', onSmothScroll);
+
+function onSmothScroll() {
+  window.scroll(0, 700);
 }
