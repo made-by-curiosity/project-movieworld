@@ -37,6 +37,12 @@
   display: flex;
 }
 
+.footer__text.light-theme,
+.footer__item.light-theme {
+  background-color: var(--main-light-color);
+  color: var(--secondary-ligth-text-color);
+}
+
 .footer__block {
   display: flex;
   align-items: center;
