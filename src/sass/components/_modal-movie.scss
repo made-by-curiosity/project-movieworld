@@ -1,0 +1,359 @@
+body.show-modal-movie .modal-movie__backdrop {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: initial;
+}
+
+.modal-movie {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: var(--main-dark-color);
+  box-shadow: var(--modal-box-shadow);
+
+  &__backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1),
+      visibility 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &__poster {
+    box-shadow: 1px 1px 24px 2px rgba(1, 1, 1, 0.45);
+  }
+
+  &__title {
+    font-weight: 500;
+  }
+
+  &__info-title {
+    margin-right: 62px;
+  }
+
+  &__button-colse {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: inherit;
+    justify-content: center;
+    border: none;
+    padding: 0px;
+  }
+}
+
+.info-title__paragraph {
+  font-size: 14px;
+  line-height: 1.14;
+  width: 78px;
+  color: var(--secondary-dark-text-color);
+
+  &:not(:last-child) {
+    margin-bottom: 12px;
+  }
+}
+
+.info-value__paragraph {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.14;
+
+  &:not(:last-child) {
+    margin-bottom: 12px;
+  }
+}
+
+.paragraph-span {
+  background-color: var(--main-light-text-color);
+  color: var(--header-bg-color);
+  border-radius: 5px;
+}
+
+.title-about {
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform: uppercase;
+  color: var(--secondary-dark-text-color);
+}
+
+.paragraph-about {
+  font-size: 12px;
+  line-height: 1.7;
+  font-weight: 400;
+  color: var(--main-light-text-color);
+}
+
+path {
+  stroke: var(--main-light-text-color);
+
+  &.light-theme {
+    stroke: var(--main-dark-text-color);
+  }
+}
+
+path:hover {
+  stroke: var(--accent-color);
+  &.light-theme:hover {
+    stroke: var(--accent-color);
+  }
+}
+
+// ============================= 320px ===============================
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .modal-movie {
+    padding-top: 52px;
+    padding-bottom: 52px;
+    width: 280px;
+    height: auto;
+    border-radius: 16px;
+
+    &__poster {
+      height: 100%;
+      border-radius: 5px;
+      object-fit: contain;
+
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &__poster-wrap {
+      width: 248px;
+      height: 315px;
+      margin-bottom: 22px;
+    }
+
+    &__title {
+      font-size: 20px;
+      line-height: 1.15;
+      margin-bottom: 29px;
+    }
+
+    &__info-wrap {
+      display: flex;
+      margin-bottom: 4px;
+    }
+
+    &__info-about {
+      margin-bottom: 16px;
+    }
+
+    &__button-colse {
+      top: 26.75px;
+      right: 22.75px;
+    }
+  }
+
+  .paragraph-span {
+    font-size: 12px;
+    line-height: 1.16;
+    padding: 1px 5px;
+  }
+
+  .title-about {
+    margin-bottom: 12px;
+  }
+}
+
+// ----------------------768px--------------------------
+
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  .modal-movie {
+    width: 704px;
+    height: 488px;
+    padding-top: 44px;
+    padding-bottom: 44px;
+    padding-left: 44px;
+    display: flex;
+    border-radius: 16px;
+
+    &__poster-wrap {
+      width: 294px;
+      height: 400px;
+      margin-right: 16px;
+    }
+
+    &__poster {
+      height: 100%;
+      border-radius: 5px;
+      object-fit: contain;
+
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &__info {
+      width: 301px;
+    }
+
+    &__title {
+      font-size: 24px;
+      line-height: 1.16;
+      margin-bottom: 26px;
+    }
+
+    &__info-wrap {
+      display: flex;
+      margin-bottom: 20px;
+    }
+
+    &__info-about {
+      margin-bottom: 24px;
+    }
+
+    &__button-colse {
+      top: 30.75px;
+      right: 30.75px;
+    }
+  }
+
+  .paragraph-span {
+    margin-right: 7px;
+    padding: 1px 8px;
+  }
+
+  .title-about {
+    margin-bottom: 16px;
+  }
+
+  .paragraph-about {
+    overflow: hidden;
+  }
+}
+
+// ----------------------1280px----------------------------
+
+@media screen and (min-width: 1280px) {
+  .modal-movie {
+    width: 846px;
+    height: 598px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-left: 60px;
+    display: flex;
+    border-radius: 20px;
+
+    &__poster-wrap {
+      margin-right: 20px;
+      width: 375px;
+      height: 478px;
+    }
+
+    &__poster {
+      height: 100%;
+      border-radius: 5px;
+      object-fit: contain;
+
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &__info {
+      width: 331px;
+    }
+
+    &__title {
+      font-size: 24px;
+      line-height: 1.33;
+      margin-bottom: 28px;
+    }
+
+    &__info-about {
+      margin-bottom: 24px;
+    }
+
+    &__info-wrap {
+      display: flex;
+      margin-bottom: 20px;
+    }
+
+    &__button-colse {
+      top: 46.75px;
+      right: 46.75px;
+    }
+  }
+
+  .paragraph-span {
+    font-size: 14px;
+    line-height: 1.14;
+    margin-right: 7px;
+    padding: 1px 8px;
+  }
+
+  .info-title__paragraph {
+    font-size: 16px;
+    line-height: 1.18;
+    width: 89px;
+  }
+
+  .info-value__paragraph {
+    font-size: 16px;
+    line-height: 1.18;
+  }
+
+  .title-about {
+    font-size: 16px;
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .paragraph-about {
+    overflow: hidden;
+    height: 159px;
+    font-size: 14px;
+    line-height: 1.42;
+  }
+}
+
+//=================== light them =======================
+
+.modal-movie.light-theme {
+  background-color: var(--main-light-color);
+  box-shadow: 1px 1px 14px 4px rgba(0, 0, 0, 0.22);
+}
+
+.info-title__paragraph.light-theme {
+  color: var(--main-dark-color);
+}
+
+.info-value__paragraph.light-theme {
+  color: var(--main-dark-color);
+}
+
+.title-about.light-theme {
+  color: var(--main-dark-color);
+}
+
+.paragraph-about.light-theme {
+  color: var(--main-dark-text-color);
+}
+
+.btn.light-theme {
+  color: var(--main-dark-color);
+
+  &:hover {
+    background-color: var(--main-dark-color);
+  }
+  &:disabled {
+    background: var(--secondary-light-text-color);
+    border: 1px solid var(--secondary-dark-text-color);
+    color: var(--secondary-dark-text-color);
+    cursor: default;
+
+    &:hover {
+      color: var(--secondary-dark-text-color);
+      background: var(--secondary-light-text-color);
+    }
+  }
+}
+
+.modal-movie__button-colse.light-theme {
+  fill: var(--main-dark-color);
+}

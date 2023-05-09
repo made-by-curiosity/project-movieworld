@@ -32,7 +32,7 @@ export async function onUpcomingPage() {
 
   const upcomingSection = document.querySelector('.section-upcoming');
 
-  const markup = `<h2 class="upcoming-title js-theme">upcoming this month</h2>
+  const markup = `<h2 class="upcoming-title js-theme js-upcoming">upcoming this month</h2>
   <div class="box">
     <div class="box-image">
         <img
@@ -42,7 +42,7 @@ export async function onUpcomingPage() {
         />
     </div>
     <div class="box-info">
-      <h2 class="upcoming__film-title js-theme">${title}</h2>
+      <h2 class="upcoming__film-title js-theme js-upcoming">${title}</h2>
       <!--   @media screen and (min-width: 768px) {display: none} -->
       <div class="upcoming__film-info">
         <ul>
@@ -56,15 +56,17 @@ export async function onUpcomingPage() {
             <span class="upcoming__item-data">${release_date}</span>
           </li>
           <li class="upcoming__info-value">
-            <span class="upcoming__info-vote js-theme">${vote_average}</span>
+            <span class="upcoming__info-vote js-theme js-upcoming">${vote_average}</span>
             /
-            <span class="upcoming__info-votes js-theme">${vote_count}</span>
+            <span class="upcoming__info-votes js-theme js-upcoming">${vote_count}</span>
           </li>
           <li class="upcoming__info-value">
-            <span class="popularity-value js-theme">${popularity}</span>
+            <span class="popularity-value js-theme js-upcoming">${popularity}</span>
           </li>
           <li class="upcoming__info-value">
-            <span class="ganre-value js-theme">${arrayGenres.join(', ')}</span>
+            <span class="ganre-value js-theme js-upcoming">${arrayGenres.join(
+              ', '
+            )}</span>
           </li>
         </ul>
       </div>
@@ -79,9 +81,9 @@ export async function onUpcomingPage() {
             <span class="upcoming__item-data">${release_date}</span>
           </li>
           <li>
-            <span class="upcoming__info-vote js-theme">${vote_average}</span>
+            <span class="upcoming__info-vote js-theme js-upcoming">${vote_average}</span>
             /
-            <span class="upcoming__info-votes js-theme">${vote_count}</span>
+            <span class="upcoming__info-votes js-theme js-upcoming">${vote_count}</span>
           </li>
         </ul>
         <ul class="info-list">
@@ -90,21 +92,37 @@ export async function onUpcomingPage() {
         </ul>
         <ul class="info-list">
           <li class="upcoming__info-value">
-            <span class="popularity-value js-theme">${popularity}</span>
+            <span class="popularity-value js-theme js-upcoming">${popularity}</span>
           </li>
           <li class="upcoming__info-value">
-            <span class="ganre-value js-theme">${arrayGenres.join(', ')}</span>
+            <span class="ganre-value js-theme js-upcoming">${arrayGenres.join(
+              ', '
+            )}</span>
           </li>
         </ul>
       </div>
 
       <h2 class="upcoming__about-title">ABOUT</h2>
-      <p class="upcoming__about-text light-theme-text js-theme">${overview}</p>
+      <p class="upcoming__about-text light-theme-text js-theme js-upcoming">${overview}</p>
       <button type="button" class="btn btn-main btn-main__upcoming upcoming__btn-remind" data-id="${id}">Remind me</button>
     </div>
   </div>`;
 
   upcomingSection.innerHTML = markup;
+
+  const themeCheckbox = document.querySelector('.theme-switcher__input');
+
+  if (themeCheckbox.checked) {
+    toggleTheme();
+  }
+
+  function toggleTheme() {
+    const elementsToChange = document.querySelectorAll('.js-upcoming');
+
+    elementsToChange.forEach(element => {
+      element.classList.toggle('light-theme');
+    });
+  }
 
   const btnRemindMe = document.querySelector('.upcoming__btn-remind');
 
@@ -122,8 +140,6 @@ export async function onUpcomingPage() {
     const movieId = btnRemindMe.dataset.id;
 
     const saveMovies = getSavedMovies();
-
-    console.dir(btnRemindMe);
 
     if (saveMovies.includes(movieId)) {
       btnRemindMe.innerText = 'In library';

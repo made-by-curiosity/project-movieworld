@@ -1,41 +1,15 @@
 import { refs } from './js/refs';
-import './js/hero';
 
 import { onLibraryPage } from './js/my-library';
 import { onCatalogPage } from './js/catalog';
-import {
-  getSavedInfo,
-  getCurrentTheme,
-  saveCurrentTheme,
-  getSavedMovies,
-  saveMovie,
-  deleteSavedMovieId,
-} from './js/local-storage-service';
-import {
-  getDayTrends,
-  getWeeklyTrends,
-  getTodayMovies,
-  getSearchMovies,
-  getFullMovieInfo,
-  getMovieTrailer,
-  getMoviesGenres,
-  getMoviesCountries,
-} from './js/fetchmoviedata';
-import './js/header';
-import './js/modalTrailer';
-import './js/mobile-menu';
+
 import { onUpcomingPage } from './js/upcoming';
 import { renderWeekelyTrends } from './js/weeklyTrends';
-
-// примеры использования функций получения данных
-// getDayTrends();
-// getWeeklyTrends();
-// getTodayMovies();
-// getSearchMovies('Titanic');
-// getFullMovieInfo(758323);
-// getMovieTrailer(640146);
-// getMoviesGenres();
-// getMoviesCountries();
+import './js/header';
+import './js/mobile-menu';
+import './js/hero';
+import './js/modal-movie';
+import './js/modalTrailer';
 
 if (
   !document.location.pathname.includes('/page-catalog') &&
