@@ -85,18 +85,18 @@ function onOpenModalMovie () {
       element.classList.toggle('light-theme');
       });
     }
+
+    addToLibraryBtn.addEventListener('click', onMovieBtnClick);
+    function onMovieBtnClick(event) {
+     const movieId = event.target.id;
+     saveMovie(movieId);
+    }
+    
     })
     .catch(error => {
       console.error(error);
     });
-
-     addToLibraryBtn.addEventListener('click', onMovieBtnClick);
-}
-
-function onMovieBtnClick(event) {
-  const movieId = event.target.id;
-  saveMovie(movieId);
-}
+  }
 
 function onCloseModalMovie() {
   window.removeEventListener('keydown', onEscPress);

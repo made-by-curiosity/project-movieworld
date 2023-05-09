@@ -42,8 +42,8 @@ body.show-modal-movie .modal-movie__backdrop {
 
     &__button-colse {
         position: absolute;
-        width: 20px;
-        height: 20px;
+        width: 30px;
+        height: 30px;
         background: inherit;
         justify-content: center;
         border: none;
@@ -97,6 +97,13 @@ body.show-modal-movie .modal-movie__backdrop {
 
     &.light-theme {
         stroke: var(--main-dark-text-color);
+    }
+}
+
+path:hover {
+    stroke: var(--accent-color);
+    &.light-theme:hover {
+        stroke: var(--accent-color);
     }
 }
 
@@ -320,7 +327,7 @@ body.show-modal-movie .modal-movie__backdrop {
 }
 
 .paragraph-about.light-theme {
-    color: var(--main-dark-color);
+    color: var(--main-dark-text-color);
 }
 
 .btn.light-theme {
@@ -334,5 +341,3 @@ body.show-modal-movie .modal-movie__backdrop {
 .btn-lib.btn.light-theme:hover {
     background-color: black;
 }
-
-
