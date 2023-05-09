@@ -21,7 +21,6 @@ export function onLibraryPage() {
 
   async function renderFavoriteMovies() {
     const favoriteMoviesId = getSavedMovies();
-    console.log(favoriteMoviesId);
 
     if (favoriteMoviesId.length === 0) {
       noMoviesMessage.classList.remove('library-isHidden');

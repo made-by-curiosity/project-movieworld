@@ -123,8 +123,6 @@ export async function onUpcomingPage() {
 
     const saveMovies = getSavedMovies();
 
-    console.dir(btnRemindMe);
-
     if (saveMovies.includes(movieId)) {
       btnRemindMe.innerText = 'In library';
       btnRemindMe.disabled = true;
