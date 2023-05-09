@@ -62,7 +62,7 @@
 }
 
 .modal-body {
-  position: relative;
+  // position: relative;
   width: 100%;
   height: 0;
   padding-bottom: 56.25%;
@@ -78,15 +78,6 @@
   width: 100%;
   height: 100%;
   border: none;
-}
-.no-video-msg {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 1.7;
-  color: var(--main-light-color);
-  width: 321px;
-  height: 100px;
 }
 
 .hidden {
