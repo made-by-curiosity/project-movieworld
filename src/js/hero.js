@@ -86,7 +86,7 @@ const markupCover = `<div class="hero__container js-theme">
         <h1 class="hero__title js-theme">Let’s Make Your Own Cinema</h1>
         <p class="hero__text js-theme">Is a guide to creating a personalized movie theater experience. You'll need a projector,
             screen, and speakers.</p>
-        <button class="btn btn-main hero__btn">Get Started</button>
+        <a class="btn btn-main hero__btn">Get Started</button></a>
     </div>`
 
 

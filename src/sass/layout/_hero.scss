@@ -191,13 +191,20 @@
 
     &__rating {
         margin-bottom: 21px;
+        width: 96px;
+        height: 16px;
+        
 
         @media screen and (min-width: 768px) {
             margin-bottom: 22px;
+            width: 116px;
+            height: 20px;
             }
 
         @media screen and (min-width: 1280px) {
             margin-bottom: 29px;
+            width: 136px;
+            height: 24px;
     }
     }
 
