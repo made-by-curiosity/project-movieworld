@@ -1,16 +1,23 @@
 import { getDayTrends } from "./fetchmoviedata";
 import { checkAverange } from "./checkrateaverage.js";
-import Swiper, { Navigation, Pagination } from 'swiper';
+import Swiper from 'swiper/swiper-bundle.esm';
+import { scrollFunction, topFunction } from "./backtotop";
 
 const swiper = new Swiper('.swiper', {
-  modules: [Navigation, Pagination],
-  // Optional parameters
-  loop: true,
-
-  // If we need pagination
+  
   pagination: {
     el: '.swiper-pagination',
+    type: 'bullets',
+    clickable: true,
+        renderBullet: function (index, className) {
+          return '<span class="' + className + '">' + '0' + (index + 1) + "</span>";
+        },
   },
+  // Optional parameters
+  loop: false,
+
+  speed: 600,
+
 
   // Navigation arrows
   navigation: {
@@ -18,18 +25,19 @@ const swiper = new Swiper('.swiper', {
     prevEl: '.swiper-button-prev',
   },
 
-  // And if we need scrollbar
-  scrollbar: {
-    el: '.swiper-scrollbar',
-  },
+  autoplay: {
+   delay: 3000,
+ },
 });
-
-
 
 const section = document.querySelector(".hero");
 const swiperBox = document.querySelector(".swiper-wrapper")
 
-window.addEventListener('load', fetchMovie)
+window.addEventListener('load', fetchMovie);
+window.onscroll = function () { scrollFunction() };
+const btn = document.getElementById("myBtn");
+
+btn.addEventListener("click", topFunction)
 
 async function fetchMovie() { 
     try {
@@ -56,8 +64,8 @@ function createMarkup({ title, overview, backdrop_path, vote_average, id }) {
 
     return `<div class="swiper-slide"><img src="${imageUrl}" alt="${
       title
-    }" class="hero__image"/><div class="hero__container"><h1 class="hero__title">${title}</h1><img src='${checkAverange(vote_average)}' class="hero__rating"/>
-        <p class="hero__text">${overview}</p>
+    }" class="hero__image"/><div class="hero__container js-theme"><h1 class="hero__title js-theme">${title}</h1><img src='${checkAverange(vote_average)}' class="hero__rating"/>
+        <p class="hero__text js-theme">${overview}</p>
         <button class="btn btn-main hero__btn" data-id="${id}">Watch trailer</button></div></div>`
 }
 
@@ -78,12 +86,10 @@ function onError(err) {
 }
 
 
-const markupCover = `<div class="hero__container">
-        <h1 class="hero__title">Let’s Make Your Own Cinema</h1>
-        <p class="hero__text">Is a guide to creating a personalized movie theater experience. You'll need a projector,
+const markupCover = `<div class="hero__container js-theme">
+        <h1 class="hero__title js-theme">Let’s Make Your Own Cinema</h1>
+        <p class="hero__text js-theme">Is a guide to creating a personalized movie theater experience. You'll need a projector,
             screen, and speakers.</p>
-        <button class="btn btn-main hero__btn">Get Started</button>
+        <a class="btn btn-main hero__btn">Get Started</button></a>
     </div>`
-
-
 
