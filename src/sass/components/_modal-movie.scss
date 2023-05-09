@@ -40,11 +40,6 @@ body.show-modal-movie .modal-movie__backdrop {
         margin-right: 62px;
     }
 
-    &__button {
-        width: 10.5px;
-        height: 10.5px;
-    }
-
     &__button-colse {
         position: absolute;
         width: 20px;
@@ -96,6 +91,14 @@ body.show-modal-movie .modal-movie__backdrop {
     font-weight: 400;
     color:var(--main-light-text-color);
    }
+
+   svg path {
+    stroke: var(--main-light-text-color);
+
+    &.light-theme {
+        stroke: var(--main-dark-text-color);
+    }
+}
 
 // ============================= 320px ===============================
 
@@ -166,6 +169,7 @@ body.show-modal-movie .modal-movie__backdrop {
         }
 
         &__poster {
+            object-fit: cover;
             width: 294px;
             height: 400px;
             border-radius: 5px;
@@ -229,9 +233,10 @@ body.show-modal-movie .modal-movie__backdrop {
         }
 
         &__poster {
-            border-radius: 5px;
             height: 100%;
-            width: 100%;
+            width: auto;
+            border-radius: 5px;
+            object-fit: cover;
         }
 
         &__info {
@@ -325,3 +330,6 @@ body.show-modal-movie .modal-movie__backdrop {
 .modal-movie__button-colse.light-theme {
     fill: var(--main-dark-color);
 }
+
+
+
