@@ -1,4 +1,6 @@
 import { refs } from './js/refs';
+import './js/hero';
+
 import { onLibraryPage } from './js/my-library';
 import { onCatalogPage } from './js/catalog';
 import {
@@ -22,6 +24,8 @@ import {
 import './js/header';
 import './js/mobile-menu';
 import { onUpcomingPage } from './js/upcoming';
+import { renderWeekelyTrends } from './js/weeklyTrends';
+
 
 // примеры использования функций получения данных
 // getDayTrends();
@@ -33,7 +37,16 @@ import { onUpcomingPage } from './js/upcoming';
 // getMoviesGenres();
 // getMoviesCountries();
 
+
 onUpcomingPage();
+
+if (
+  !document.location.pathname.includes('/page-catalog') &&
+  !document.location.pathname.includes('/page-my-library')
+) {
+  renderWeekelyTrends();
+}
+
 
 if (document.location.pathname.includes('/page-catalog')) {
   onCatalogPage();
