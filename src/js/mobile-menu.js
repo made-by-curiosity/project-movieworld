@@ -9,9 +9,11 @@
 	const onClickBtnOpen = () => {
 		refs.mobileMenu.classList.remove('js-hidden');
 		definitionActivePage();
+		document.body.classList.add('js-no-scroll');
 	};
 
 	const onClickBtnClose = () => {
+		document.body.classList.remove('js-no-scroll');
 		refs.mobileMenu.classList.add('js-hidden');
 	};
 

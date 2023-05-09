@@ -6,6 +6,10 @@ body {
   background-color: var(--main-dark-color);
 }
 
+body.js-no-scroll {
+	position: fixed;
+}
+
 body.light-theme, body.light-theme a {
   color: var(--header-bg-color);
   background-color: var(--main-light-color);
