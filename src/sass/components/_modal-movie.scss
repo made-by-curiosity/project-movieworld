@@ -327,12 +327,23 @@ path:hover {
 
 .btn.light-theme {
   color: var(--main-dark-color);
+
+  &:hover {
+    background-color: var(--main-dark-color);
+  }
+  &:disabled {
+    background: var(--secondary-light-text-color);
+    border: 1px solid var(--secondary-dark-text-color);
+    color: var(--secondary-dark-text-color);
+    cursor: default;
+
+    &:hover {
+      color: var(--secondary-dark-text-color);
+      background: var(--secondary-light-text-color);
+    }
+  }
 }
 
 .modal-movie__button-colse.light-theme {
   fill: var(--main-dark-color);
-}
-
-.btn-lib.btn.light-theme:hover {
-  background-color: var(--main-dark-color);
 }

@@ -84,13 +84,24 @@
     border-color: var(--main-light-color);
   }
 
+  &:disabled {
+    background: var(--secondary-light-text-color);
+    border: 1px solid var(--secondary-dark-text-color);
+    color: var(--secondary-dark-text-color);
+    cursor: default;
+
+    &:hover {
+      color: var(--secondary-dark-text-color);
+    }
+  }
+
   &__light {
     color: var(--main-dark-color);
 
     &:hover {
       color: var(--accent-color);
 
-      background-color: var(--main-dark-color);
+      // background-color: var(--main-dark-color);
 
       border-color: var(--main-dark-color);
     }

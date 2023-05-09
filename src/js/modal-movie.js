@@ -1,5 +1,5 @@
 import { getFullMovieInfo } from './fetchmoviedata';
-import { saveMovie } from './local-storage-service';
+import { saveMovie, getSavedMovies } from './local-storage-service';
 
 const openModalMovie = document.querySelector('.movie-gallery__list');
 const backdrop = document.querySelector('.js-backdrop');
@@ -91,16 +91,30 @@ function onOpenModalMovie() {
           element.classList.toggle('light-theme');
         });
       }
+    })
+    .then(() => {
+      const addToLibraryBtn = document.querySelector('.btn-lib.btn');
 
-      // const addToLibraryBtn = document.querySelector('.btn-lib .btn');
+      checkSavedMovies();
 
-      // console.log(addToLibraryBtn);
-      // addToLibraryBtn.addEventListener('click', onMovieBtnClick);
+      addToLibraryBtn.addEventListener('click', onMovieBtnClick);
 
-      // function onMovieBtnClick(event) {
-      //   const movieId = event.target.id;
-      //   saveMovie(movieId);
-      // }
+      function onMovieBtnClick(event) {
+        const movieId = event.target.id;
+        saveMovie(movieId);
+        addToLibraryBtn.innerText = 'In library';
+        addToLibraryBtn.disabled = true;
+      }
+
+      function checkSavedMovies() {
+        const movieId = addToLibraryBtn.id;
+        const saveMovies = getSavedMovies();
+
+        if (saveMovies.includes(movieId)) {
+          addToLibraryBtn.innerText = 'In library';
+          addToLibraryBtn.disabled = true;
+        }
+      }
     })
     .catch(error => {
       console.error(error);
