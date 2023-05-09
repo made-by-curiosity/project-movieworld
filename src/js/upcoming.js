@@ -100,30 +100,34 @@ export async function onUpcomingPage() {
 
       <h2 class="upcoming__about-title">ABOUT</h2>
       <p class="upcoming__about-text light-theme-text js-theme">${overview}</p>
-      <button type="button" class="btn btn-main upcoming__btn-remind" data-id="${id}">Remind me</button>
+      <button type="button" class="btn btn-main btn-main__upcoming upcoming__btn-remind" data-id="${id}">Remind me</button>
     </div>
   </div>`;
 
   upcomingSection.innerHTML = markup;
 
-  const btnReamindMe = document.querySelector('.upcoming__btn-remind');
+  const btnRemindMe = document.querySelector('.upcoming__btn-remind');
 
   checkSavedMovies();
 
-  btnReamindMe.addEventListener('click', onReamindMeClick);
+  btnRemindMe.addEventListener('click', onReamindMeClick);
 
   function onReamindMeClick(event) {
     saveMovie(event.target.dataset.id);
+    btnRemindMe.innerText = 'In library';
+    btnRemindMe.disabled = true;
   }
 
   function checkSavedMovies() {
-    const movieId = btnReamindMe.dataset.id;
+    const movieId = btnRemindMe.dataset.id;
 
     const saveMovies = getSavedMovies();
 
+    console.dir(btnRemindMe);
+
     if (saveMovies.includes(movieId)) {
-      btnReamindMe.textContent = 'In library';
-      btnReamindMe.disabled = true;
+      btnRemindMe.innerText = 'In library';
+      btnRemindMe.disabled = true;
     }
   }
 }
