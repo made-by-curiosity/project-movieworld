@@ -1,73 +1,73 @@
 // import { team } from './team';
 
-const team =[
+const team = [
 	{
 		id: 1,
-		name: "Vadim",
+		name: "Vadym Agienko",
 		dev: "Team lead",
 		photo: "./images/desctop-2x.jpg",
 	},
 	{
 		id: 2,
-		name: "Viktor",
+		name: "Viktor Biruk",
 		dev: "Scrum master",
-		photo: "./images/kat1.png",
+		photo: "./images/cat1.png",
 	},
 	{
 		id: 3,
-		name: "Anrii",
+		name: "Andrey Datsenko",
 		dev: "Developer",
 		photo: "./images/left.svg",
 	},
 	{
 		id: 4,
-		name: "Darya",
+		name: "Daria Makarova",
 		dev: "Developer",
-		photo: "./images/employee_4.jpg",
+		photo: "./images/dev_4.jpg",
 	},
 	{
 		id: 5,
-		name: "Jyrii",
+		name: "Yurii Hlushko",
 		dev: "Developer",
-		photo: "./images/employee_5.jpg",
+		photo: "./images/dev_5.jpg",
 	},
 	{
 		id: 6,
-		name: "Nikolay",
+		name: "Nikolay Cherkasov",
 		dev: "Developer",
-		photo: "./images/employee_6.jpg",
+		photo: "./images/dev_6.jpg",
 	},
 	{
 		id: 7,
-		name: "Oleg",
+		name: "Oleg Vlasyk",
 		dev: "Developer",
-		photo: "./images/employee_7.jpg",
+		photo: "./images/dev_7.jpg",
 	},
 	{
 		id: 8,
-		name: "Vitaliy",
+		name: "Vitaliy Dunyushkin",
 		dev: "Developer",
-		photo: "./images/employee_8.jpg",
+		photo: "./images/dev_8.jpg",
 	},
 	{
 		id: 9,
-		name: "Marina",
+		name: "Maryna Onikhovska",
 		dev: "Developer",
-		photo: "./images/employee_9.jpg",
+		photo: "./images/dev_9.jpg",
 	},
 	{
 		id: 10,
-		name: "Oleksandr",
+		name: "Oleksandr Braun",
 		dev: "Developer",
-		photo: "./images/employee_10.jpg",
+		photo: "./images/dev_10.jpg",
 	},
 	{
 		id: 11,
-		name: "Mihailo",
+		name: "Mykhailo Hryvinskyi",
 		dev: "Developer",
-		photo: "./images/employee_11.jpg",
+		photo: "./images/dev_11.jpg",
 	},
-]
+];
 
 refs = {
 	downBtn: document.querySelector('button[data-modal-down]'),
@@ -92,7 +92,7 @@ changeInValue(0);
 function creatingNewCard(item) {
 	const { name, dev, photo } = item;
 	return `<li class='modal-team__dev'>
-						<img src='${photo}' width='270' alt='${dev}'>
+						<img src='${photo}' width='270' alt='photo of developer'>
 						<div class="modal-team__dev-info">
 							<h3 class="modal-team__dev-head js-theme">${name}</h3>
 							<p class="modal-team__dev-text js-theme">${dev}</p>

@@ -11,7 +11,11 @@
 		definitionActivePage();
 	};
 
-	const onClickBtnClose = () => {
+	const onClickBtnClose = (event) => {
+		if (event.target.classList[0] === 'mobile-menu') {
+			return;
+		};
+
 		refs.mobileMenu.classList.add('js-hidden');
 	};
 

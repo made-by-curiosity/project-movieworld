@@ -44,6 +44,7 @@
 	background-color: #171717;
 
 	&__icon {
+		margin-bottom: 40px;
 		width: 32px;
 		height: 32px;
 	}
@@ -52,13 +53,12 @@
 		display: flex;
 		flex-direction: column;
 		align-items: left;
-
-		padding-top: 40px;
 		margin: 0;
+
+		max-width: 100px;
 	}
 
 	&__link {
-
 		line-height: 1.14;
 		color: var(--main-light-color);
 		text-transform: uppercase;
