@@ -116,13 +116,17 @@ path:hover {
     border-radius: 16px;
 
     &__poster {
-      object-fit: cover;
+      height: 100%;
       border-radius: 5px;
-      width: 248px;
-      height: 315px;
+      object-fit: contain;
+
+      margin-left: auto;
+      margin-right: auto;
     }
 
     &__poster-wrap {
+      width: 248px;
+      height: 315px;
       margin-bottom: 22px;
     }
 
@@ -171,14 +175,18 @@ path:hover {
     border-radius: 16px;
 
     &__poster-wrap {
+      width: 294px;
+      height: 400px;
       margin-right: 16px;
     }
 
     &__poster {
-      object-fit: cover;
-      width: 294px;
-      height: 400px;
+      height: 100%;
       border-radius: 5px;
+      object-fit: contain;
+
+      margin-left: auto;
+      margin-right: auto;
     }
 
     &__info {
@@ -239,10 +247,12 @@ path:hover {
     }
 
     &__poster {
-      width: 100%;
       height: 100%;
       border-radius: 5px;
-      object-fit: cover;
+      object-fit: contain;
+
+      margin-left: auto;
+      margin-right: auto;
     }
 
     &__info {
