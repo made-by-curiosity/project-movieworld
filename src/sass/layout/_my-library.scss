@@ -33,13 +33,19 @@
     }
 }
 
-.my-library__message--light{
+.js-theme.light-theme{
     color: var(--main-dark-color);
 }
 
 .btn-library{
     display: block;
     margin: 0 auto;    
+}
+
+.btn-loadMore {
+    display: block;
+    margin: 0 auto;
+    margin-top: 24px;
 }
 
 .library-isHidden{
