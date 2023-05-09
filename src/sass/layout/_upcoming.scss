@@ -38,8 +38,12 @@
   }
 }
 .box-image {
+  margin-bottom: 24px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 32px;
+  }
   @media screen and (min-width: 1280px) {
-    height: 458px;
+    margin-bottom: 0px;
   }
 }
 .box-info {
@@ -52,15 +56,18 @@
   }
 }
 .upcoming-image {
+  object-fit: cover;
   border-radius: 5px;
-  margin-bottom: 24px;
 
+  max-width: 280px;
+  height: 402px;
   @media screen and (min-width: 768px) {
-    margin-bottom: 32px;
+    height: 400px;
+    max-width: 704px;
   }
   @media screen and (min-width: 1280px) {
-    height: 100%;
-    margin-bottom: 0px;
+    max-width: 805px;
+    height: 458px;
   }
 }
 .upcoming__film-title {
