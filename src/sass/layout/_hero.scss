@@ -181,6 +181,24 @@
     }
     }
 
+    &__text::-webkit-scrollbar {
+        background-color: transparent;
+        /* Колір фону */
+        width: 0px;
+        /* Ширина смуги прокрутки */
+    }
+    &__text::-webkit-scrollbar-button {
+        display: none;
+        /* Приховуємо кнопки прокрутки */
+    }
+
+    &__text::-webkit-scrollbar-thumb {
+        background-color: rgba(0, 0, 0, 0);
+        /* Колір полоси */
+        border-radius: 4px;
+        /* Закруглені кути */
+    }
+
     &__text.light-theme {
         color: var(--main-light-color);
 
