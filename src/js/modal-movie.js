@@ -22,7 +22,10 @@ openModalMovie.addEventListener('click', onOpenModalMovie);
 closeModalMovie.addEventListener('click', onCloseModalMovie);
 backdrop.addEventListener('click', onCloseBackdropClick);
 
-function onOpenModalMovie() {
+function onOpenModalMovie(e) {
+  if (e.target.nodeName === 'UL') {
+    return;
+  }
   window.addEventListener('keydown', onEscPress);
   document.body.classList.add('show-modal-movie');
 
