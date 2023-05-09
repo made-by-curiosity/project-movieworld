@@ -1,5 +1,9 @@
 import { getFullMovieInfo } from './fetchmoviedata';
-import { saveMovie, getSavedMovies } from './local-storage-service';
+import {
+  saveMovie,
+  getSavedMovies,
+  deleteSavedMovieId,
+} from './local-storage-service';
 
 const openModalMovie = document.querySelector('.movie-gallery__list');
 const backdrop = document.querySelector('.js-backdrop');
@@ -71,8 +75,11 @@ function onOpenModalMovie(e) {
                 <p class="paragraph-about js-modal">${overview}</p>
             </div>
             <div class="modal-movie__button-wrap">
-                <button class="btn-lib btn js-modal" type="button" id="${movieId}">
+                <button class="btn-lib btn js-modal btn-add-lib" type="button" id="${movieId}">
                     Add to my library
+                </button>
+								<button class="btn-lib btn js-modal btn-remove-lib lib-is-hidden" type="button" id="${movieId}">
+                    Remove from library
                 </button>
             </div>
         </div>
@@ -94,17 +101,19 @@ function onOpenModalMovie(e) {
       }
     })
     .then(() => {
-      const addToLibraryBtn = document.querySelector('.btn-lib.btn');
+      const addToLibraryBtn = document.querySelector('.btn-add-lib');
+      const removeLibraryBtn = document.querySelector('.btn-remove-lib');
 
       checkSavedMovies();
 
       addToLibraryBtn.addEventListener('click', onMovieBtnClick);
+      removeLibraryBtn.addEventListener('click', onRemoveFromLibBtn);
 
       function onMovieBtnClick(event) {
         const movieId = event.target.id;
         saveMovie(movieId);
-        addToLibraryBtn.innerText = 'In library';
-        addToLibraryBtn.disabled = true;
+        addToLibraryBtn.classList.add('lib-is-hidden');
+        removeLibraryBtn.classList.remove('lib-is-hidden');
       }
 
       function checkSavedMovies() {
@@ -112,8 +121,39 @@ function onOpenModalMovie(e) {
         const saveMovies = getSavedMovies();
 
         if (saveMovies.includes(movieId)) {
-          addToLibraryBtn.innerText = 'In library';
-          addToLibraryBtn.disabled = true;
+          addToLibraryBtn.classList.add('lib-is-hidden');
+          removeLibraryBtn.classList.remove('lib-is-hidden');
+        }
+      }
+
+      function onRemoveFromLibBtn(e) {
+        const movieId = e.target.id;
+        deleteSavedMovieId(movieId);
+
+        addToLibraryBtn.classList.remove('lib-is-hidden');
+        removeLibraryBtn.classList.add('lib-is-hidden');
+
+        if (document.location.pathname.includes('/page-my-library')) {
+          //
+          console.dir(movieGalleryEl.children);
+
+          [...movieGalleryEl.children].forEach(card => {
+            const cardMovieIdToRemove =
+              card.firstElementChild.firstElementChild.dataset.id;
+            if (cardMovieIdToRemove === movieId) {
+              card.remove();
+            }
+          });
+          onCloseModalMovie();
+
+          const favoriteMoviesId = getSavedMovies();
+
+          const noMoviesMessage = document.querySelector('.no-movies-message');
+
+          if (favoriteMoviesId.length === 0) {
+            noMoviesMessage.classList.remove('library-isHidden');
+            return;
+          }
         }
       }
     })
