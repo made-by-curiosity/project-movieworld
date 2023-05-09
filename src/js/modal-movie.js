@@ -5,6 +5,7 @@ const openModalMovie = document.querySelector(".movie-gallery__list");
 const backdrop = document.querySelector('.js-backdrop');
 const closeModalMovie = document.querySelector('[data-action="close-modal-movie"]');
 const movieGalleryEl = document.querySelector(".movie-gallery__list");
+const addToLibraryBtn = document.querySelector('.btn-lib .btn');
 let movieId;
 
 
@@ -39,32 +40,32 @@ function onOpenModalMovie () {
       
       modalContainer.insertAdjacentHTML('beforeend', `
         <div class="modal-movie__poster-wrap" data-modal="modal-movie">
-            <img class="modal-movie__poster js-theme" src="${IMAGE_SRC}" alt="movie image">
+            <img class="modal-movie__poster js-modal" src="${IMAGE_SRC}" alt="movie image">
         </div>
         <div class="modal-movie__info">
-            <h2 class="modal-movie__title js-theme">${original_title}</h2>
+            <h2 class="modal-movie__title js-modal">${original_title}</h2>
             <div class="modal-movie__info-wrap">
                 <div class="modal-movie__info-title">
-                    <p class="info-title__paragraph js-theme">Vote / Votes</p>
-                    <p class="info-title__paragraph js-theme">Popularity</p>
-                    <p class="info-title__paragraph js-theme">Genre</p>
+                    <p class="info-title__paragraph js-modal">Vote / Votes</p>
+                    <p class="info-title__paragraph js-modal">Popularity</p>
+                    <p class="info-title__paragraph js-modal">Genre</p>
                 </div>
                 <div class="modal-movie__info-value">
-                    <p class="info-value__paragraph js-theme">
+                    <p class="info-value__paragraph js-modal">
                     <span class="paragraph-span">${vote_average}</span>
                     /
                     <span class="paragraph-span">${vote_count}</span>
                     </p>
-                    <p class="info-value__paragraph js-theme">${popularity}</p>
-                    <p class="info-value__paragraph js-theme">${genres}</p>
+                    <p class="info-value__paragraph js-modal">${popularity}</p>
+                    <p class="info-value__paragraph js-modal">${genres}</p>
                 </div>
             </div>
             <div class="modal-movie__info-about">
-                <h3 class="title-about js-theme">About</h3>
-                <p class="paragraph-about js-theme">${overview}</p>
+                <h3 class="title-about js-modal">About</h3>
+                <p class="paragraph-about js-modal">${overview}</p>
             </div>
             <div class="modal-movie__button-wrap">
-                <button class="btn-lib btn js-theme" type="button" id="${movieId}">
+                <button class="btn-lib btn js-modal" type="button" id="${movieId}">
                     Add to my library
                 </button>
             </div>
@@ -74,7 +75,31 @@ function onOpenModalMovie () {
     .catch(error => {
       console.error(error);
     });
+
+    const buttonToggle = document.querySelector('.theme-switcher__button');
+    
+    if (buttonToggle.checked) {
+      toggleTheme();
+    }
+
+    function toggleTheme() {
+      const elementsToChange = document.querySelectorAll('.js-modal');
+  
+      elementsToChange.forEach(element => {
+      element.classList.toggle('light-theme');
+      });
+    }
+    
+
+    
+  
+    //  addToLibraryBtn.addEventListener('click', onMovieBtnClick);
 }
+
+// function onMovieBtnClick(event) {
+//   const movieId = event.target.id;
+//   saveMovie(movieId);
+// }
 
 function onCloseModalMovie() {
   window.removeEventListener('keydown', onEscPress);
@@ -82,6 +107,8 @@ function onCloseModalMovie() {
   const modalContainer = document.querySelector('.modal-movie.container');
   const modalContent = modalContainer.querySelectorAll('.modal-movie__poster-wrap, .modal-movie__info, .modal-movie__button-wrap');
   modalContent.forEach(content => content.remove());
+
+  // addToLibraryBtn.removeEventListener('click', onMovieBtnClick);
 }
 
 function onCloseBackdropClick(event) {
@@ -97,9 +124,13 @@ function onEscPress(event) {
     }
 }
 
-//  const addToLibraryBtn = document.querySelector('.btn-lib');
+
+// function onSaveMovieClick () {
+//     const addToLibraryBtn = document.querySelector('.btn-lib');
+//      addToLibraryBtn.addEventListener('click', () => {
+//      saveMovie(movieId);
+//   });
+// }
 
 
-// addToLibraryBtn.addEventListener('click', () => {
-//     saveMovie(movieId);
-// });
+

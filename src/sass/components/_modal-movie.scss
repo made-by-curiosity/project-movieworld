@@ -234,9 +234,11 @@ body.show-modal-movie .modal-movie__backdrop {
 
         &__poster {
             height: 100%;
-            width: auto;
+            width: 100%;
             border-radius: 5px;
             object-fit: cover;
+            // object-position: 0px -25px;
+            object-position: center;
         }
 
         &__info {
