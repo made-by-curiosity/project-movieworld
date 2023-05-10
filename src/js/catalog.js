@@ -5,6 +5,7 @@ import { createMovieCardMarkup } from './createmoviecardmarkup';
 import { warningMessageMarkup } from './createwarningmessagemurkup';
 import { createDropdownYearList } from './createyearmarkup';
 import { refs } from './refs';
+import './dropdownyear';
 
 let page = 1;
 
@@ -72,18 +73,3 @@ export async function renderMovies(movies) {
 }
 
 // ======================DropDownList=========================
-
-refs.dropDownBtnEl.addEventListener('click', onDropDownMenu);
-
-function onDropDownMenu() {
-  refs.dropDownListEL.classList.toggle('dropdown__list--visible');
-}
-
-refs.dropDownListEL.addEventListener('click', onChangeValue);
-
-function onChangeValue(evt) {
-  let yearValue = evt.target.textContent;
-  refs.dropDownBtnEl.innerHTML = yearValue;
-  refs.dropDownListEL.classList.toggle('dropdown__list--visible');
-  refs.yearValueEl.value = yearValue;
-}

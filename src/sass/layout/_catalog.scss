@@ -4,6 +4,7 @@
 
 .search-form {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 
@@ -21,6 +22,7 @@
   line-height: 1.14;
 
   margin-right: 16px;
+  margin-bottom: 12px;
   padding: 10px 20px;
 
   background-color: var(--main-dark-color);
@@ -32,6 +34,8 @@
 
   @media screen and (min-width: 768px) {
     height: 44px;
+    margin-bottom: 0;
+    font-size: 16px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -209,7 +213,7 @@
   justify-content: space-between;
 
   width: 95px;
-  height: 48px;
+  height: 40px;
   font-weight: 500;
   line-height: 1.14;
 
@@ -224,6 +228,15 @@
   border: 1px solid var(--main-light-color);
   border-radius: 8px;
   outline: none;
+
+  @media screen and (min-width: 768px) {
+    height: 44px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    height: 48px;
+    font-size: 16px;
+  }
 }
 
 .dropdown-btn::after {
@@ -249,6 +262,10 @@
   max-height: 200px;
   opacity: 0;
 
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.14;
+
   position: absolute;
   left: 0;
   top: 48px;
@@ -270,10 +287,6 @@
 
 .dropdown__list::-webkit-scrollbar {
   width: 3px;
-}
-
-.dropdown__list::-webkit-scrollbar-track {
-  background: var(--main-dark-color);
 }
 
 .dropdown__list::-webkit-scrollbar-thumb {
