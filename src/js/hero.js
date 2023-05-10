@@ -78,10 +78,13 @@ async function getHeroMarkup() {
 
 function createMarkup({ title, overview, backdrop_path, vote_average, id }) {
   let imageUrl = `https://image.tmdb.org/t/p/original${backdrop_path}`;
+  let imageUrlSmall = `https://image.tmdb.org/t/p/w500${backdrop_path}`;
 
-  return `<div class="swiper-slide"><img src="${imageUrl}" alt="${title}" class="hero__image"/><div class="hero__container js-theme js-hero"><h1 class="hero__title js-theme js-hero">${title}</h1><img src='${checkAverange(
-    vote_average
-  )}' class="hero__rating"/>
+  return `<div class="swiper-slide">
+	<img  src="${imageUrl}" alt="${title}" class="hero__image hero__image--big"/>
+	<img  src="${imageUrlSmall}" alt="${title}" class="hero__image hero__image--small"/>
+	<div class="hero__container js-theme js-hero"><h1 class="hero__title js-theme js-hero">${title}</h1>
+	<img src='${checkAverange(vote_average)}' loading="lazy" class="hero__rating"/>
         <p class="hero__text js-theme js-hero">${overview}</p>
         <button class="btn btn-main hero__btn" data-id="${id}">Watch trailer</button></div></div>`;
 }
