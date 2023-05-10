@@ -89,8 +89,7 @@
             align-items: center;
             text-align: center;
             text-transform: uppercase;
-            /* Grey */
-            color: var(--secondary-dark-text-color);
+            color: #b7b7b7; //var(--secondary-dark-text-color);
 
             transition: color 250ms ease-in-out;
 
@@ -139,7 +138,8 @@
 }
 
 .nav-list.light-theme a {
-    color: var(--secondary-light-text-color);
+    color: #595959; // var(--secondary-light-text-color);
+
     &:hover, &:focus {
         color: var(--accent-color);
     }

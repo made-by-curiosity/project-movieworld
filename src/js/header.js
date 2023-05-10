@@ -33,14 +33,14 @@ function saveCurrentState(input) {
 };
 // ***************************************************
 // змінюємо колір кнопки активної сторінки
-if (document.location.pathname.includes('/index.html')) {
-  setBtnColor('#home');
-
-} else if (document.location.pathname.includes('/page-catalog')) {
+if (document.location.pathname.includes('/page-catalog')) {
   setBtnColor('#catalog');
 
-} else if (document.location.pathname.includes('/page-my-library')) { 
+} else if (document.location.pathname.includes('/page-my-library')) {
   setBtnColor('#library');
+
+} else { 
+  setBtnColor('#home');
 }
 
 function setBtnColor(page) { 
