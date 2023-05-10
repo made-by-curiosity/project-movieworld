@@ -63,17 +63,25 @@ export const getTodayMovies = async function getTodayMovies() {
 
 // / ===== Фільми за ключовим словом   -https://developers.themoviedb.org/3/search/search-movies========
 
-export const getSearchMovies = async function getSearchMovies(query, page) {
+export const getSearchMovies = async function getSearchMovies(
+  query,
+  page,
+  year
+) {
   const BASE_URL = 'https://api.themoviedb.org/3/search/movie';
   const params = {
     api_key: API_KEY,
     query: ` ${query}`,
     page: `${page}`,
+    year: 2016,
+    language: 'sl',
   };
 
   const response = await axios.get(BASE_URL, { params });
 
   const searchMovies = await response.data;
+
+  console.log(searchMovies);
 
   return searchMovies;
 };
@@ -135,5 +143,9 @@ export const getMoviesCountries = async function getMoviesGenres() {
 
   const countries = await response.data;
 
+  console.log(countries);
+
   return countries;
 };
+
+getMoviesCountries();

@@ -17,6 +17,7 @@ export function onCatalogPage() {
 
     evt.preventDefault();
     const query = evt.target.elements.searchQuery.value.trim();
+    // const year = evt.target.elements.selectYear.value;
 
     refs.galleryEl.innerHTML = '';
     refs.movieGalleryMessageEl.innerHTML = '';
@@ -72,13 +73,21 @@ export async function renderMovies(movies) {
 
 const dropDownBtn = document.querySelector('.dropdown-btn');
 const dropDownList = document.querySelector('.dropdown__list');
-const dropDownBtnIcon = document.querySelector('.dropdown-btn_icon');
-
-console.log(dropDownBtn);
+const yearValueEl = document.querySelector('.year-value');
 
 dropDownBtn.addEventListener('click', onDropDownMenu);
 
-function onDropDownMenu(evt) {
+function onDropDownMenu() {
   dropDownList.classList.toggle('dropdown__list--visible');
-  dropDownList.classList.toggle('dropdown-btn_icon--transform');
+}
+
+dropDownList.addEventListener('click', onChangeValue);
+
+function onChangeValue(evt) {
+  let yearValue = evt.target.textContent;
+  dropDownBtn.innerHTML = `${yearValue} <svg class="dropdown-btn_icon">
+          <use href="./images/icons.svg#icon-chevron-down"></use>
+        </svg>`;
+  dropDownList.classList.toggle('dropdown__list--visible');
+  yearValueEl.value = yearValue;
 }
