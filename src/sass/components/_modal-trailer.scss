@@ -1,6 +1,5 @@
 .trailer-modal {
   position: absolute;
-
   width: 700px;
   height: 400px;
   display: flex;
@@ -10,11 +9,11 @@
   z-index: 9999;
   top: 140px;
   left: 490px;
-
   background-color: var(--main-dark-color);
   box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
   border-radius: 20px;
 }
+
 .trailer-modal.light-theme {
   background-color: var(--main-light-color);
 }
@@ -42,6 +41,7 @@
   opacity: 1;
   transition: opacity 0.3s ease;
 }
+
 .close-btn__svg.light-theme {
   fill: var(--main-dark-color);
 }
@@ -62,11 +62,12 @@
 }
 
 .modal-body {
-  // position: relative;
+  position: relative;
   width: 100%;
   height: 0;
   padding-bottom: 56.25%;
 }
+
 .modal-body:hover + .close-btn__svg {
   opacity: 1;
 }
@@ -84,31 +85,47 @@
   display: none;
 }
 
-@media (max-width: 319px) {
+/* Мобільний брейкпоінт */
+@media screen and (max-width: 767px) {
   .trailer-modal {
-    width: 90%;
-    height: auto;
-    max-width: 280px;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-/* Мобільні пристрої від 320px до 767px */
-@media (min-width: 320px) and (max-width: 767px) {
-  .trailer-modal {
-    width: 90%;
-    height: auto;
+    width: 280px;
+    height: 289px;
     max-width: 480px;
     top: 10%;
     left: 50%;
     transform: translateX(-50%);
   }
+
+  .trailer-element {
+    width: 100%;
+    height: auto;
+  }
+
+  .no-video-msg {
+    position: absolute;
+    width: 214px;
+    height: 65px;
+    left: 33px;
+    top: 10px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: calc(19 / 16);
+  }
+
+  .notrailer__img {
+    position: absolute;
+    width: 159px;
+    height: 153px;
+    left: 61px;
+    top: 70px;
+  }
 }
 
-/* Планшети від 768px до 1279px */
-@media (min-width: 768px) and (max-width: 1279px) {
+/* Планшетний брейкпоінт */
+@media screen and (min-width: 768px) and (max-width: 1279px) {
   .trailer-modal {
     width: 70%;
     height: auto;
@@ -117,10 +134,32 @@
     left: 50%;
     transform: translateX(-50%);
   }
+
+  .no-video-msg {
+    position: absolute;
+    width: 321px;
+    height: 92px;
+    left: 40px;
+    top: 110px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .notrailer__img {
+    position: absolute;
+    width: 296px;
+    height: 260px;
+    top: 70px;
+    left: 280px;
+  }
 }
 
-/* Десктопні пристрої від 1280px */
-@media (min-width: 1280px) {
+/* Десктопний брейкпоінт */
+@media screen and (min-width: 1280px) {
   .trailer-modal {
     width: 50%;
     height: auto;
@@ -128,5 +167,28 @@
     top: 140px;
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  .no-video-msg {
+    position: absolute;
+    width: 321px;
+    height: 100px;
+    left: 50px;
+    top: 150px;
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-size: 24px;
+    line-height: calc(28 / 24);
+  }
+
+  .notrailer__img {
+    position: absolute;
+    width: 363px;
+    height: 318px;
+    left: 337px;
+    top: 77px;
+    margin: 0;
+    padding: 0;
   }
 }
