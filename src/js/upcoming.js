@@ -40,7 +40,9 @@ export async function onUpcomingPage() {
   <div class="box">
     <div class="box-image">
         <img
-          src="https://image.tmdb.org/t/p/w500${arrayDataMovies.backdrop_path}"
+          src="https://image.tmdb.org/t/p/original${
+            arrayDataMovies.backdrop_path
+          }"
           alt="upcoming-film"
           class="upcoming-image"
         />
