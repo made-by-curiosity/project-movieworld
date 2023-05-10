@@ -73,8 +73,7 @@ export const getSearchMovies = async function getSearchMovies(
     api_key: API_KEY,
     query: ` ${query}`,
     page: `${page}`,
-    year: 2016,
-    language: 'sl',
+    primary_release_year: `${year}`,
   };
 
   const response = await axios.get(BASE_URL, { params });
@@ -142,8 +141,6 @@ export const getMoviesCountries = async function getMoviesGenres() {
   const response = await axios.get(BASE_URL, { params });
 
   const countries = await response.data;
-
-  console.log(countries);
 
   return countries;
 };

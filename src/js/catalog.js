@@ -3,11 +3,13 @@ import { createCatalogPagination } from './pagination';
 import { createWeeklyTrendsPagination } from './pagination';
 import { createMovieCardMarkup } from './createmoviecardmarkup';
 import { warningMessageMarkup } from './createwarningmessagemurkup';
+import { createDropdownYearList } from './createyearmarkup';
 import { refs } from './refs';
 
 let page = 1;
 
 export function onCatalogPage() {
+  createDropdownYearList();
   onWeeklyTrends();
 
   refs.formSearchEl.addEventListener('submit', onSearchMovies);
@@ -17,15 +19,15 @@ export function onCatalogPage() {
 
     evt.preventDefault();
     const query = evt.target.elements.searchQuery.value.trim();
-    // const year = evt.target.elements.selectYear.value;
+    const year = evt.target.elements.selectYear.value;
 
     refs.galleryEl.innerHTML = '';
     refs.movieGalleryMessageEl.innerHTML = '';
 
     try {
-      const videos = await getSearchMovies(query, page);
+      const videos = await getSearchMovies(query, page, year);
 
-      createCatalogPagination(videos, query);
+      createCatalogPagination(videos, query, year);
 
       if (videos.results.length === 0) {
         refs.paginationEl.classList.add('tui-pagination--is-hidden');
@@ -69,25 +71,19 @@ export async function renderMovies(movies) {
   refs.movieGalleryEl.insertAdjacentHTML('beforeend', markup);
 }
 
-// DropDown=========================
-
-const dropDownBtn = document.querySelector('.dropdown-btn');
-const dropDownList = document.querySelector('.dropdown__list');
-const yearValueEl = document.querySelector('.year-value');
+// ======================DropDownList=========================
 
 dropDownBtn.addEventListener('click', onDropDownMenu);
 
 function onDropDownMenu() {
-  dropDownList.classList.toggle('dropdown__list--visible');
+  refs.dropDownListEL.classList.toggle('dropdown__list--visible');
 }
 
 dropDownList.addEventListener('click', onChangeValue);
 
 function onChangeValue(evt) {
   let yearValue = evt.target.textContent;
-  dropDownBtn.innerHTML = `${yearValue} <svg class="dropdown-btn_icon">
-          <use href="./images/icons.svg#icon-chevron-down"></use>
-        </svg>`;
-  dropDownList.classList.toggle('dropdown__list--visible');
-  yearValueEl.value = yearValue;
+  refs.dropDownBtnEl.innerHTML = yearValue;
+  refs.dropDownListEL.classList.toggle('dropdown__list--visible');
+  refs.yearValueEl.value = yearValue;
 }
