@@ -1,5 +1,9 @@
 import { getTodayMovies, getMoviesGenres } from './fetchmoviedata';
-import { saveMovie, getSavedMovies } from './local-storage-service';
+import {
+  saveMovie,
+  getSavedMovies,
+  deleteSavedMovieId,
+} from './local-storage-service';
 
 export async function onUpcomingPage() {
   const movies = await getTodayMovies();
@@ -105,6 +109,9 @@ export async function onUpcomingPage() {
       <h2 class="upcoming__about-title">ABOUT</h2>
       <p class="upcoming__about-text light-theme-text js-theme js-upcoming">${overview}</p>
       <button type="button" class="btn btn-main btn-main__upcoming upcoming__btn-remind" data-id="${id}">Remind me</button>
+			<button class="btn btn-main btn-main__upcoming upcoming__btn-remove lib-is-hidden" type="button" data-id="${id}">
+			Remove from library
+                </button>
     </div>
   </div>`;
 
@@ -125,15 +132,17 @@ export async function onUpcomingPage() {
   }
 
   const btnRemindMe = document.querySelector('.upcoming__btn-remind');
+  const removeRemindBtn = document.querySelector('.upcoming__btn-remove');
 
   checkSavedMovies();
 
   btnRemindMe.addEventListener('click', onReamindMeClick);
+  removeRemindBtn.addEventListener('click', onRemoveRemindBtnClick);
 
   function onReamindMeClick(event) {
     saveMovie(event.target.dataset.id);
-    btnRemindMe.innerText = 'In library';
-    btnRemindMe.disabled = true;
+    btnRemindMe.classList.add('lib-is-hidden');
+    removeRemindBtn.classList.remove('lib-is-hidden');
   }
 
   function checkSavedMovies() {
@@ -142,8 +151,16 @@ export async function onUpcomingPage() {
     const saveMovies = getSavedMovies();
 
     if (saveMovies.includes(movieId)) {
-      btnRemindMe.innerText = 'In library';
-      btnRemindMe.disabled = true;
+      btnRemindMe.classList.add('lib-is-hidden');
+      removeRemindBtn.classList.remove('lib-is-hidden');
     }
+  }
+
+  function onRemoveRemindBtnClick(e) {
+    const movieId = e.target.dataset.id;
+    deleteSavedMovieId(movieId);
+
+    btnRemindMe.classList.remove('lib-is-hidden');
+    removeRemindBtn.classList.add('lib-is-hidden');
   }
 }
