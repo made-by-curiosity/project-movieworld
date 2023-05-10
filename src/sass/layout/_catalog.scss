@@ -259,13 +259,26 @@
   z-index: 1;
 
   overflow: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
 
   background-color: var(--main-dark-color);
   border: 1px solid var(--main-light-color);
   border-radius: 8px;
 
   transition: opacity 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.dropdown__list::-webkit-scrollbar {
+  width: 3px;
+}
+
+.dropdown__list::-webkit-scrollbar-track {
+  background: var(--main-dark-color);
+}
+
+.dropdown__list::-webkit-scrollbar-thumb {
+  background: var(--main-light-color);
+  height: 3px;
 }
 
 .dropdown__list--visible {
