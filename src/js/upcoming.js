@@ -44,7 +44,7 @@ export async function onUpcomingPage() {
 
   const upcomingSection = document.querySelector('.section-upcoming');
 
-  const markup = `<h2 class="upcoming-title js-theme js-upcoming">upcoming this month</h2>
+  const markup = `
   <div class="box">
     <div class="box-image">
         <img
@@ -130,7 +130,7 @@ export async function onUpcomingPage() {
     </div>
   </div>`;
 
-  upcomingSection.innerHTML = markup;
+  upcomingSection.insertAdjacentHTML('beforeend', markup);
 
   const themeCheckbox = document.querySelector('.theme-switcher__input');
 
