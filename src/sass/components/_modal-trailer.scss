@@ -1,132 +1,221 @@
+body.show-trailer-modal .trailer-modal__backdrop {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: initial;
+}
+
 .trailer-modal {
+  padding-top: 50px;
+  padding-bottom: 8px;
+  padding-left: 33px;
+  padding-right: 33px;
+  width: 280px;
+  height: 300px;
+  border-radius: 16px;
+
   position: absolute;
-
-  width: 700px;
-  height: 400px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  z-index: 9999;
-  top: 140px;
-  left: 490px;
-
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   background-color: var(--main-dark-color);
-  box-shadow: 1px 1px 14px 4px rgba(255, 107, 8, 0.42);
-  border-radius: 20px;
-}
-.trailer-modal.light-theme {
-  background-color: var(--main-light-color);
+  box-shadow: var(--modal-box-shadow);
+
+  &__backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 500ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  &__title {
+    margin-bottom: 29px;
+
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.15;
+  }
+
+  &__button-colse {
+    width: 20px;
+    height: 20px;
+
+    position: absolute;
+    top: 14px;
+    right: 20px;
+
+    font-size: 26px;
+    line-height: 1;
+
+    background: inherit;
+    justify-content: center;
+    border: none;
+    padding: 0px;
+
+    color: var(--main-light-color);
+
+    transform: rotate(45deg);
+
+    transition: color 300ms ease-out;
+
+    &:hover {
+      color: var(--accent-color);
+    }
+  }
 }
 
-.modal-content {
+.no-movie-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100%;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
 }
 
-.close-btn__svg {
-  display: none;
-  position: absolute;
+.no-video-msg {
+  margin-bottom: 20px;
+
+  font-size: 16px;
+  line-height: 1.19;
+
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    top: 132px;
+
+    font-size: 24px;
+    line-height: 1.16;
+  }
+
+  @media screen and (min-width: 768px) {
+    top: 150px;
+  }
+}
+
+.no-trailer-img {
+  width: 159px;
+  height: 153px;
+
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    width: 296px;
+    height: 260px;
+
+    bottom: 0;
+    right: 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 363px;
+    height: 318px;
+  }
+}
+
+.no-trailer-img > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.trailer-container {
+  width: 214px;
+  height: 200px;
+
+  box-shadow: 1px 1px 20px 2px var(--header-bg-color);
+
+  @media screen and (min-width: 768px) {
+    width: 521px;
+    height: 330px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 600px;
+    height: 320px;
+  }
+}
+
+.iframe-trailer {
   border: none;
-  width: 36px;
-  height: 36px;
-  top: 20px;
-  right: 20px;
-  z-index: 9999;
-  padding: 5px;
-  fill: var(--main-light-color);
-  background-color: rgba(0, 0, 0, 0);
-  opacity: 1;
-  transition: opacity 0.3s ease;
-}
-.close-btn__svg.light-theme {
-  fill: var(--main-dark-color);
-}
-
-.close-btn__svg:hover,
-.close-btn__svg:focus {
-  fill: var(--btn-gradient);
-  cursor: pointer;
-}
-
-.trailer-modal:hover .close-btn__svg {
-  display: block;
-}
-
-.close-btn__svg svg {
   width: 100%;
   height: 100%;
 }
 
-.modal-body {
-  // position: relative;
-  width: 100%;
-  height: 0;
-  padding-bottom: 56.25%;
-}
-.modal-body:hover + .close-btn__svg {
-  opacity: 1;
+// ----------------------768px--------------------------
+
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+  .trailer-modal {
+    width: 609px;
+    height: 400px;
+    padding-top: 44px;
+    padding-bottom: 44px;
+    padding-left: 44px;
+    padding-right: 44px;
+    display: flex;
+    border-radius: 16px;
+
+    &__title {
+      font-size: 24px;
+      line-height: 1.16;
+      margin-bottom: 26px;
+    }
+
+    &__button-colse {
+      top: 20px;
+      right: 24px;
+    }
+  }
 }
 
-.modal-body .trailer-element {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
+// ----------------------1280px----------------------------
+
+@media screen and (min-width: 1280px) {
+  .trailer-modal {
+    width: 700px;
+    height: 400px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 50px;
+    padding-right: 50px;
+    display: flex;
+    border-radius: 20px;
+
+    &__title {
+      font-size: 24px;
+      line-height: 1.33;
+      margin-bottom: 28px;
+    }
+
+    &__button-colse {
+      top: 20px;
+      right: 28px;
+    }
+  }
 }
 
-.hidden {
+//=================== light them =======================
+
+.trailer-modal.light-theme {
+  background-color: var(--main-light-color);
+  box-shadow: 1px 1px 14px 4px rgba(0, 0, 0, 0.22);
+}
+
+.trailer-container.light-theme {
+  box-shadow: 1px 1px 14px 4px var(--secondary-dark-text-color);
+}
+
+.trailer-modal__button-colse.light-theme {
+  color: var(--main-dark-text-color);
+  &:hover {
+    color: var(--accent-color);
+  }
+}
+
+.trailer-is-hidden {
   display: none;
-}
-
-@media (max-width: 319px) {
-  .trailer-modal {
-    width: 90%;
-    height: auto;
-    max-width: 280px;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-/* Мобільні пристрої від 320px до 767px */
-@media (min-width: 320px) and (max-width: 767px) {
-  .trailer-modal {
-    width: 90%;
-    height: auto;
-    max-width: 480px;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-/* Планшети від 768px до 1279px */
-@media (min-width: 768px) and (max-width: 1279px) {
-  .trailer-modal {
-    width: 70%;
-    height: auto;
-    max-width: 900px;
-    top: 140px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-}
-
-/* Десктопні пристрої від 1280px */
-@media (min-width: 1280px) {
-  .trailer-modal {
-    width: 50%;
-    height: auto;
-    max-width: 1200px;
-    top: 140px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
 }
