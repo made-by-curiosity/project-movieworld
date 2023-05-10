@@ -32,7 +32,7 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   function showTrailerModal(trailerUrl) {
-    trailerElement.setAttribute('src', '');
+    trailerElement.setAttribute('src', trailerUrl);
     modal.style.display = 'block';
     modal.classList.remove('hidden');
 
