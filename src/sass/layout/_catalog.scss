@@ -99,7 +99,7 @@
 
 // =====================TuiPagination css
 
-.tui-pagination{
+.tui-pagination {
   height: 40px;
   display: flex;
   justify-content: center;
@@ -143,10 +143,12 @@
   line-height: 1;
   padding: 7px 6px;
   cursor: pointer;
-  transition: background color var(--time-animation) var(--timing-function);
+
+  transition: background var(--time-animation) var(--timing-function);
   &:hover {
     background: var(--btn-gradient);
     color:var(--main-light-color);
+
   }
   @media screen and (min-width: 768px) {
     width: 40px;
@@ -183,7 +185,7 @@
   color: inherit;
   font-size: 25px;
   font-weight: 400;
- }
+}
 
 .tui-pagination .tui-page-btn.hide-first::after {
   content: '‹';
@@ -191,4 +193,4 @@
   color: inherit;
   font-weight: 400;
   font-size: 25px;
- }
+}

@@ -36,7 +36,7 @@ export function onCatalogPage() {
         refs.paginationEl.classList.add('tui-pagination--is-hidden');
       }
 
-      renderMovies(videos.results);
+      await renderMovies(videos.results);
     } catch (error) {
       console.log(error.message);
     }
@@ -47,7 +47,7 @@ export function onCatalogPage() {
   async function onWeeklyTrends() {
     try {
       const trendsMovies = await getWeeklyTrendsPagination(page);
-      renderMovies(trendsMovies.results);
+      await renderMovies(trendsMovies.results);
 
       createWeeklyTrendsPagination(trendsMovies);
     } catch (error) {
@@ -60,19 +60,10 @@ export function onCatalogPage() {
     const markup = warningMessageMarkup();
     refs.movieGalleryMessageEl.insertAdjacentHTML('beforeend', markup);
   }
-
-  refs.paginationEl.addEventListener('click', onSmothScroll);
 }
 
 export async function renderMovies(movies) {
   const markup = await createMovieCardMarkup(movies);
 
   refs.movieGalleryEl.insertAdjacentHTML('beforeend', markup);
-}
-
-function onSmothScroll() {
-  const { height: galleryHeight } = document
-    .querySelector('.movie-gallery__list')
-    .getBoundingClientRect();
-  window.scrollBy({ top: -galleryHeight, behavior: 'smooth' });
 }

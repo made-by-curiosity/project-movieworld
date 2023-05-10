@@ -34,9 +34,11 @@ export function createCatalogPagination(videos, query) {
   };
   const pagination = new Pagination(container, options);
 
-  pagination.on('afterMove', event => {
+  pagination.on('afterMove', async event => {
     const currentPage = event.page;
-    onCatalogPagination(query, currentPage);
+    await onCatalogPagination(query, currentPage);
+
+    onSmothScroll();
   });
 }
 
@@ -44,13 +46,13 @@ async function onCatalogPagination(query, currentPage) {
   try {
     refs.galleryEl.innerHTML = '';
     const videos = await getSearchMovies(query, currentPage);
-    renderMovies(videos.results);
+    await renderMovies(videos.results);
   } catch (error) {
     console.log(error.message);
   }
 }
 
-export function createWeeklyTrendsPagination(trendsMovies) {
+export async function createWeeklyTrendsPagination(trendsMovies) {
   const options = {
     // below default value of options
     totalItems: `${trendsMovies.total_results}`,
@@ -77,9 +79,11 @@ export function createWeeklyTrendsPagination(trendsMovies) {
   };
   const pagination = new Pagination(container, options);
 
-  pagination.on('afterMove', event => {
+  pagination.on('afterMove', async event => {
     const currentPage = event.page;
-    onWeeklyTrendsPagination(currentPage);
+    await onWeeklyTrendsPagination(currentPage);
+
+    onSmothScroll();
   });
 }
 
@@ -87,8 +91,16 @@ async function onWeeklyTrendsPagination(currentPage) {
   try {
     refs.galleryEl.innerHTML = '';
     const videos = await getWeeklyTrendsPagination(currentPage);
-    renderMovies(videos.results);
+    await renderMovies(videos.results);
   } catch (error) {
     console.log(error.message);
   }
+}
+
+function onSmothScroll() {
+  const { height: heroHeight } = document
+    .querySelector('.hero')
+    .getBoundingClientRect();
+
+  window.scroll({ top: heroHeight + 50, behavior: 'smooth' });
 }
