@@ -16,4 +16,7 @@
 <path d="M17.25 17.25L6.75 6.75M17.25 6.75L6.75 17.25" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
 
 </symbol>
+<symbol id="icon-chevron-down" viewBox="0 0 32 32">
+<path fill="none" stroke="#fff" style="stroke: var(--color1, #fff)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2" d="M5.875 10.938l10.125 10.125 10.125-10.125"></path>
+</symbol>
 </svg>

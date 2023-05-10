@@ -67,3 +67,18 @@ export async function renderMovies(movies) {
 
   refs.movieGalleryEl.insertAdjacentHTML('beforeend', markup);
 }
+
+// DropDown=========================
+
+const dropDownBtn = document.querySelector('.dropdown-btn');
+const dropDownList = document.querySelector('.dropdown__list');
+const dropDownBtnIcon = document.querySelector('.dropdown-btn_icon');
+
+console.log(dropDownBtn);
+
+dropDownBtn.addEventListener('click', onDropDownMenu);
+
+function onDropDownMenu(evt) {
+  dropDownList.classList.toggle('dropdown__list--visible');
+  dropDownList.classList.toggle('dropdown-btn_icon--transform');
+}
