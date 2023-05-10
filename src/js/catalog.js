@@ -36,7 +36,7 @@ export function onCatalogPage() {
         refs.paginationEl.classList.add('tui-pagination--is-hidden');
       }
 
-      renderMovies(videos.results);
+      await renderMovies(videos.results);
     } catch (error) {
       console.log(error.message);
     }
@@ -47,7 +47,7 @@ export function onCatalogPage() {
   async function onWeeklyTrends() {
     try {
       const trendsMovies = await getWeeklyTrendsPagination(page);
-      renderMovies(trendsMovies.results);
+      await renderMovies(trendsMovies.results);
 
       createWeeklyTrendsPagination(trendsMovies);
     } catch (error) {
