@@ -7,7 +7,12 @@ import {
 
 export async function onUpcomingPage() {
   const movies = await getTodayMovies();
-  const arrayDataMovies = movies.results[0];
+
+  const min = 0;
+  const max = 19;
+  const randomUpcomingMovie = Math.floor(Math.random() * (max - min + 1)) + min;
+
+  const arrayDataMovies = movies.results[randomUpcomingMovie];
   const {
     id,
     title,
@@ -28,23 +33,31 @@ export async function onUpcomingPage() {
     }
   });
 
-  let IMAGE_URL = `https://image.tmdb.org/t/p/w500${arrayDataMovies.backdrop_path}`;
+  let IMAGE_URL = `https://image.tmdb.org/t/p/original${arrayDataMovies.backdrop_path}`;
+  let SMALL_IMAGE_URL = `https://image.tmdb.org/t/p/w500${arrayDataMovies.poster_path}`;
   if (arrayDataMovies.poster_path === null) {
     IMAGE_URL =
+      'https://github.com/made-by-curiosity/project-movieworld/blob/main/src/images/moviecoverholder.jpg?raw=true';
+    SMALL_IMAGE_URL =
       'https://github.com/made-by-curiosity/project-movieworld/blob/main/src/images/moviecoverholder.jpg?raw=true';
   }
 
   const upcomingSection = document.querySelector('.section-upcoming');
 
-  const markup = `<h2 class="upcoming-title js-theme js-upcoming">upcoming this month</h2>
+  const markup = `
   <div class="box">
     <div class="box-image">
         <img
-          src="https://image.tmdb.org/t/p/original${
-            arrayDataMovies.backdrop_path
-          }"
+          src=${IMAGE_URL}
+					loading="lazy"
           alt="upcoming-film"
-          class="upcoming-image"
+          class="upcoming-image-big"
+        />
+				<img
+          src=${SMALL_IMAGE_URL}
+					loading="lazy"
+          alt="upcoming-film"
+          class="upcoming-image-small"
         />
     </div>
     <div class="box-info">
@@ -117,7 +130,7 @@ export async function onUpcomingPage() {
     </div>
   </div>`;
 
-  upcomingSection.innerHTML = markup;
+  upcomingSection.insertAdjacentHTML('beforeend', markup);
 
   const themeCheckbox = document.querySelector('.theme-switcher__input');
 

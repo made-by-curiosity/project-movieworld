@@ -99,7 +99,7 @@
 
 // =====================TuiPagination css
 
-.tui-pagination{
+.tui-pagination {
   height: 40px;
   display: flex;
   justify-content: center;
@@ -115,7 +115,6 @@
 .tui-page-btn.tui-prev-is-ellip.change-prev {
   display: none;
 }
-
 
 .tui-pagination {
   margin-left: 12px;
@@ -144,10 +143,10 @@
   line-height: 1;
   padding: 7px 6px;
   cursor: pointer;
-  transition: background color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background 250ms cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {
     background: linear-gradient(141.22deg, #ffc226 9.4%, #f84119 91.91%);
-    color:var(--main-light-color);
+    color: var(--main-light-color);
   }
   @media screen and (min-width: 768px) {
     width: 40px;
@@ -188,7 +187,7 @@
   color: inherit;
   font-size: 25px;
   font-weight: 400;
- }
+}
 
 .tui-pagination .tui-page-btn.tui-prev::after {
   content: '‹';
@@ -196,4 +195,4 @@
   color: inherit;
   font-weight: 400;
   font-size: 25px;
- }
+}
