@@ -34,6 +34,5 @@ function definitionActivePage () {
 		return;
 	};
 
-	console.log('houm');
 	document.querySelector('.mobile-menu__link--home').classList.add('current');
 };
