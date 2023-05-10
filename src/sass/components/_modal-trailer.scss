@@ -42,7 +42,7 @@
   transition: opacity 0.3s ease;
 }
 
-.close-btn__svg.light-theme {
+.close-btn__svg {
   fill: var(--main-dark-color);
 }
 
@@ -86,19 +86,23 @@
 }
 
 /* Мобільний брейкпоінт */
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 320px) and (max-width: 767px) {
   .trailer-modal {
     width: 280px;
     height: 289px;
-    max-width: 480px;
+    // max-width: 480px;
     top: 10%;
     left: 50%;
     transform: translateX(-50%);
   }
 
+  .modal-body {
+    height: 100%;
+  }
+
   .trailer-element {
     width: 100%;
-    height: auto;
+    height: 100%;
   }
 
   .no-video-msg {
@@ -106,13 +110,12 @@
     width: 214px;
     height: 65px;
     left: 33px;
-    top: 10px;
+    top: 39px;
 
     font-family: 'Roboto';
     font-style: normal;
-    font-weight: 400;
     font-size: 16px;
-    line-height: calc(19 / 16);
+    line-height: 1.4em;
   }
 
   .notrailer__img {
@@ -120,16 +123,15 @@
     width: 159px;
     height: 153px;
     left: 61px;
-    top: 70px;
+    top: 128px;
   }
 }
 
 /* Планшетний брейкпоінт */
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .trailer-modal {
-    width: 70%;
-    height: auto;
-    max-width: 900px;
+    width: 609px;
+    height: 400px;
     top: 140px;
     left: 50%;
     transform: translateX(-50%);
@@ -139,30 +141,30 @@
     position: absolute;
     width: 321px;
     height: 92px;
-    left: 40px;
-    top: 110px;
+    left: 44px;
+    top: 120px;
 
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 400;
     font-size: 24px;
-    line-height: 28px;
+    line-height: 1.6em;
   }
 
   .notrailer__img {
     position: absolute;
     width: 296px;
     height: 260px;
-    top: 70px;
-    left: 280px;
+    top: 110px;
+    left: 290px;
   }
 }
 
 /* Десктопний брейкпоінт */
 @media screen and (min-width: 1280px) {
   .trailer-modal {
-    width: 50%;
-    height: auto;
+    width: 700px;
+    height: 400px;
     max-width: 1200px;
     top: 140px;
     left: 50%;
@@ -179,7 +181,7 @@
     font-family: 'Roboto';
     font-style: normal;
     font-size: 24px;
-    line-height: calc(28 / 24);
+    line-height: 1.6em;
   }
 
   .notrailer__img {

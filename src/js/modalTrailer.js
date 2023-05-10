@@ -32,9 +32,13 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 
   function showTrailerModal(trailerUrl) {
-    trailerElement.setAttribute('src', trailerUrl);
+    trailerElement.setAttribute('src', '');
     modal.style.display = 'block';
     modal.classList.remove('hidden');
+
+    const noVideoMsg = modal.querySelector('.no-video-msg');
+    noVideoMsg.classList.remove('hidden');
+    noVideoMsg.classList.remove('error-msg');
   }
 
   function showNoVideoMessage() {
