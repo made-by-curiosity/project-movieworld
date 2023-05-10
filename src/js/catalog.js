@@ -60,19 +60,10 @@ export function onCatalogPage() {
     const markup = warningMessageMarkup();
     refs.movieGalleryMessageEl.insertAdjacentHTML('beforeend', markup);
   }
-
-  refs.paginationEl.addEventListener('click', onSmothScroll);
 }
 
 export async function renderMovies(movies) {
   const markup = await createMovieCardMarkup(movies);
 
   refs.movieGalleryEl.insertAdjacentHTML('beforeend', markup);
-}
-
-function onSmothScroll() {
-  const { height: galleryHeight } = document
-    .querySelector('.movie-gallery__list')
-    .getBoundingClientRect();
-  window.scrollBy({ top: -galleryHeight, behavior: 'smooth' });
 }
