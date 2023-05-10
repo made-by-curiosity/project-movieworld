@@ -98,3 +98,18 @@ async function onWeeklyTrendsPagination(currentPage) {
     console.log(error.message);
   }
 }
+
+refs.paginationEl.addEventListener('click', onSmothScroll);
+
+function onSmothScroll(evt) {
+  if (evt.target.nodeName === 'DIV') {
+    return;
+  }
+  console.log(evt.target.nodeName);
+
+  const { height: galleryHeight } = document
+    .querySelector('.movie-gallery__list')
+    .getBoundingClientRect();
+  console.log(galleryHeight);
+  window.scrollBy({ top: -galleryHeight, behavior: 'smooth' });
+}
