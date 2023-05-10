@@ -73,13 +73,13 @@ export async function renderMovies(movies) {
 
 // ======================DropDownList=========================
 
-dropDownBtn.addEventListener('click', onDropDownMenu);
+refs.dropDownBtnEl.addEventListener('click', onDropDownMenu);
 
 function onDropDownMenu() {
   refs.dropDownListEL.classList.toggle('dropdown__list--visible');
 }
 
-dropDownList.addEventListener('click', onChangeValue);
+refs.dropDownListEL.addEventListener('click', onChangeValue);
 
 function onChangeValue(evt) {
   let yearValue = evt.target.textContent;
