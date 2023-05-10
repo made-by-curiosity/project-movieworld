@@ -252,6 +252,10 @@
   background-image: url(./../images/chevron-down.svg);
 }
 
+.dropdown-btn.light-theme.dropdown-btn::after {
+  background-image: url(./../images/chevron-down-light-theme.svg);
+}
+
 .dropdown-btn_icon {
   width: 16px;
   height: 16px;
