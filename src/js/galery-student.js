@@ -92,7 +92,9 @@ changeInValue(0);
 function creatingNewCard(item) {
 	const { name, dev, photo } = item;
 	return `<li class='modal-team__dev'>
-						<img src='${photo}' width='270' alt='photo of developer'>
+						<div class='modal-team__img'>
+							<img src='${photo}' width='270' alt=''>
+						</div>
 						<div class="modal-team__dev-info">
 							<h3 class="modal-team__dev-head js-theme">${name}</h3>
 							<p class="modal-team__dev-text js-theme">${dev}</p>

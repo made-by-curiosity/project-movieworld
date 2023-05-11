@@ -38,5 +38,7 @@ function definitionActivePage() {
     return;
   }
 
-  document.querySelector('.mobile-menu__link--home').classList.add('current');
+	document
+		.querySelector('.mobile-menu__link--home')
+		.classList.add('current');
 }

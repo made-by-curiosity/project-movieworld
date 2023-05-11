@@ -9,10 +9,18 @@
 		refs.teamModal.classList.remove('js-hidden');
   };
 	
-	const onClickBtnClose = () => {
+	const onClickBtnClose = event => {
+
+		// console.log(event.target.classList[0]);
+		if (event.target.classList[0] !== 'modal-team__btn-close' &&
+				event.target.classList[0] !== 'backdrop-modal') {
+      return;
+		}
+		
 		refs.teamModal.classList.add('js-hidden');
   };
 
 	refs.openTeamModal.addEventListener('click', onClickBtnOpen);
 	refs.closeTeamModal.addEventListener('click', onClickBtnClose);
+		refs.teamModal.addEventListener('click', onClickBtnClose);
 })();
