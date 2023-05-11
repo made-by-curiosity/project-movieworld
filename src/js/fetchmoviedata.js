@@ -24,9 +24,19 @@ export const getWeeklyTrends = async function getWeeklyTrends() {
     api_key: API_KEY,
   };
 
+  //=========================== Start spinner
+  document.body.classList.remove('loaded');
+  //============================
+
   const response = await axios.get(BASE_URL, { params });
 
   const weeklyTrends = await response.data;
+
+  //===================== Stop spinner
+  window.setTimeout(function () {
+    document.body.classList.add('loaded');
+  }, 500);
+  //=====================
 
   return weeklyTrends;
 };
