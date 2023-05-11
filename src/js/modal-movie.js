@@ -52,7 +52,9 @@ function onOpenModalMovie(e) {
         <div class="modal-movie__poster-wrap" data-modal="modal-movie">
             <img class="modal-movie__poster js-modal" src="${IMAGE_SRC}" alt="movie image">
         </div>
-        <div class="modal-movie__info">
+        
+				<div class="modal-movie__info">
+				<div class="modal-movie-wrapper js-modal">
             <h2 class="modal-movie__title js-modal">${original_title}</h2>
             <div class="modal-movie__info-wrap">
                 <div class="modal-movie__info-title">
@@ -74,6 +76,7 @@ function onOpenModalMovie(e) {
                 <h3 class="title-about js-modal">About</h3>
                 <p class="paragraph-about js-modal">${overview}</p>
             </div>
+				</div>
             <div class="modal-movie__button-wrap">
                 <button class="btn-lib btn js-modal btn-add-lib" type="button" id="${movieId}">
                     Add to my library
