@@ -45,6 +45,14 @@ body.show-modal-movie .modal-movie__backdrop {
     justify-content: center;
     border: none;
     padding: 0px;
+
+    fill: var(--main-light-color);
+
+    transition: fill 300ms ease-out;
+
+    &:hover {
+      fill: var(--accent-color);
+    }
   }
 }
 

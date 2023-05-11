@@ -57,14 +57,12 @@ body.show-trailer-modal .trailer-modal__backdrop {
     border: none;
     padding: 0px;
 
-    color: var(--main-light-color);
+    fill: var(--main-light-color);
 
-    transform: rotate(45deg);
-
-    transition: color 300ms ease-out;
+    transition: fill 300ms ease-out;
 
     &:hover {
-      color: var(--accent-color);
+      fill: var(--accent-color);
     }
   }
 }
