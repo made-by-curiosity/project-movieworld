@@ -150,9 +150,8 @@
 
   transition: background var(--time-animation) var(--timing-function);
   &:hover {
-
     background: var(--btn-gradient);
-    color:var(--main-light-color);
+    color: var(--main-light-color);
   }
   @media screen and (min-width: 768px) {
     width: 40px;
@@ -198,7 +197,6 @@
   font-weight: 400;
   font-size: 25px;
 }
-
 
 //  ==================DropDown===========
 
@@ -316,7 +314,6 @@
 
 .dropdown__item:hover {
   color: var(--accent-color);
-  scale: 1.2;
 }
 
 .year-value {
@@ -326,4 +323,3 @@
 .adult-value {
   display: none;
 }
-
