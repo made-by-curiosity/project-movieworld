@@ -7,7 +7,7 @@ import Pagination from 'tui-pagination';
 
 const container = refs.paginationEl;
 
-export function createCatalogPagination(videos, query) {
+export function createCatalogPagination(videos, query, year) {
   const options = {
     // below default value of options
     totalItems: `${videos.total_results}`,
@@ -36,16 +36,16 @@ export function createCatalogPagination(videos, query) {
 
   pagination.on('afterMove', async event => {
     const currentPage = event.page;
-    await onCatalogPagination(query, currentPage);
+    await onCatalogPagination(query, currentPage, year);
 
     onSmothScroll();
   });
 }
 
-async function onCatalogPagination(query, currentPage) {
+async function onCatalogPagination(query, currentPage, year) {
   try {
     refs.galleryEl.innerHTML = '';
-    const videos = await getSearchMovies(query, currentPage);
+    const videos = await getSearchMovies(query, currentPage, year);
     await renderMovies(videos.results);
   } catch (error) {
     console.log(error.message);
