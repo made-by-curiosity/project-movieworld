@@ -1,8 +1,5 @@
-import { refs } from './js/refs';
-
 import { onLibraryPage } from './js/my-library';
 import { onCatalogPage } from './js/catalog';
-
 import { onUpcomingPage } from './js/upcoming';
 import { renderWeekelyTrends } from './js/weeklyTrends';
 import './js/header';

@@ -80,6 +80,6 @@ export async function renderMovies(movies) {
   //===================== Stop spinner
   window.setTimeout(function () {
     document.body.classList.add('loaded');
-  }, 1000);
+  }, 500);
   //=====================
 }

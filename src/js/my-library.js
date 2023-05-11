@@ -1,8 +1,8 @@
 import { getFullMovieInfo } from './fetchmoviedata';
 import { createMovieCardMarkup } from './createmoviecardmarkup';
-import { saveMovie, getSavedMovies } from './local-storage-service';
+import { getSavedMovies } from './local-storage-service';
 
-export function onLibraryPage() {
+export async function onLibraryPage() {
   const myLibrary = document.querySelector('.movie-gallery__list');
 
   const btnLoadMore = document.querySelector('.btn-loadMore');
@@ -12,10 +12,14 @@ export function onLibraryPage() {
   let page = 1;
   let start = 0;
 
-  renderFavoriteMovies();
+  await renderFavoriteMovies();
 
   async function renderFavoriteMovies() {
-    const favoriteMoviesId = getSavedMovies();
+    //=========================== Start spinner
+    document.body.classList.remove('loaded');
+    //============================
+
+    const favoriteMoviesId = await getSavedMovies();
 
     const noMoviesMessage = document.querySelector('.no-movies-message');
 
@@ -46,5 +50,11 @@ export function onLibraryPage() {
     if (end >= favoriteMoviesId.length) {
       btnLoadMore.classList.add('library-isHidden');
     } //-- скрыть кнопку Load More после отображения всех фильмов из Local Storage
+
+    //===================== Stop spinner
+    window.setTimeout(function () {
+      document.body.classList.add('loaded');
+    }, 500);
+    //=====================
   }
 }

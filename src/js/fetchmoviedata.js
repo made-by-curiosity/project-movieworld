@@ -39,9 +39,19 @@ export const getWeeklyTrendsPagination =
       page: `${page}`,
     };
 
+    //=========================== Start spinner
+    document.body.classList.remove('loaded');
+    //============================
+
     const response = await axios.get(BASE_URL, { params });
 
     const weeklyTrendsPagination = await response.data;
+
+    //===================== Stop spinner
+    window.setTimeout(function () {
+      document.body.classList.add('loaded');
+    }, 500);
+    //=====================
 
     return weeklyTrendsPagination;
   };
