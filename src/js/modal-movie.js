@@ -149,8 +149,6 @@ function onOpenModalMovie(e) {
           });
           onCloseModalMovie();
 
-          console.dir(movieGalleryEl.children.length);
-
           const favoriteMoviesId = getSavedMovies();
 
           const noMoviesMessage = document.querySelector('.no-movies-message');
