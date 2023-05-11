@@ -144,5 +144,3 @@ export const getMoviesCountries = async function getMoviesGenres() {
 
   return countries;
 };
-
-getMoviesCountries();

@@ -4,6 +4,7 @@ refs.dropDownBtnEl.addEventListener('click', onDropDownMenu);
 
 function onDropDownMenu() {
   refs.dropDownListEL.classList.toggle('dropdown__list--visible');
+  refs.dropDownBtnEl.classList.toggle('dropdown-btn--rotate');
 }
 
 refs.dropDownListEL.addEventListener('click', onChangeValue);

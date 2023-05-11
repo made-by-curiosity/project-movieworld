@@ -250,21 +250,14 @@
   width: 16px;
   height: 16px;
   background-image: url(./../images/chevron-down.svg);
+  transition: transform 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .dropdown-btn.light-theme.dropdown-btn::after {
   background-image: url(./../images/chevron-down-light-theme.svg);
 }
 
-.dropdown-btn_icon {
-  width: 16px;
-  height: 16px;
-  stroke: currentColor;
-  fill: none;
-  transition: transform 250ms cubic-bezier(0.075, 0.82, 0.165, 1);
-}
-
-.dropdown-btn_icon--transform {
+.dropdown-btn.dropdown-btn--rotate.dropdown-btn::after {
   transform: rotate(180deg);
 }
 
@@ -328,5 +321,9 @@
 }
 
 .year-value {
+  display: none;
+}
+
+.adult-value {
   display: none;
 }

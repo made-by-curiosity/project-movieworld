@@ -71,5 +71,3 @@ export async function renderMovies(movies) {
 
   refs.movieGalleryEl.insertAdjacentHTML('beforeend', markup);
 }
-
-// ======================DropDownList=========================
