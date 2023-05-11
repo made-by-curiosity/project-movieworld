@@ -4,6 +4,7 @@ import { createWeeklyTrendsPagination } from './pagination';
 import { createMovieCardMarkup } from './createmoviecardmarkup';
 import { warningMessageMarkup } from './createwarningmessagemurkup';
 import { createDropdownYearList } from './createyearmarkup';
+import { DropDownMenu } from './dropdownyear';
 import { refs } from './refs';
 import './dropdownyear';
 
@@ -11,6 +12,7 @@ let page = 1;
 
 export function onCatalogPage() {
   createDropdownYearList();
+  DropDownMenu();
   onWeeklyTrends();
 
   refs.formSearchEl.addEventListener('submit', onSearchMovies);
