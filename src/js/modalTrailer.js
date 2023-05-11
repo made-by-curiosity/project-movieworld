@@ -1,80 +1,81 @@
 import { getMovieTrailer } from './fetchmoviedata';
 
-document.querySelector('.hero').addEventListener('click', event => {
-  const watchTrailerBtn = event.target.closest('.hero__btn');
-  if (watchTrailerBtn) {
-    const movieId = watchTrailerBtn.getAttribute('data-id');
-    loadTrailerById(movieId);
+const heroEl = document.querySelector('.hero');
+const youTubePlayerEl = document.querySelector('.iframe-trailer');
+const trailerBackdropEl = document.querySelector('.trailer-modal__backdrop');
+const trailerCloseBtnEl = document.querySelector(
+  '.trailer-modal__button-colse'
+);
+const trailerContainerEl = document.querySelector('.trailer-container');
+const noMovieContainerEl = document.querySelector('.no-movie-container');
+
+heroEl.addEventListener('click', onTrailerBtnClick);
+
+async function onTrailerBtnClick(e) {
+  const trailerBtn = e.target;
+
+  if (trailerBtn.classList.contains('hero__btn')) {
+    showTrailerModal();
+
+    trailerContainerEl.classList.remove('trailer-is-hidden');
+    noMovieContainerEl.classList.add('trailer-is-hidden');
+
+    const movieId = trailerBtn.dataset.id;
+    renderTrailer(movieId);
   }
-});
+}
 
-const modal = document.querySelector('.trailer-modal');
-const movieContainer = modal.querySelector('.movie-container');
-const trailerElement = modal.querySelector('.trailer-element');
-const noVideoMsg = modal.querySelector('.no-video-msg');
+function showTrailerModal() {
+  document.body.classList.add('show-trailer-modal');
+  window.addEventListener('keydown', onEscPress);
+  trailerBackdropEl.addEventListener('click', onBackdropClick);
+  trailerCloseBtnEl.addEventListener('click', closeModal);
+}
 
-async function loadTrailerById(movieId) {
-  try {
-    const movieTrailer = await getMovieTrailer(movieId);
-    const videos = movieTrailer.results;
-    if (videos.length > 0) {
-      const videoKey = videos[0].key;
-      const trailerUrl = `https://www.youtube.com/embed/${videoKey}?autoplay=1`;
-      showTrailerModal(trailerUrl, movieTrailer.poster_path);
-    } else {
-      showNoVideoMessage(movieTrailer.poster_path);
-    }
-  } catch (error) {
-    console.error('Request video error', error);
+function onEscPress(e) {
+  if (e.code === 'Escape') {
+    closeModal();
+  }
+}
+
+function onBackdropClick(e) {
+  const backdrop = e.target;
+  if (backdrop.classList.contains('trailer-modal__backdrop')) {
+    closeModal();
+  }
+}
+
+function closeModal() {
+  document.body.classList.remove('show-trailer-modal');
+  youTubePlayerEl.src = '';
+  window.removeEventListener('keydown', onEscPress);
+  trailerBackdropEl.removeEventListener('click', onBackdropClick);
+  trailerCloseBtnEl.removeEventListener('click', closeModal);
+
+  trailerContainerEl.classList.add('trailer-is-hidden');
+  noMovieContainerEl.classList.remove('trailer-is-hidden');
+}
+
+async function renderTrailer(movieId) {
+  let movieTrailerKey = await getRandomTrailerKey(movieId);
+
+  youTubePlayerEl.src = `https://www.youtube.com/embed/${movieTrailerKey}`;
+}
+
+async function getRandomTrailerKey(movieId) {
+  const movieTrailers = await getMovieTrailer(movieId);
+
+  const min = 0;
+  const max = movieTrailers.results.length;
+  const randomTrailer = Math.floor(Math.random() * (max - min + 1)) + min;
+
+  const movieTrailerKey = movieTrailers.results[randomTrailer]?.key;
+
+  if (!movieTrailerKey) {
+    trailerContainerEl.classList.add('trailer-is-hidden');
+    noMovieContainerEl.classList.remove('trailer-is-hidden');
+    return;
   }
 
-  const closeButton = document.querySelector('.close-btn__svg');
-  closeButton.style.display = 'block';
+  return movieTrailerKey;
 }
-
-function showTrailerModal(trailerUrl, imageUrl) {
-  trailerElement.setAttribute('src', trailerUrl);
-  trailerElement.style.width = '100%';
-  trailerElement.style.height = '100%';
-  modal.style.display = 'block';
-  modal.classList.remove('hidden');
-}
-
-function showNoVideoMessage(posterUrl) {
-  const noVideoMsg = document.querySelector('.no-video-msg');
-  noVideoMsg.innerHTML = `
-    <div>
-      <p>OOPS... We are very sorry! But we couldn't find the trailer.</p>
-    </div>
-    <div>
-      <img src="./images/noTrailer.png" alt="No Trailer">
-    </div>
-  `;
-}
-
-const closeBtn = document.querySelector('.close-btn__svg');
-
-closeBtn.addEventListener('click', closeTrailerModal);
-
-function closeTrailerModal() {
-  const trailerElement = document.querySelector('.trailer-element');
-  const noVideoMsg = document.querySelector('.no-video-msg');
-  const movieContainer = document.querySelector('.movie-container');
-  const modal = document.querySelector('.trailer-modal');
-
-  trailerElement.setAttribute('src', '');
-  noVideoMsg.textContent = '';
-  movieContainer.innerHTML = '';
-  modal.style.display = 'none';
-
-  const closeButton = document.querySelector('.close-btn__svg');
-  closeButton.style.display = 'none';
-}
-
-window.addEventListener('click', function (event) {
-  const trailerModal = document.querySelector('.trailer-modal');
-
-  if (event.target === trailerModal) {
-    closeTrailerModal();
-  }
-});

@@ -42,7 +42,7 @@ function onOpenModalMovie(e) {
       const genres = fullMovieInfo.genres.map(genre => genre.name).join(', ');
       const overview = fullMovieInfo.overview;
       const IMAGE_SRC = fullMovieInfo.poster_path
-        ? `https://image.tmdb.org/t/p/original${fullMovieInfo.poster_path}`
+        ? `https://image.tmdb.org/t/p/w500${fullMovieInfo.poster_path}`
         : 'https://raw.githubusercontent.com/made-by-curiosity/project-movieworld/main/src/images/moviecoverholder.jpg';
       const modalContainer = document.querySelector('.modal-movie.container');
 
