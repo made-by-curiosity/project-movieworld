@@ -20,6 +20,10 @@ export function onCatalogPage() {
   async function onSearchMovies(evt) {
     refs.paginationEl.classList.remove('tui-pagination--is-hidden');
 
+    //=========================== Start spinner
+    document.body.classList.remove('loaded');
+    //============================
+
     evt.preventDefault();
     const query = evt.target.elements.searchQuery.value.trim();
     const year = evt.target.elements.selectYear.value;
@@ -72,4 +76,10 @@ export async function renderMovies(movies) {
   const markup = await createMovieCardMarkup(movies);
 
   refs.movieGalleryEl.insertAdjacentHTML('beforeend', markup);
+
+  //===================== Stop spinner
+  window.setTimeout(function () {
+    document.body.classList.add('loaded');
+  }, 1000);
+  //=====================
 }
