@@ -100,3 +100,20 @@
   box-shadow: 0px 0px 50px 1px black;
   background-color: var(--main-light-text-color);
 }
+
+.back-to-top__icon {
+  width: 20px;
+  height: 20px;
+
+  fill: var(--accent-color);
+  transition: fill 0.3s linear;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+
+  @media screen and (min-width: 768px) {
+    width: 30px;
+    height: 30px;
+  }
+}
