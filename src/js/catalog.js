@@ -69,6 +69,11 @@ export function onCatalogPage() {
   function renderWarningMessage() {
     const markup = warningMessageMarkup();
     refs.movieGalleryMessageEl.insertAdjacentHTML('beforeend', markup);
+    //===================== Stop spinner
+    window.setTimeout(function () {
+      document.body.classList.add('loaded');
+    }, 500);
+    //=====================
   }
 }
 
