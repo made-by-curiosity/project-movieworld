@@ -39,6 +39,8 @@ window.addEventListener('DOMContentLoaded', () => {
     const noVideoMsg = modal.querySelector('.no-video-msg');
     noVideoMsg.classList.remove('hidden');
     noVideoMsg.classList.remove('error-msg');
+
+    document.addEventListener('click', handleOutsideClick);
   }
 
   function showNoVideoMessage() {
@@ -56,6 +58,13 @@ window.addEventListener('DOMContentLoaded', () => {
     const noVideoMsg = modal.querySelector('.no-video-msg');
     noVideoMsg.classList.add('hidden');
     noVideoMsg.classList.remove('error-msg');
+    document.removeEventListener('click', handleOutsideClick);
+  }
+
+  function handleOutsideClick(event) {
+    if (!modal.contains(event.target)) {
+      closeTrailerModal();
+    }
   }
 
   modal.addEventListener('click', event => {
