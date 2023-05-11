@@ -109,7 +109,7 @@
     );
 
     @media screen and (min-width: 768px) {
-      padding: 32px 36px;
+      padding: 25px 36px;
       background-image: url(/src/images/hero/subtract-tablet.png);
       background-position: bottom;
     }
@@ -139,7 +139,7 @@
     color: var(--main-light-color);
 
     @media screen and (min-width: 768px) {
-      max-width: 330px;
+      max-width: 350px;
       font-size: 44px;
       line-height: 1.18;
     }
@@ -167,7 +167,7 @@
     overflow: hidden;
 
     @media screen and (min-width: 768px) {
-      max-width: 254px;
+      max-width: 270px;
       margin-bottom: 32px;
       max-height: 200px;
     }
