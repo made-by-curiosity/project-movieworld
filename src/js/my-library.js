@@ -3,58 +3,62 @@ import { createMovieCardMarkup } from './createmoviecardmarkup';
 import { getSavedMovies } from './local-storage-service';
 
 export async function onLibraryPage() {
-  const myLibrary = document.querySelector('.movie-gallery__list');
-
   const btnLoadMore = document.querySelector('.btn-loadMore');
 
   btnLoadMore.addEventListener('click', renderFavoriteMovies);
-  const itemsOnPage = 6;
-  let page = 1;
-  let start = 0;
 
   await renderFavoriteMovies();
+}
 
-  async function renderFavoriteMovies() {
-    //=========================== Start spinner
-    document.body.classList.remove('loaded');
-    //============================
+export async function renderFavoriteMovies() {
+  //=========================== Start spinner
+  document.body.classList.remove('loaded');
+  //============================
+  const myLibrary = document.querySelector('.movie-gallery__list');
+  const btnLoadMore = document.querySelector('.btn-loadMore');
 
-    const favoriteMoviesId = await getSavedMovies();
+  const itemsOnPage = 6;
+  let page = 1;
+  let start = Number(myLibrary.children.length);
 
-    const noMoviesMessage = document.querySelector('.no-movies-message');
+  const favoriteMoviesId = await getSavedMovies();
 
-    if (favoriteMoviesId.length === 0) {
-      noMoviesMessage.classList.remove('library-isHidden');
-      return;
-    }
+  const noMoviesMessage = document.querySelector('.no-movies-message');
 
-    let end = start + itemsOnPage;
-    const sliceMoviesId = favoriteMoviesId.slice(start, end);
-
-    const moviesPromises = sliceMoviesId.map(async movieId => {
-      return await getFullMovieInfo(movieId);
-    });
-
-    const movies = await Promise.all(moviesPromises);
-
-    const markup = await createMovieCardMarkup(movies);
-    myLibrary.insertAdjacentHTML('beforeend', markup);
-
-    if (favoriteMoviesId.length > itemsOnPage) {
-      btnLoadMore.classList.remove('library-isHidden');
-    }
-
-    start += itemsOnPage;
-    page += 1;
-
-    if (end >= favoriteMoviesId.length) {
-      btnLoadMore.classList.add('library-isHidden');
-    } //-- скрыть кнопку Load More после отображения всех фильмов из Local Storage
-
+  if (favoriteMoviesId.length === 0) {
+    noMoviesMessage.classList.remove('library-isHidden');
     //===================== Stop spinner
     window.setTimeout(function () {
       document.body.classList.add('loaded');
     }, 500);
     //=====================
+
+    return;
   }
+
+  let end = start + itemsOnPage;
+  const sliceMoviesId = favoriteMoviesId.slice(start, end);
+
+  const moviesPromises = sliceMoviesId.map(async movieId => {
+    return await getFullMovieInfo(movieId);
+  });
+
+  const movies = await Promise.all(moviesPromises);
+
+  const markup = await createMovieCardMarkup(movies);
+  myLibrary.insertAdjacentHTML('beforeend', markup);
+
+  if (favoriteMoviesId.length > itemsOnPage) {
+    btnLoadMore.classList.remove('library-isHidden');
+  }
+
+  if (end >= favoriteMoviesId.length) {
+    btnLoadMore.classList.add('library-isHidden');
+  } //-- скрыть кнопку Load More после отображения всех фильмов из Local Storage
+
+  //===================== Stop spinner
+  window.setTimeout(function () {
+    document.body.classList.add('loaded');
+  }, 500);
+  //=====================
 }

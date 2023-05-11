@@ -4,6 +4,7 @@ import {
   getSavedMovies,
   deleteSavedMovieId,
 } from './local-storage-service';
+import { renderFavoriteMovies } from './my-library';
 
 const openModalMovie = document.querySelector('.movie-gallery__list');
 const backdrop = document.querySelector('.js-backdrop');
@@ -138,7 +139,6 @@ function onOpenModalMovie(e) {
 
         if (document.location.pathname.includes('/page-my-library')) {
           //
-          console.dir(movieGalleryEl.children);
 
           [...movieGalleryEl.children].forEach(card => {
             const cardMovieIdToRemove =
@@ -149,6 +149,8 @@ function onOpenModalMovie(e) {
           });
           onCloseModalMovie();
 
+          console.dir(movieGalleryEl.children.length);
+
           const favoriteMoviesId = getSavedMovies();
 
           const noMoviesMessage = document.querySelector('.no-movies-message');
@@ -156,6 +158,14 @@ function onOpenModalMovie(e) {
           if (favoriteMoviesId.length === 0) {
             noMoviesMessage.classList.remove('library-isHidden');
             return;
+          }
+
+          if (Number(movieGalleryEl.children.length) === 0) {
+            if (favoriteMoviesId.length === 0) {
+              noMoviesMessage.classList.remove('library-isHidden');
+              return;
+            }
+            renderFavoriteMovies();
           }
         }
       }
