@@ -22,5 +22,6 @@ document.addEventListener('click', onCloseDropDown);
 function onCloseDropDown(evt) {
   if (evt.target !== refs.dropDownBtnEl) {
     refs.dropDownListEL.classList.remove('dropdown__list--visible');
+    refs.dropDownBtnEl.classList.remove('dropdown-btn--rotate');
   }
 }
