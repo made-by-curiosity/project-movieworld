@@ -44,7 +44,7 @@ function onOpenModalMovie(e) {
       const IMAGE_SRC = fullMovieInfo.poster_path
         ? `https://image.tmdb.org/t/p/w500${fullMovieInfo.poster_path}`
         : 'https://raw.githubusercontent.com/made-by-curiosity/project-movieworld/main/src/images/moviecoverholder.jpg';
-      const modalContainer = document.querySelector('.modal-movie.container');
+      const modalContainer = document.querySelector('.modal-movie');
 
       modalContainer.insertAdjacentHTML(
         'beforeend',
@@ -168,7 +168,7 @@ function onOpenModalMovie(e) {
 function onCloseModalMovie() {
   window.removeEventListener('keydown', onEscPress);
   document.body.classList.remove('show-modal-movie');
-  const modalContainer = document.querySelector('.modal-movie.container');
+  const modalContainer = document.querySelector('.modal-movie');
   const modalContent = modalContainer.querySelectorAll(
     '.modal-movie__poster-wrap, .modal-movie__info, .modal-movie__button-wrap'
   );

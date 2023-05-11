@@ -80,8 +80,6 @@ export const getSearchMovies = async function getSearchMovies(
 
   const searchMovies = await response.data;
 
-  console.log(searchMovies);
-
   return searchMovies;
 };
 

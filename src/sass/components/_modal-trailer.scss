@@ -208,9 +208,9 @@ body.show-trailer-modal .trailer-modal__backdrop {
 }
 
 .trailer-modal__button-colse.light-theme {
-  color: var(--main-dark-text-color);
+  fill: var(--main-dark-text-color);
   &:hover {
-    color: var(--accent-color);
+    fill: var(--accent-color);
   }
 }
 

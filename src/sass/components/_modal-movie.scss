@@ -4,7 +4,14 @@ body.show-modal-movie .modal-movie__backdrop {
   pointer-events: initial;
 }
 
+.container__modal-movie {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
 .modal-movie {
+  max-height: 95vh;
+
   position: absolute;
   top: 50%;
   left: 50%;
@@ -13,12 +20,26 @@ body.show-modal-movie .modal-movie__backdrop {
   background-color: var(--main-dark-color);
   box-shadow: var(--modal-box-shadow);
 
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--main-light-color);
+  }
+
+  &.light-theme::-webkit-scrollbar-thumb {
+    background: var(--secondary-light-text-color);
+  }
+
   &__backdrop {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     z-index: 1100;
     opacity: 0;
     visibility: hidden;
@@ -131,7 +152,6 @@ path:hover {
     padding-top: 52px;
     padding-bottom: 52px;
     width: 280px;
-    height: auto;
     border-radius: 16px;
 
     &__poster {
@@ -144,7 +164,7 @@ path:hover {
     }
 
     &__poster-wrap {
-      width: 248px;
+      width: 245px;
       height: 315px;
       margin-bottom: 22px;
     }
@@ -165,8 +185,8 @@ path:hover {
     }
 
     &__button-colse {
-      top: 26.75px;
-      right: 22.75px;
+      top: 18px;
+      right: 20px;
     }
   }
 
@@ -229,8 +249,8 @@ path:hover {
     }
 
     &__button-colse {
-      top: 30.75px;
-      right: 30.75px;
+      top: 20px;
+      right: 20px;
     }
   }
 
@@ -296,8 +316,8 @@ path:hover {
     }
 
     &__button-colse {
-      top: 46.75px;
-      right: 46.75px;
+      top: 30px;
+      right: 30px;
     }
   }
 
