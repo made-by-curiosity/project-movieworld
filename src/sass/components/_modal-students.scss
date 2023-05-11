@@ -200,7 +200,8 @@
 	color: var(--accent-color);
 }
 
-.modal-team__icon {
+.modal-team__icon,
+.modal-team__icon-close {
 	fill: currentColor;
 }
 
@@ -214,8 +215,14 @@
 	background: var(--main-light-color);
 }
 
-.modal-team__header.light-theme,
-.modal-team__dev-head.light-theme,
+.modal-team__header.light-theme{
+	color: var(--main-dark-text-color);
+}
+
+.modal-team__dev-head.light-theme {
+	color: var(--main-dark-text-color);
+}
+
 .modal-team__dev-text.light-theme {
 	color: var(--main-dark-text-color);
 }

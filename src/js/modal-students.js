@@ -11,8 +11,8 @@
 	
 	const onClickBtnClose = event => {
 
-		// console.log(event.target.classList[0]);
-		if (event.target.classList[0] !== 'modal-team__btn-close' &&
+		console.log(event.target.classList[0]);
+		if (event.target.classList[0] !== 'modal-team__icon-close' &&
 				event.target.classList[0] !== 'backdrop-modal') {
       return;
 		}
