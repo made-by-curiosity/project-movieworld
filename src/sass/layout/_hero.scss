@@ -133,7 +133,6 @@
   &__title {
     margin-bottom: 8px;
     max-width: 200px;
-    font-weight: 700;
     font-size: 32px;
     line-height: 1.19;
     align-items: center;
@@ -242,11 +241,7 @@
         (-webkit-min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
-        background-image: linear-gradient(
-            87.8deg,
-            #0e0e0e 15.61%,
-            rgba(14, 14, 14, 0) 60.39%
-          ),
+        background-image: var(--hero-gradient),
           url(/src/images/hero/hero-mobile-1@2x.jpg);
       }
 
@@ -278,11 +273,7 @@
 
     &__cover-library {
       background-position: bottom;
-      background-image: linear-gradient(
-          87.8deg,
-          #0e0e0e 15.61%,
-          rgba(14, 14, 14, 0) 60.39%
-        ),
+      background-image: var(--hero-gradient),
         url(/src/images/hero/hero-mobile-2.jpg);
       background-size: cover;
       width: 100%;
@@ -291,11 +282,7 @@
         (-webkit-min-device-pixel-ratio: 2),
         (min-resolution: 192dpi),
         (min-resolution: 2dppx) {
-        background-image: linear-gradient(
-            87.8deg,
-            #0e0e0e 15.61%,
-            rgba(14, 14, 14, 0) 60.39%
-          ),
+        background-image: var(--hero-gradient),
           url(/src/images/hero/hero-mobile-2@2x.jpg);
       }
 
