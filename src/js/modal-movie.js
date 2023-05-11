@@ -44,7 +44,7 @@ function onOpenModalMovie(e) {
       const IMAGE_SRC = fullMovieInfo.poster_path
         ? `https://image.tmdb.org/t/p/w500${fullMovieInfo.poster_path}`
         : 'https://raw.githubusercontent.com/made-by-curiosity/project-movieworld/main/src/images/moviecoverholder.jpg';
-      const modalContainer = document.querySelector('.modal-movie.container');
+      const modalContainer = document.querySelector('.modal-movie');
 
       modalContainer.insertAdjacentHTML(
         'beforeend',
@@ -52,7 +52,9 @@ function onOpenModalMovie(e) {
         <div class="modal-movie__poster-wrap" data-modal="modal-movie">
             <img class="modal-movie__poster js-modal" src="${IMAGE_SRC}" alt="movie image">
         </div>
-        <div class="modal-movie__info">
+        
+				<div class="modal-movie__info">
+				<div class="modal-movie-wrapper js-modal">
             <h2 class="modal-movie__title js-modal">${original_title}</h2>
             <div class="modal-movie__info-wrap">
                 <div class="modal-movie__info-title">
@@ -74,6 +76,7 @@ function onOpenModalMovie(e) {
                 <h3 class="title-about js-modal">About</h3>
                 <p class="paragraph-about js-modal">${overview}</p>
             </div>
+				</div>
             <div class="modal-movie__button-wrap">
                 <button class="btn-lib btn js-modal btn-add-lib" type="button" id="${movieId}">
                     Add to my library
@@ -165,7 +168,7 @@ function onOpenModalMovie(e) {
 function onCloseModalMovie() {
   window.removeEventListener('keydown', onEscPress);
   document.body.classList.remove('show-modal-movie');
-  const modalContainer = document.querySelector('.modal-movie.container');
+  const modalContainer = document.querySelector('.modal-movie');
   const modalContent = modalContainer.querySelectorAll(
     '.modal-movie__poster-wrap, .modal-movie__info, .modal-movie__button-wrap'
   );

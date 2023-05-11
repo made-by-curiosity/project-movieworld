@@ -3,11 +3,16 @@ import { createCatalogPagination } from './pagination';
 import { createWeeklyTrendsPagination } from './pagination';
 import { createMovieCardMarkup } from './createmoviecardmarkup';
 import { warningMessageMarkup } from './createwarningmessagemurkup';
+import { createDropdownYearList } from './createyearmarkup';
+import { DropDownMenu } from './dropdownyear';
 import { refs } from './refs';
+import './dropdownyear';
 
 let page = 1;
 
 export function onCatalogPage() {
+  createDropdownYearList();
+  DropDownMenu();
   onWeeklyTrends();
 
   refs.formSearchEl.addEventListener('submit', onSearchMovies);
@@ -15,16 +20,21 @@ export function onCatalogPage() {
   async function onSearchMovies(evt) {
     refs.paginationEl.classList.remove('tui-pagination--is-hidden');
 
+    //=========================== Start spinner
+    document.body.classList.remove('loaded');
+    //============================
+
     evt.preventDefault();
     const query = evt.target.elements.searchQuery.value.trim();
+    const year = evt.target.elements.selectYear.value;
 
     refs.galleryEl.innerHTML = '';
     refs.movieGalleryMessageEl.innerHTML = '';
 
     try {
-      const videos = await getSearchMovies(query, page);
+      const videos = await getSearchMovies(query, page, year);
 
-      createCatalogPagination(videos, query);
+      createCatalogPagination(videos, query, year);
 
       if (videos.results.length === 0) {
         refs.paginationEl.classList.add('tui-pagination--is-hidden');
@@ -66,4 +76,10 @@ export async function renderMovies(movies) {
   const markup = await createMovieCardMarkup(movies);
 
   refs.movieGalleryEl.insertAdjacentHTML('beforeend', markup);
+
+  //===================== Stop spinner
+  window.setTimeout(function () {
+    document.body.classList.add('loaded');
+  }, 500);
+  //=====================
 }

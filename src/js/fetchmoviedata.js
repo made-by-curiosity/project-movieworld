@@ -24,9 +24,19 @@ export const getWeeklyTrends = async function getWeeklyTrends() {
     api_key: API_KEY,
   };
 
+  //=========================== Start spinner
+  document.body.classList.remove('loaded');
+  //============================
+
   const response = await axios.get(BASE_URL, { params });
 
   const weeklyTrends = await response.data;
+
+  //===================== Stop spinner
+  window.setTimeout(function () {
+    document.body.classList.add('loaded');
+  }, 500);
+  //=====================
 
   return weeklyTrends;
 };
@@ -39,9 +49,19 @@ export const getWeeklyTrendsPagination =
       page: `${page}`,
     };
 
+    //=========================== Start spinner
+    document.body.classList.remove('loaded');
+    //============================
+
     const response = await axios.get(BASE_URL, { params });
 
     const weeklyTrendsPagination = await response.data;
+
+    //===================== Stop spinner
+    window.setTimeout(function () {
+      document.body.classList.add('loaded');
+    }, 500);
+    //=====================
 
     return weeklyTrendsPagination;
   };
@@ -63,12 +83,17 @@ export const getTodayMovies = async function getTodayMovies() {
 
 // / ===== Фільми за ключовим словом   -https://developers.themoviedb.org/3/search/search-movies========
 
-export const getSearchMovies = async function getSearchMovies(query, page) {
+export const getSearchMovies = async function getSearchMovies(
+  query,
+  page,
+  year
+) {
   const BASE_URL = 'https://api.themoviedb.org/3/search/movie';
   const params = {
     api_key: API_KEY,
     query: ` ${query}`,
     page: `${page}`,
+    primary_release_year: `${year}`,
   };
 
   const response = await axios.get(BASE_URL, { params });

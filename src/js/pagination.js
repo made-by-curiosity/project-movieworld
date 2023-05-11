@@ -7,7 +7,7 @@ import Pagination from 'tui-pagination';
 
 const container = refs.paginationEl;
 
-export function createCatalogPagination(videos, query) {
+export function createCatalogPagination(videos, query, year) {
   const options = {
     // below default value of options
     totalItems: `${videos.total_results}`,
@@ -21,13 +21,14 @@ export function createCatalogPagination(videos, query) {
       page: '<a href="#" class="tui-page-btn js-theme">{{page}}</a>',
       currentPage:
         '<strong class="tui-page-btn tui-is-selected js-theme">{{page}}</strong>',
-        currentPage: '<a href="#" class="tui-page-btn js-theme tui-is-selected">{{page}}</a>',
-        moveButton:
+      currentPage:
+        '<a href="#" class="tui-page-btn js-theme tui-is-selected">{{page}}</a>',
+      moveButton:
         '<a href="#" class="tui-page-btn js-theme tui-next tui-prev hide-{{type}}"></a>',
       disabledMoveButton:
         '<span class="tui-page-btn js-theme tui-is-disabled tui-{{type}}"></span>',
-        moreButton:
-        '<a href="#" class="tui-page-btn js-theme tui-{{type}}-is-ellip">'+
+      moreButton:
+        '<a href="#" class="tui-page-btn js-theme tui-{{type}}-is-ellip">' +
         '<span class="tui-ico-ellip">...</span>' +
         '</a>',
     },
@@ -35,17 +36,27 @@ export function createCatalogPagination(videos, query) {
   const pagination = new Pagination(container, options);
 
   pagination.on('afterMove', async event => {
+    //=========================== Start spinner
+    document.body.classList.remove('loaded');
+    //============================
+
     const currentPage = event.page;
-    await onCatalogPagination(query, currentPage);
+    await onCatalogPagination(query, currentPage, year);
 
     onSmothScroll();
+
+    //===================== Stop spinner
+    window.setTimeout(function () {
+      document.body.classList.add('loaded');
+    }, 500);
+    //=====================
   });
 }
 
-async function onCatalogPagination(query, currentPage) {
+async function onCatalogPagination(query, currentPage, year) {
   try {
     refs.galleryEl.innerHTML = '';
-    const videos = await getSearchMovies(query, currentPage);
+    const videos = await getSearchMovies(query, currentPage, year);
     await renderMovies(videos.results);
   } catch (error) {
     console.log(error.message);
@@ -66,13 +77,13 @@ export async function createWeeklyTrendsPagination(trendsMovies) {
       page: '<a href="#" class="tui-page-btn js-theme tui-border">{{page}}</a>',
       currentPage:
         '<strong class="tui-page-btn tui-is-selected js-theme">{{page}}</strong>',
-        currentPage: '<a href="#" class="tui-page-btn js-theme tui-is-selected">{{page}}</a>',
-        moveButton:
+      currentPage:
+        '<a href="#" class="tui-page-btn js-theme tui-is-selected">{{page}}</a>',
+      moveButton:
         '<a href="#" class="tui-page-btn tui-next tui-prev hide-{{type}}"></a>',
-      disabledMoveButton:
-        '<span class="tui-is-disabled tui-{{type}}"></span>',
-        moreButton:
-        '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">'+
+      disabledMoveButton: '<span class="tui-is-disabled tui-{{type}}"></span>',
+      moreButton:
+        '<a href="#" class="tui-page-btn tui-{{type}}-is-ellip">' +
         '<span class="tui-ico-ellip">...</span>' +
         '</a>',
     },
@@ -80,10 +91,20 @@ export async function createWeeklyTrendsPagination(trendsMovies) {
   const pagination = new Pagination(container, options);
 
   pagination.on('afterMove', async event => {
+    //=========================== Start spinner
+    document.body.classList.remove('loaded');
+    //============================
+
     const currentPage = event.page;
     await onWeeklyTrendsPagination(currentPage);
 
     onSmothScroll();
+
+    //===================== Stop spinner
+    window.setTimeout(function () {
+      document.body.classList.add('loaded');
+    }, 500);
+    //=====================
   });
 }
 

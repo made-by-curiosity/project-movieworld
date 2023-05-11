@@ -15,13 +15,22 @@ async function onTrailerBtnClick(e) {
   const trailerBtn = e.target;
 
   if (trailerBtn.classList.contains('hero__btn')) {
+    //=========================== Start spinner
+    document.body.classList.remove('loaded');
+    //============================
     showTrailerModal();
 
     trailerContainerEl.classList.remove('trailer-is-hidden');
     noMovieContainerEl.classList.add('trailer-is-hidden');
 
     const movieId = trailerBtn.dataset.id;
-    renderTrailer(movieId);
+    await renderTrailer(movieId);
+
+    //===================== Stop spinner
+    window.setTimeout(function () {
+      document.body.classList.add('loaded');
+    }, 500);
+    //=====================
   }
 }
 
