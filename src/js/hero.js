@@ -15,7 +15,7 @@ const swiper = new Swiper('.swiper', {
   // Optional parameters
   loop: false,
 
-  speed: 600,
+  speed: 1000,
 
   // Navigation arrows
   navigation: {
@@ -24,7 +24,7 @@ const swiper = new Swiper('.swiper', {
   },
 
   autoplay: {
-    delay: 3000,
+    delay: 5000,
   },
 });
 
