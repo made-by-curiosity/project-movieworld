@@ -8,16 +8,14 @@ const refs = {
 
 const changeInValue = value => {
   counterValue += value;
+	if (counterValue < 0) counterValue = 10;
+	if (counterValue > 10) counterValue = 0;
 
   const newCard = creatingNewCard(ourTeam[counterValue]);
   refs.galery.innerHTML = newCard;
-
-  refs.downBtn.disabled = counterValue === 0 ? true : false;
-  refs.upBtn.disabled = counterValue === 10 ? true : false;
 };
 
 let counterValue = 0;
-refs.downBtn.disabled = true;
 changeInValue(0);
 
 function creatingNewCard(item) {
